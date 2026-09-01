@@ -33,9 +33,9 @@
     { id: "lesson-8", num: 8, title: "Scheduling, Publishing & Approval Workflow", sample: "Publishing & Approval Plan", built: true },
     { id: "lesson-9", num: 9, title: "Community Management, Engagement & Social Listening", sample: "Community & Listening Pack", built: true },
     { id: "lesson-10", num: 10, title: "Comments, DMs, Reputation & Escalation", sample: "Response & Escalation Pack", built: true },
-    { id: "lesson-11", num: 11, title: "Social Media Analytics & Reporting", sample: "Monthly Social Media Performance Report", built: false },
-    { id: "lesson-12", num: 12, title: "AI-Assisted Social Media Work", sample: "AI-Assisted SMM Workflow", built: false },
-    { id: "lesson-13", num: 13, title: "Quality Control, Security, Rights & Client Workflow", sample: "SMM QA, Security & Rights Checklist", built: false },
+    { id: "lesson-11", num: 11, title: "Social Media Analytics & Reporting", sample: "Monthly Social Media Performance Report", built: true },
+    { id: "lesson-12", num: 12, title: "AI-Assisted Social Media Work", sample: "AI-Assisted SMM Workflow", built: true },
+    { id: "lesson-13", num: 13, title: "Quality Control, Security, Rights & Client Workflow", sample: "SMM QA, Security & Rights Checklist", built: true },
     { id: "final-project", num: "F", title: "Final Project — One Month at Amihan Kitchen", sample: "Final Simulated Brand Project", built: true, isFinal: true }
   ];
 
