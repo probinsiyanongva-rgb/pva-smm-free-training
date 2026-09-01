@@ -36,7 +36,7 @@
     { id: "lesson-11", num: 11, title: "Social Media Analytics & Reporting", sample: "Monthly Social Media Performance Report", built: false },
     { id: "lesson-12", num: 12, title: "AI-Assisted Social Media Work", sample: "AI-Assisted SMM Workflow", built: false },
     { id: "lesson-13", num: 13, title: "Quality Control, Security, Rights & Client Workflow", sample: "SMM QA, Security & Rights Checklist", built: false },
-    { id: "final-project", num: "F", title: "Final Project — One Month at Amihan Kitchen", sample: "Final Simulated Brand Project", built: false, isFinal: true }
+    { id: "final-project", num: "F", title: "Final Project — One Month at Amihan Kitchen", sample: "Final Simulated Brand Project", built: true, isFinal: true }
   ];
 
   function readState() {

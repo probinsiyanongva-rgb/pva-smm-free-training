@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Social Media Analytics & Reporting | PVA Free Training — SMM</title>
+<meta name="description" content="Lesson 11 of the Social Media Management VA Beginner Foundations training — metrics, interpretation, reporting, and improvement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<div class="route-bar">
+  <div class="route-track">
+    <a class="home-btn" href="../">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/></svg>
+      PVA Free Training — SMM
+    </a>
+    <span class="sep">/</span>
+    <span class="current">Lesson 11</span>
+  </div>
+</div>
+
+<header class="page-header">
+  <div class="container">
+    <div class="eyebrow">Lesson 11 of 13</div>
+    <h1>Social Media Analytics &amp; Reporting</h1>
+    <p class="lede">Metrics, interpretation, reporting, and improvement — turning numbers into decisions, not just summaries.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <nav class="step-nav" id="stepNav" aria-label="Lesson steps"></nav>
+  <div class="progress-rail" style="margin-top:6px;"><span id="lessonProgressBar" style="width:0%;"></span></div>
+
+  <!-- STEP 0 -->
+  <section class="step-panel folder-tab" data-tab="Start here" data-step="0">
+    <h2>Before you start</h2>
+    <p>By the end of this lesson you should be able to:</p>
+    <ul>
+      <li>Explain common social media metrics in plain language</li>
+      <li>Distinguish activity metrics from business-relevant outcomes</li>
+      <li>Identify patterns without overclaiming causation</li>
+      <li>Write a concise monthly report</li>
+      <li>Turn observations into testable next steps</li>
+    </ul>
+    <div class="key-idea">Reporting is not the act of copying numbers into a spreadsheet. The useful question is: What happened, what might it mean, what evidence supports that interpretation, and what should be tested next?</div>
+    <p style="font-size:0.88rem; color:var(--ink-soft);">This lesson ends with your eleventh work sample: the <strong>Monthly Social Media Performance Report</strong>.</p>
+    <div class="btn-row"><button class="btn btn-primary" data-goto="1">Start the lesson</button></div>
+  </section>
+
+  <!-- STEP 1: LEARN -->
+  <section class="step-panel folder-tab" data-tab="Learn" data-step="1">
+    <div class="step-kicker">Learn — 11.1 Basic metrics</div>
+    <table class="ref-table">
+      <thead><tr><th>Metric</th><th>Plain-language meaning</th><th>Caution</th></tr></thead>
+      <tbody>
+        <tr><td>Reach</td><td>Approximate number of accounts exposed to content</td><td>Not the same as attention or business impact</td></tr>
+        <tr><td>Impressions</td><td>Times content was displayed</td><td>Can include multiple displays to the same person</td></tr>
+        <tr><td>Views</td><td>Times video/content was viewed per platform's definition</td><td>Definitions vary by platform</td></tr>
+        <tr><td>Engagement</td><td>Likes, comments, shares, saves, depending on platform</td><td>Quantity does not equal quality</td></tr>
+        <tr><td>Clicks</td><td>Recorded clicks on a link or destination</td><td>Check whether clicks led to meaningful action</td></tr>
+        <tr><td>Profile actions</td><td>Actions taken on a profile</td><td>Interpret in relation to the objective</td></tr>
+        <tr><td>Follower change</td><td>Net change in followers</td><td>Does not measure audience quality by itself</td></tr>
+        <tr><td>Leads/conversions</td><td>Business actions tracked by the client's system</td><td>Requires reliable attribution and context</td></tr>
+      </tbody>
+    </table>
+
+    <div class="step-kicker" style="margin-top:20px;">11.2 Observation → Interpretation → Action</div>
+    <p><strong>Example:</strong> "Educational carousel A received more saves than the other posts in the sample." → <em>Interpretation:</em> "The topic or format may have been useful enough to revisit." → <em>Action:</em> "Test two related educational posts and compare saves and downstream actions." This is more defensible than saying the carousel "caused growth."</p>
+
+    <div class="step-kicker" style="margin-top:20px;">Quick check — which stage is this?</div>
+    <div id="oiaExercise"></div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="0">Back</button>
+      <button class="btn btn-primary" data-goto="2">Continue to Observe</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: OBSERVE -->
+  <section class="step-panel folder-tab" data-tab="Observe" data-step="2">
+    <div class="step-kicker">Observe — fictional monthly data</div>
+    <table class="ref-table">
+      <thead><tr><th>Post</th><th>Reach</th><th>Saves</th><th>Clicks</th><th>Comments</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>4,000</td><td>80</td><td>25</td><td>—</td></tr>
+        <tr><td>B</td><td>7,500</td><td>12</td><td>9</td><td>—</td></tr>
+        <tr><td>C</td><td>3,100</td><td>—</td><td>18</td><td>42</td></tr>
+        <tr><td>D</td><td>2,900</td><td>70</td><td>31</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p>Identify two observations and two questions you'd ask before making a strong conclusion.</p>
+    <textarea class="text-response" id="observeNotes" style="min-height:110px;" placeholder="Two observations, two questions..."></textarea>
+    <div class="btn-row"><button class="btn btn-secondary" id="revealObserve">Show one way to read this</button></div>
+    <div class="callout" id="observeReveal" style="display:none; margin-top:16px;">
+      <strong>Observations:</strong> Post B has by far the highest reach but the lowest saves/clicks of the four — reach didn't translate into action. Posts A and D have similar, relatively strong saves despite lower reach than B.<br><br>
+      <strong>Questions before concluding anything:</strong> What format and topic was each post (a fair comparison needs to account for that)? Was Post B's audience actually the intended audience, or unusually broad/untargeted reach?
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="1">Back</button>
+      <button class="btn btn-primary" data-goto="3">Continue to Practice</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: PRACTICE -->
+  <section class="step-panel folder-tab" data-tab="Practice" data-step="3">
+    <div class="step-kicker">Practice — report narrative</div>
+    <h2>Write a five-sentence executive summary</h2>
+    <p>Using the sample data above, summarize what happened in five sentences or fewer.</p>
+    <textarea class="text-response" id="narrativeResponse" style="min-height:130px;" placeholder="Your five-sentence summary..."></textarea>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="2">Back</button>
+      <button class="btn btn-primary" data-goto="4">Continue to Check</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: CHECK -->
+  <section class="step-panel folder-tab" data-tab="Check" data-step="4">
+    <div class="step-kicker">Check — vanity-metric trap</div>
+    <h2>"Post B is our best because it reached the most people."</h2>
+    <p>Write a respectful response explaining what additional evidence should be considered.</p>
+    <textarea class="text-response" id="vanityResponse" style="min-height:100px;" placeholder="Your response to the client..."></textarea>
+    <div class="btn-row"><button class="btn btn-secondary" id="revealCheck">Show one way to respond</button></div>
+    <div class="callout" id="checkReveal" style="display:none; margin-top:16px;">
+      "Reach is a great sign that Post B got in front of a lot of people! To know if it's really our 'best' post, I'd also want to look at what people did after seeing it — saves, clicks, comments — since those tell us whether it actually moved people toward what we want. Post B's engagement was actually lower than a couple of our lower-reach posts, so it might be worth digging into why before we call it the top performer."
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="3">Back</button>
+      <button class="btn btn-primary" data-goto="5">Continue to Apply</button>
+    </div>
+  </section>
+
+  <!-- STEP 5: APPLY -->
+  <section class="step-panel folder-tab" data-tab="Apply" data-step="5">
+    <div class="step-kicker">Apply — work sample</div>
+    <h2>Build the Monthly Social Media Performance Report</h2>
+    <p>This uses the full final-project dataset — 12 posts across one month for Amihan Kitchen.</p>
+    <table class="ref-table" style="font-size:0.82rem;">
+      <thead><tr><th>Post</th><th>Pillar</th><th>Format</th><th>Reach</th><th>Saves</th><th>Comments</th><th>Clicks</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Food knowledge</td><td>Carousel</td><td>4000</td><td>80</td><td>18</td><td>25</td><td>How to store pantry products</td></tr>
+        <tr><td>B</td><td>Product value</td><td>Short video</td><td>7500</td><td>12</td><td>14</td><td>9</td><td>Fast product overview</td></tr>
+        <tr><td>C</td><td>Regional story</td><td>Static</td><td>3100</td><td>20</td><td>42</td><td>18</td><td>Story about a regional ingredient</td></tr>
+        <tr><td>D</td><td>Food knowledge</td><td>Short video</td><td>2900</td><td>70</td><td>25</td><td>31</td><td>Three practical serving ideas</td></tr>
+        <tr><td>E</td><td>Behind the scenes</td><td>Photo</td><td>2600</td><td>15</td><td>36</td><td>12</td><td>Packing gift boxes</td></tr>
+        <tr><td>F</td><td>Community</td><td>Question post</td><td>2200</td><td>10</td><td>58</td><td>14</td><td>Ask audience about favorite regional foods</td></tr>
+        <tr><td>G</td><td>Product value</td><td>Carousel</td><td>3600</td><td>55</td><td>21</td><td>27</td><td>Gift-box use cases</td></tr>
+        <tr><td>H</td><td>Regional story</td><td>Short video</td><td>5200</td><td>48</td><td>33</td><td>22</td><td>Origin story</td></tr>
+        <tr><td>I</td><td>Food knowledge</td><td>Static</td><td>1800</td><td>38</td><td>9</td><td>16</td><td>Pantry organization tip</td></tr>
+        <tr><td>J</td><td>Product value</td><td>Static</td><td>4100</td><td>18</td><td>12</td><td>34</td><td>Product page reminder</td></tr>
+        <tr><td>K</td><td>Behind the scenes</td><td>Short video</td><td>4700</td><td>62</td><td>29</td><td>20</td><td>Packing process</td></tr>
+        <tr><td>L</td><td>Community</td><td>Carousel</td><td>3300</td><td>44</td><td>47</td><td>19</td><td>Customer questions answered</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.8rem; color:var(--ink-soft);">Important: don't assume these numbers prove causation — this is training data. A real report would also weigh the client's goals, platform definitions, audience context, and time period.</p>
+
+    <div id="reportBuilder"></div>
+
+    <h3 style="font-size:1rem; margin-top:20px;">Three next-month tests</h3>
+    <div id="nextTests"></div>
+
+    <div class="btn-row"><button class="btn btn-secondary" id="buildExport" type="button">Generate my Performance Report</button></div>
+    <div class="export-box no-print" id="exportBox" style="display:none;"></div>
+    <div class="save-reminder no-print" id="saveReminder" style="display:none;">
+      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. This site does not store your written work; it only remembers that you've completed the lesson.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="4">Back</button>
+      <button class="btn btn-primary" id="finishLesson">Mark Lesson 11 complete</button>
+    </div>
+  </section>
+
+  <!-- STEP 6: COMPLETE -->
+  <section class="step-panel folder-tab" data-tab="Done" data-step="6" data-state="done">
+    <span class="stamp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.6L4 14.1l5 5 11-11-1.5-1.4z"/></svg>
+      Lesson 11 complete
+    </span>
+    <h2 style="margin-top:14px;">You now know how to turn numbers into decisions</h2>
+    <p>You practiced reading a metrics table, diagnosed a small dataset, wrote an executive summary, pushed back respectfully on a vanity-metric assumption, and produced the Monthly Performance Report using the full 12-post dataset.</p>
+    <p>Next up: <strong>Lesson 12 — AI-Assisted Social Media Work.</strong></p>
+    <div class="lesson-nav-footer">
+      <a class="btn btn-secondary" href="../">← Back to course map</a>
+      <a class="btn btn-primary" href="../lesson-12/">Start Lesson 12 →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">Probinsiyanong VA Free Training — Social Media Management VA — genuinely free, no account required.</div>
+</footer>
+
+<script src="../shared/progress-smm.js"></script>
+<script>
+(function () {
+  "use strict";
+  var LESSON_ID = "lesson-11";
+  var steps = Array.prototype.slice.call(document.querySelectorAll(".step-panel"));
+  var stepNav = document.getElementById("stepNav");
+  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Apply", "Done"];
+  var reachedMax = window.PVASMM.getStepProgress(LESSON_ID) || 0;
+
+  function renderStepNav(activeIndex) {
+    stepNav.innerHTML = "";
+    stepLabels.forEach(function (label, i) {
+      var chip = document.createElement(i <= reachedMax ? "button" : "span");
+      chip.className = "step-chip" + (i === activeIndex ? " is-current" : "") + (i < activeIndex ? " is-done" : "");
+      chip.textContent = (i + 1) + ". " + label;
+      if (i <= reachedMax) { chip.type = "button"; chip.addEventListener("click", function () { goTo(i); }); }
+      stepNav.appendChild(chip);
+    });
+  }
+  function goTo(index) {
+    steps.forEach(function (s) { s.classList.remove("is-active"); });
+    steps[index].classList.add("is-active");
+    if (index > reachedMax) reachedMax = index;
+    window.PVASMM.saveStepProgress(LESSON_ID, reachedMax);
+    renderStepNav(index);
+    document.getElementById("lessonProgressBar").style.width = Math.round((index / (steps.length - 1)) * 100) + "%";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  document.querySelectorAll("[data-goto]").forEach(function (btn) {
+    btn.addEventListener("click", function () { goTo(parseInt(btn.getAttribute("data-goto"), 10)); });
+  });
+
+  function escapeHtml(s) { return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+
+  // ---- Learn: OIA quick check ----
+  var oiaItems = [
+    { text: "\"Post D got 70 saves, more than most other posts this month.\"", answer: "Observation" },
+    { text: "\"Serving-idea content may be worth revisiting as a format.\"", answer: "Interpretation" },
+    { text: "\"Publish two more serving-idea posts next month and compare saves.\"", answer: "Action" }
+  ];
+  var oiaStages = ["Observation", "Interpretation", "Action"];
+  (function renderOia() {
+    var wrap = document.getElementById("oiaExercise");
+    oiaItems.forEach(function (item) {
+      var row = document.createElement("div");
+      row.className = "exercise-item";
+      var opts = oiaStages.map(function (s) { return '<button class="choice-btn" data-s="' + s + '">' + s + '</button>'; }).join("");
+      row.innerHTML = '<div class="prompt">' + item.text + '</div><div class="choice-row">' + opts + '</div><div class="feedback-box info" data-fb></div>';
+      var fb = row.querySelector("[data-fb]");
+      row.querySelectorAll(".choice-btn").forEach(function (b) {
+        b.addEventListener("click", function () {
+          row.querySelectorAll(".choice-btn").forEach(function (x) { x.classList.remove("selected", "correct", "incorrect"); });
+          var isCorrect = b.getAttribute("data-s") === item.answer;
+          b.classList.add(isCorrect ? "correct" : "incorrect");
+          if (!isCorrect) row.querySelector('[data-s="' + item.answer + '"]').classList.add("correct");
+          fb.classList.add("show");
+          fb.textContent = isCorrect ? "Right." : "This is an " + item.answer + ".";
+        });
+      });
+      wrap.appendChild(row);
+    });
+  })();
+
+  // ---- Observe ----
+  document.getElementById("observeNotes").value = window.PVASMM.getDraft(LESSON_ID, "observeNotes", "");
+  document.getElementById("observeNotes").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "observeNotes", e.target.value); });
+  document.getElementById("revealObserve").addEventListener("click", function () { document.getElementById("observeReveal").style.display = "block"; });
+
+  // ---- Practice ----
+  document.getElementById("narrativeResponse").value = window.PVASMM.getDraft(LESSON_ID, "narrativeResponse", "");
+  document.getElementById("narrativeResponse").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "narrativeResponse", e.target.value); });
+
+  // ---- Check ----
+  document.getElementById("vanityResponse").value = window.PVASMM.getDraft(LESSON_ID, "vanityResponse", "");
+  document.getElementById("vanityResponse").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "vanityResponse", e.target.value); });
+  document.getElementById("revealCheck").addEventListener("click", function () { document.getElementById("checkReveal").style.display = "block"; });
+
+  // ---- Apply: report builder ----
+  var reportFields = [
+    { id: "repSummary", label: "Executive summary", value: "" },
+    { id: "repTop", label: "Top-performing content (and why)", value: "" },
+    { id: "repBottom", label: "Bottom-performing content (and why)", value: "" },
+    { id: "repInterpretation", label: "Interpretation — what the patterns might mean", value: "" },
+    { id: "repLimitations", label: "Limitations of this data", value: "" }
+  ];
+  (function renderReportBuilder() {
+    var wrap = document.getElementById("reportBuilder");
+    reportFields.forEach(function (f) {
+      var div = document.createElement("div");
+      div.className = "exercise-item";
+      div.innerHTML = '<label class="prompt" for="' + f.id + '">' + f.label + '</label><textarea class="text-response" id="' + f.id + '"></textarea>';
+      wrap.appendChild(div);
+      var ta = div.querySelector("textarea");
+      ta.value = window.PVASMM.getDraft(LESSON_ID, f.id, f.value);
+      ta.addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, f.id, e.target.value); });
+    });
+  })();
+
+  (function renderNextTests() {
+    var wrap = document.getElementById("nextTests");
+    for (var i = 0; i < 3; i++) {
+      var id = "nextTest_" + i;
+      var div = document.createElement("div");
+      div.className = "exercise-item";
+      div.innerHTML = '<label class="prompt">Test ' + (i + 1) + '</label><textarea class="text-response" id="' + id + '"></textarea>';
+      wrap.appendChild(div);
+      var ta = div.querySelector("textarea");
+      ta.value = window.PVASMM.getDraft(LESSON_ID, id, "");
+      ta.addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, e.target.id, e.target.value); });
+    }
+  })();
+
+  document.getElementById("buildExport").addEventListener("click", function () {
+    var box = document.getElementById("exportBox");
+    var lines = ["MONTHLY SOCIAL MEDIA PERFORMANCE REPORT — Amihan Kitchen", "Probinsiyanong VA Free Training — fictional training work sample", ""];
+    reportFields.forEach(function (f) {
+      var val = document.getElementById(f.id).value.trim();
+      window.PVASMM.saveDraft(LESSON_ID, f.id, val);
+      lines.push(f.label.toUpperCase() + ": " + (val || "—"));
+      lines.push("");
+    });
+    lines.push("NEXT-MONTH TESTS:");
+    for (var i = 0; i < 3; i++) {
+      var val = document.getElementById("nextTest_" + i).value.trim();
+      window.PVASMM.saveDraft(LESSON_ID, "nextTest_" + i, val);
+      lines.push((i + 1) + ". " + (val || "—"));
+    }
+    box.textContent = lines.join("\n");
+    box.style.display = "block";
+    document.getElementById("saveReminder").style.display = "block";
+  });
+
+  document.getElementById("finishLesson").addEventListener("click", function () {
+    window.PVASMM.markLessonComplete(LESSON_ID);
+    goTo(6);
+  });
+
+  goTo(Math.min(window.PVASMM.getStepProgress(LESSON_ID) || 0, steps.length - 2));
+})();
+</script>
+
+</body>
+</html>

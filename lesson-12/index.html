@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: AI-Assisted Social Media Work | PVA Free Training — SMM</title>
+<meta name="description" content="Lesson 12 of the Social Media Management VA Beginner Foundations training — AI for ideation, drafting, repurposing, analysis, and review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<div class="route-bar">
+  <div class="route-track">
+    <a class="home-btn" href="../">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/></svg>
+      PVA Free Training — SMM
+    </a>
+    <span class="sep">/</span>
+    <span class="current">Lesson 12</span>
+  </div>
+</div>
+
+<header class="page-header">
+  <div class="container">
+    <div class="eyebrow">Lesson 12 of 13</div>
+    <h1>AI-Assisted Social Media Work</h1>
+    <p class="lede">AI for ideation, drafting, repurposing, analysis, and review — with human judgment always in the loop.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <nav class="step-nav" id="stepNav" aria-label="Lesson steps"></nav>
+  <div class="progress-rail" style="margin-top:6px;"><span id="lessonProgressBar" style="width:0%;"></span></div>
+
+  <!-- STEP 0 -->
+  <section class="step-panel folder-tab" data-tab="Start here" data-step="0">
+    <h2>Before you start</h2>
+    <p>By the end of this lesson you should be able to:</p>
+    <ul>
+      <li>Identify appropriate AI-assisted SMM tasks</li>
+      <li>Write useful prompts using client context and constraints</li>
+      <li>Verify AI-generated claims and tone</li>
+      <li>Protect confidential information when using AI</li>
+      <li>Keep human judgment and accountability in the workflow</li>
+    </ul>
+    <div class="key-idea">AI can assist execution, but it does not remove responsibility. The VA remains responsible for checking facts, brand fit, audience context, rights, privacy, and client instructions before output is used.</div>
+    <p style="font-size:0.88rem; color:var(--ink-soft);">This lesson ends with your twelfth work sample: the <strong>AI-Assisted SMM Workflow</strong>.</p>
+    <div class="btn-row"><button class="btn btn-primary" data-goto="1">Start the lesson</button></div>
+  </section>
+
+  <!-- STEP 1: LEARN -->
+  <section class="step-panel folder-tab" data-tab="Learn" data-step="1">
+    <div class="step-kicker">Learn — 12.1 Appropriate uses</div>
+    <ul>
+      <li>Expand a brainstorm into topic variations</li>
+      <li>Draft caption alternatives from approved facts</li>
+      <li>Repurpose a long approved message into shorter formats</li>
+      <li>Classify fictional comments by theme</li>
+      <li>Summarize a fictional analytics report</li>
+      <li>Suggest questions to ask during client research</li>
+      <li>Generate a first-pass content brief</li>
+    </ul>
+
+    <div class="step-kicker" style="margin-top:20px;">12.2 Risky uses</div>
+    <ul>
+      <li>Inventing testimonials or customer stories</li>
+      <li>Creating unsupported statistics or claims</li>
+      <li>Sending sensitive customer information into an unapproved AI system</li>
+      <li>Automatically replying to high-risk complaints</li>
+      <li>Publishing AI output without review</li>
+      <li>Generating content that imitates a real person without authorization</li>
+      <li>Using AI-generated media where disclosure is required, and ignoring that</li>
+    </ul>
+    <p style="font-size:0.85rem; color:var(--ink-soft);">AI is increasingly embedded in creation, analysis, translation, discovery, and workflow tools across platforms. The durable lesson isn't memorizing a specific feature — it's building a reviewable workflow around any AI tool.</p>
+
+    <div class="step-kicker" style="margin-top:20px;">12.3 The verification loop</div>
+    <div class="card" style="background:var(--kraft); padding:14px 16px;">
+      <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;" id="loopDisplay"></div>
+    </div>
+
+    <div class="step-kicker" style="margin-top:20px;">Quick check — appropriate or risky?</div>
+    <div id="riskExercise"></div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="0">Back</button>
+      <button class="btn btn-primary" data-goto="2">Continue to Observe</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: OBSERVE -->
+  <section class="step-panel folder-tab" data-tab="Observe" data-step="2">
+    <div class="step-kicker">Observe — AI error hunt</div>
+    <h2>Spot the unsupported claims</h2>
+    <div class="key-idea" style="font-style:normal;">"This blend is clinically proven to improve digestion and is 100% safe for everyone."</div>
+    <p>Identify the unsupported claims, then rewrite the caption using only verified information (assume the brief confirms nothing about clinical claims or universal safety).</p>
+    <textarea class="text-response" id="observeNotes" style="min-height:110px;" placeholder="Unsupported claims, and your rewrite..."></textarea>
+    <div class="btn-row"><button class="btn btn-secondary" id="revealObserve">Show what's unsupported</button></div>
+    <div class="callout" id="observeReveal" style="display:none; margin-top:16px;">
+      <strong>Unsupported claims:</strong> "clinically proven" (implies a study that isn't referenced or confirmed) and "100% safe for everyone" (an absolute health/safety claim nothing in the brief supports — allergies and individual conditions make this untrue as a blanket statement anyway).
+      <p style="margin-top:8px; margin-bottom:0;"><strong>A safer rewrite:</strong> "Made with [confirmed ingredients], a favorite for those who enjoy [confirmed flavor/use]." — sticks to what's actually known and drops the health claim entirely.</p>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="1">Back</button>
+      <button class="btn btn-primary" data-goto="3">Continue to Practice</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: PRACTICE -->
+  <section class="step-panel folder-tab" data-tab="Practice" data-step="3">
+    <div class="step-kicker">Practice — prompt design</div>
+    <h2>Write a prompt for three caption drafts</h2>
+    <p>Fill in each field — together they form a real, usable prompt.</p>
+    <div class="exercise-item"><label class="prompt">Audience</label><textarea class="text-response" id="pAudience" placeholder="Who is this for?"></textarea></div>
+    <div class="exercise-item"><label class="prompt">Tone</label><textarea class="text-response" id="pTone" placeholder="What should it sound like?"></textarea></div>
+    <div class="exercise-item"><label class="prompt">Objective</label><textarea class="text-response" id="pObjective" placeholder="What should the caption accomplish?"></textarea></div>
+    <div class="exercise-item"><label class="prompt">Prohibited claims</label><textarea class="text-response" id="pProhibited" placeholder="What must NOT be said?"></textarea></div>
+    <div class="exercise-item"><label class="prompt">Required facts</label><textarea class="text-response" id="pFacts" placeholder="What confirmed facts must be included or respected?"></textarea></div>
+    <div class="exercise-item"><label class="prompt">Output format</label><textarea class="text-response" id="pFormat" placeholder="How many drafts, what length, any structure?"></textarea></div>
+    <div class="btn-row"><button class="btn btn-secondary" id="assemblePrompt" type="button">Assemble my prompt</button></div>
+    <div class="export-box" id="assembledPrompt" style="display:none;"></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="2">Back</button>
+      <button class="btn btn-primary" data-goto="4">Continue to Check</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: CHECK -->
+  <section class="step-panel folder-tab" data-tab="Check" data-step="4">
+    <div class="step-kicker">Check — sentence-level verification</div>
+    <h2>Mark each sentence in this AI draft</h2>
+    <p>Context: the confirmed brief says Amihan Kitchen sells shelf-stable Filipino pantry products and gift boxes online, focused on regional stories.</p>
+    <div id="verifyExercise"></div>
+    <div class="exercise-item" style="margin-top:12px;"><label class="prompt">Your revised version (only supported claims)</label><textarea class="text-response" id="revisedDraft"></textarea></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="3">Back</button>
+      <button class="btn btn-primary" data-goto="5">Continue to Apply</button>
+    </div>
+  </section>
+
+  <!-- STEP 5: APPLY -->
+  <section class="step-panel folder-tab" data-tab="Apply" data-step="5">
+    <div class="step-kicker">Apply — work sample</div>
+    <h2>Build the AI-Assisted SMM Workflow</h2>
+    <p>Show the task, input, prompt approach, AI output, verification notes, final human-edited version, and approval step.</p>
+    <div id="workflowBuilder"></div>
+    <div class="btn-row"><button class="btn btn-secondary" id="buildExport" type="button">Generate my AI-Assisted Workflow</button></div>
+    <div class="export-box no-print" id="exportBox" style="display:none;"></div>
+    <div class="save-reminder no-print" id="saveReminder" style="display:none;">
+      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. This site does not store your written work; it only remembers that you've completed the lesson.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="4">Back</button>
+      <button class="btn btn-primary" id="finishLesson">Mark Lesson 12 complete</button>
+    </div>
+  </section>
+
+  <!-- STEP 6: COMPLETE -->
+  <section class="step-panel folder-tab" data-tab="Done" data-step="6" data-state="done">
+    <span class="stamp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.6L4 14.1l5 5 11-11-1.5-1.4z"/></svg>
+      Lesson 12 complete
+    </span>
+    <h2 style="margin-top:14px;">You now know how to use AI without losing accountability</h2>
+    <p>You practiced sorting appropriate from risky AI uses, caught unsupported claims in an AI draft, designed a real prompt, verified a draft sentence-by-sentence, and produced the AI-Assisted SMM Workflow.</p>
+    <p>Next up: <strong>Lesson 13 — Quality Control, Security, Rights &amp; Client Workflow.</strong></p>
+    <div class="lesson-nav-footer">
+      <a class="btn btn-secondary" href="../">← Back to course map</a>
+      <a class="btn btn-primary" href="../lesson-13/">Start Lesson 13 →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">Probinsiyanong VA Free Training — Social Media Management VA — genuinely free, no account required.</div>
+</footer>
+
+<script src="../shared/progress-smm.js"></script>
+<script>
+(function () {
+  "use strict";
+  var LESSON_ID = "lesson-12";
+  var steps = Array.prototype.slice.call(document.querySelectorAll(".step-panel"));
+  var stepNav = document.getElementById("stepNav");
+  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Apply", "Done"];
+  var reachedMax = window.PVASMM.getStepProgress(LESSON_ID) || 0;
+
+  function renderStepNav(activeIndex) {
+    stepNav.innerHTML = "";
+    stepLabels.forEach(function (label, i) {
+      var chip = document.createElement(i <= reachedMax ? "button" : "span");
+      chip.className = "step-chip" + (i === activeIndex ? " is-current" : "") + (i < activeIndex ? " is-done" : "");
+      chip.textContent = (i + 1) + ". " + label;
+      if (i <= reachedMax) { chip.type = "button"; chip.addEventListener("click", function () { goTo(i); }); }
+      stepNav.appendChild(chip);
+    });
+  }
+  function goTo(index) {
+    steps.forEach(function (s) { s.classList.remove("is-active"); });
+    steps[index].classList.add("is-active");
+    if (index > reachedMax) reachedMax = index;
+    window.PVASMM.saveStepProgress(LESSON_ID, reachedMax);
+    renderStepNav(index);
+    document.getElementById("lessonProgressBar").style.width = Math.round((index / (steps.length - 1)) * 100) + "%";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  document.querySelectorAll("[data-goto]").forEach(function (btn) {
+    btn.addEventListener("click", function () { goTo(parseInt(btn.getAttribute("data-goto"), 10)); });
+  });
+
+  function escapeHtml(s) { return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+
+  // ---- Learn: verification loop display ----
+  var loopStages = ["Brief", "AI draft", "Source check", "Brand/voice check", "Risk check", "Human edit", "Approval", "Publish", "Review"];
+  (function renderLoop() {
+    var wrap = document.getElementById("loopDisplay");
+    loopStages.forEach(function (s, i) {
+      var span = document.createElement("span");
+      span.className = "step-chip";
+      span.style.background = "var(--paper)";
+      span.textContent = s;
+      wrap.appendChild(span);
+      if (i < loopStages.length - 1) {
+        var arrow = document.createElement("span");
+        arrow.textContent = "→";
+        arrow.style.color = "var(--sage)";
+        wrap.appendChild(arrow);
+      }
+    });
+  })();
+
+  // ---- Learn: quick check ----
+  var riskItems = [
+    { text: "Asking AI to suggest 5 topic variations on a confirmed pantry-storage tip", answer: "Appropriate" },
+    { text: "Asking AI to write a customer testimonial for the brand", answer: "Risky" },
+    { text: "Asking AI to summarize a fictional analytics report you already have", answer: "Appropriate" },
+    { text: "Letting AI auto-reply to a comment alleging a product caused harm", answer: "Risky" },
+    { text: "Asking AI to repurpose an approved long caption into a shorter version", answer: "Appropriate" },
+    { text: "Pasting a customer's full name, address, and order number into an AI chat tool to \"summarize the complaint\"", answer: "Risky" }
+  ];
+  (function renderRisk() {
+    var wrap = document.getElementById("riskExercise");
+    riskItems.forEach(function (item) {
+      var row = document.createElement("div");
+      row.className = "exercise-item";
+      row.innerHTML =
+        '<div class="prompt">' + item.text + '</div>' +
+        '<div class="choice-row"><button class="choice-btn" data-c="Appropriate">Appropriate</button><button class="choice-btn" data-c="Risky">Risky</button></div>' +
+        '<div class="feedback-box info" data-fb></div>';
+      var fb = row.querySelector("[data-fb]");
+      row.querySelectorAll(".choice-btn").forEach(function (b) {
+        b.addEventListener("click", function () {
+          row.querySelectorAll(".choice-btn").forEach(function (x) { x.classList.remove("selected", "correct", "incorrect"); });
+          var isCorrect = b.getAttribute("data-c") === item.answer;
+          b.classList.add(isCorrect ? "correct" : "incorrect");
+          if (!isCorrect) row.querySelector('[data-c="' + item.answer + '"]').classList.add("correct");
+          fb.classList.add("show");
+          fb.textContent = isCorrect ? "Right." : "This is " + item.answer + ".";
+        });
+      });
+      wrap.appendChild(row);
+    });
+  })();
+
+  // ---- Observe ----
+  document.getElementById("observeNotes").value = window.PVASMM.getDraft(LESSON_ID, "observeNotes", "");
+  document.getElementById("observeNotes").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "observeNotes", e.target.value); });
+  document.getElementById("revealObserve").addEventListener("click", function () { document.getElementById("observeReveal").style.display = "block"; });
+
+  // ---- Practice: prompt design ----
+  var promptFields = ["pAudience", "pTone", "pObjective", "pProhibited", "pFacts", "pFormat"];
+  promptFields.forEach(function (id) {
+    var el = document.getElementById(id);
+    el.value = window.PVASMM.getDraft(LESSON_ID, id, "");
+    el.addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, id, e.target.value); });
+  });
+  document.getElementById("assemblePrompt").addEventListener("click", function () {
+    var box = document.getElementById("assembledPrompt");
+    var lines = ["Write three caption drafts for Amihan Kitchen with the following constraints:", ""];
+    lines.push("Audience: " + (document.getElementById("pAudience").value.trim() || "—"));
+    lines.push("Tone: " + (document.getElementById("pTone").value.trim() || "—"));
+    lines.push("Objective: " + (document.getElementById("pObjective").value.trim() || "—"));
+    lines.push("Do NOT include: " + (document.getElementById("pProhibited").value.trim() || "—"));
+    lines.push("Must respect these confirmed facts: " + (document.getElementById("pFacts").value.trim() || "—"));
+    lines.push("Output format: " + (document.getElementById("pFormat").value.trim() || "—"));
+    box.textContent = lines.join("\n");
+    box.style.display = "block";
+  });
+
+  // ---- Check: sentence verification ----
+  var draftSentences = [
+    { text: "Amihan Kitchen sells shelf-stable Filipino pantry products.", answer: "Supported" },
+    { text: "Our gift boxes are the most popular in the Philippines.", answer: "Unsupported" },
+    { text: "Each box tells a story from a different region.", answer: "Supported" },
+    { text: "This product has helped thousands of happy customers.", answer: "Unsupported" },
+    { text: "Available online, with more details on our page.", answer: "Needs Verification" }
+  ];
+  var verifyOptions = ["Supported", "Needs Verification", "Unsupported"];
+  (function renderVerify() {
+    var wrap = document.getElementById("verifyExercise");
+    draftSentences.forEach(function (item, i) {
+      var row = document.createElement("div");
+      row.className = "exercise-item";
+      var opts = verifyOptions.map(function (o) { return '<button class="choice-btn" data-o="' + o + '">' + o + '</button>'; }).join("");
+      row.innerHTML = '<div class="prompt">"' + item.text + '"</div><div class="choice-row">' + opts + '</div><div class="feedback-box info" data-fb></div>';
+      var fb = row.querySelector("[data-fb]");
+      row.querySelectorAll(".choice-btn").forEach(function (b) {
+        b.addEventListener("click", function () {
+          row.querySelectorAll(".choice-btn").forEach(function (x) { x.classList.remove("selected", "correct", "incorrect"); });
+          var isCorrect = b.getAttribute("data-o") === item.answer;
+          b.classList.add(isCorrect ? "correct" : "incorrect");
+          if (!isCorrect) row.querySelector('[data-o="' + item.answer + '"]').classList.add("correct");
+          fb.classList.add("show");
+          fb.textContent = isCorrect ? "Right." : "This is best marked: " + item.answer + ".";
+        });
+      });
+      wrap.appendChild(row);
+    });
+  })();
+  document.getElementById("revisedDraft").value = window.PVASMM.getDraft(LESSON_ID, "revisedDraft", "");
+  document.getElementById("revisedDraft").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "revisedDraft", e.target.value); });
+
+  // ---- Apply: workflow builder ----
+  var workflowFields = [
+    { id: "wfTask", label: "Task", value: "" },
+    { id: "wfInput", label: "Input given to AI", value: "" },
+    { id: "wfPromptApproach", label: "Prompt approach", value: "" },
+    { id: "wfAiOutput", label: "AI output (summarized)", value: "" },
+    { id: "wfVerification", label: "Verification notes", value: "" },
+    { id: "wfFinal", label: "Final human-edited version", value: "" },
+    { id: "wfApproval", label: "Approval step", value: "" }
+  ];
+  (function renderWorkflowBuilder() {
+    var wrap = document.getElementById("workflowBuilder");
+    workflowFields.forEach(function (f) {
+      var div = document.createElement("div");
+      div.className = "exercise-item";
+      div.innerHTML = '<label class="prompt" for="' + f.id + '">' + f.label + '</label><textarea class="text-response" id="' + f.id + '"></textarea>';
+      wrap.appendChild(div);
+      var ta = div.querySelector("textarea");
+      ta.value = window.PVASMM.getDraft(LESSON_ID, f.id, f.value);
+      ta.addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, f.id, e.target.value); });
+    });
+  })();
+
+  document.getElementById("buildExport").addEventListener("click", function () {
+    var box = document.getElementById("exportBox");
+    var lines = ["AI-ASSISTED SMM WORKFLOW — Amihan Kitchen", "Probinsiyanong VA Free Training — fictional training work sample", ""];
+    workflowFields.forEach(function (f) {
+      var val = document.getElementById(f.id).value.trim();
+      window.PVASMM.saveDraft(LESSON_ID, f.id, val);
+      lines.push(f.label.toUpperCase() + ": " + (val || "—"));
+      lines.push("");
+    });
+    box.textContent = lines.join("\n");
+    box.style.display = "block";
+    document.getElementById("saveReminder").style.display = "block";
+  });
+
+  document.getElementById("finishLesson").addEventListener("click", function () {
+    window.PVASMM.markLessonComplete(LESSON_ID);
+    goTo(6);
+  });
+
+  goTo(Math.min(window.PVASMM.getStepProgress(LESSON_ID) || 0, steps.length - 2));
+})();
+</script>
+
+</body>
+</html>

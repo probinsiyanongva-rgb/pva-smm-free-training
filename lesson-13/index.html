@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Quality Control, Security, Rights & Client Workflow | PVA Free Training — SMM</title>
+<meta name="description" content="Lesson 13 of the Social Media Management VA Beginner Foundations training — QA, access, privacy, rights, and documentation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<div class="route-bar">
+  <div class="route-track">
+    <a class="home-btn" href="../">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/></svg>
+      PVA Free Training — SMM
+    </a>
+    <span class="sep">/</span>
+    <span class="current">Lesson 13</span>
+  </div>
+</div>
+
+<header class="page-header">
+  <div class="container">
+    <div class="eyebrow">Lesson 13 of 13 — the last lesson</div>
+    <h1>Quality Control, Security, Rights &amp; Client Workflow</h1>
+    <p class="lede">QA, access, privacy, rights, and documentation — finishing work properly, not just making it look good.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <nav class="step-nav" id="stepNav" aria-label="Lesson steps"></nav>
+  <div class="progress-rail" style="margin-top:6px;"><span id="lessonProgressBar" style="width:0%;"></span></div>
+
+  <!-- STEP 0 -->
+  <section class="step-panel folder-tab" data-tab="Start here" data-step="0">
+    <h2>Before you start</h2>
+    <p>By the end of this lesson you should be able to:</p>
+    <ul>
+      <li>Perform a final content QA review</li>
+      <li>Recognize common privacy and access risks</li>
+      <li>Apply least-privilege thinking to client accounts</li>
+      <li>Identify basic content-rights questions</li>
+      <li>Document and escalate errors rather than hiding them</li>
+    </ul>
+    <div class="key-idea">Professional SMM work is not finished when the content looks good. It is finished when the content is accurate, approved, correctly prepared, appropriately accessible, authorized, and documented.</div>
+    <p style="font-size:0.88rem; color:var(--ink-soft);">This is the last of the 13 lessons — it ends with your thirteenth work sample: the <strong>SMM QA, Security &amp; Rights Checklist</strong>. After this, the Final Project ties everything together.</p>
+    <div class="btn-row"><button class="btn btn-primary" data-goto="1">Start the lesson</button></div>
+  </section>
+
+  <!-- STEP 1: LEARN -->
+  <section class="step-panel folder-tab" data-tab="Learn" data-step="1">
+    <div class="step-kicker">Learn — 13.1 Four QA gates</div>
+    <table class="ref-table">
+      <thead><tr><th>Gate</th><th>Questions</th></tr></thead>
+      <tbody>
+        <tr><td>Content</td><td>Is it accurate, clear, on-brand, audience-relevant, and aligned with the objective?</td></tr>
+        <tr><td>Technical</td><td>Correct platform, account, asset, link, format, schedule, tags, and version?</td></tr>
+        <tr><td>Risk</td><td>Any privacy, safety, rights, unsupported claims, or sensitive-topic issue?</td></tr>
+        <tr><td>Workflow</td><td>Approval recorded, status updated, evidence saved, follow-up assigned?</td></tr>
+      </tbody>
+    </table>
+
+    <div class="step-kicker" style="margin-top:20px;">13.2 Security basics</div>
+    <ul>
+      <li>Use approved account-access methods</li>
+      <li>Prefer delegated/role-based access when the platform supports it</li>
+      <li>Do not share credentials casually</li>
+      <li>Use least-privilege access — only what the role needs</li>
+      <li>Protect screenshots, exports, and customer information</li>
+      <li>Do not place confidential client/customer information into unapproved tools</li>
+      <li>Report suspected security incidents through the client's process</li>
+      <li>Do not hide mistakes or delete evidence of an incident without authorization</li>
+    </ul>
+
+    <div class="step-kicker" style="margin-top:20px;">13.3 Content rights</div>
+    <p>Before using an image, video, music, testimonial, customer post, or other third-party asset, determine whether the client has permission or an appropriate license. "It is on the internet" is not the same as "the client has the right to use it."</p>
+
+    <div class="step-kicker" style="margin-top:20px;">Quick check — which gate?</div>
+    <div id="gateExercise"></div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="0">Back</button>
+      <button class="btn btn-primary" data-goto="2">Continue to Observe</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: OBSERVE -->
+  <section class="step-panel folder-tab" data-tab="Observe" data-step="2">
+    <div class="step-kicker">Observe — final QA</div>
+    <h2>Find every blocker</h2>
+    <p>A fictional post package contains: a broken URL, an unapproved customer photo, an unsupported statistic ("#1 pantry brand in the region"), and a correct, approved caption.</p>
+    <textarea class="text-response" id="observeNotes" style="min-height:100px;" placeholder="List every blocker you'd catch."></textarea>
+    <div class="btn-row"><button class="btn btn-secondary" id="revealObserve">Show what should be caught</button></div>
+    <div class="callout" id="observeReveal" style="display:none; margin-top:16px;">
+      Three blockers: the broken URL (Technical gate), the unapproved customer photo (Risk gate — rights/permission issue), and the unsupported statistic (Risk gate — unverifiable claim). The caption itself is fine, but the package as a whole isn't ready to publish until all three are resolved or removed.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="1">Back</button>
+      <button class="btn btn-primary" data-goto="3">Continue to Practice</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: PRACTICE -->
+  <section class="step-panel folder-tab" data-tab="Practice" data-step="3">
+    <div class="step-kicker">Practice — access scenario</div>
+    <h2>A shared spreadsheet full of passwords</h2>
+    <p>A client asks the VA to use a shared spreadsheet containing social account passwords. Explain the safer approach, and what should be documented.</p>
+    <textarea class="text-response" id="accessResponse" style="min-height:110px;" placeholder="Your response..."></textarea>
+    <div class="btn-row"><button class="btn btn-secondary" id="revealPractice">Show one safer approach</button></div>
+    <div class="callout" id="practiceReveal" style="display:none; margin-top:16px;">
+      Ask if the platform supports delegated or role-based access instead (e.g. being added as an admin/collaborator on the actual account) rather than using a raw password from a spreadsheet. If that's genuinely not possible, flag the security risk to the client directly and ask them to at least limit who has access to that spreadsheet. Document that this was raised, what the client decided, and any access granted — so there's a record if something goes wrong later.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="2">Back</button>
+      <button class="btn btn-primary" data-goto="4">Continue to Check</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: CHECK -->
+  <section class="step-panel folder-tab" data-tab="Check" data-step="4">
+    <div class="step-kicker">Check — rights scenario</div>
+    <h2>"Feel free to use this!"</h2>
+    <p>A customer tags the brand in a photo and says, "Feel free to use this!" List what should still be clarified before the client uses the image in marketing — if anything.</p>
+    <textarea class="text-response" id="rightsResponse" style="min-height:100px;" placeholder="What should be clarified, if anything?"></textarea>
+    <div class="btn-row"><button class="btn btn-secondary" id="revealCheck">Show what's worth clarifying</button></div>
+    <div class="callout" id="checkReveal" style="display:none; margin-top:16px;">
+      Even with an informal green light, it's worth confirming: does "use this" cover paid ads too, or just organic posts? Is it okay to crop/edit the photo? Can their name or handle be credited publicly? Is anyone else identifiable in the photo who'd also need to be comfortable with it? A quick DM confirming scope protects both the client and the customer, and gives the VA something to document.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="3">Back</button>
+      <button class="btn btn-primary" data-goto="5">Continue to Apply</button>
+    </div>
+  </section>
+
+  <!-- STEP 5: APPLY -->
+  <section class="step-panel folder-tab" data-tab="Apply" data-step="5">
+    <div class="step-kicker">Apply — work sample</div>
+    <h2>Build the SMM QA, Security &amp; Rights Checklist</h2>
+    <p>A one-page checklist reusable for every simulated publishing cycle.</p>
+
+    <h3 style="font-size:1rem;">Content gate</h3>
+    <div id="gateContent"></div>
+    <h3 style="font-size:1rem; margin-top:16px;">Technical gate</h3>
+    <div id="gateTechnical"></div>
+    <h3 style="font-size:1rem; margin-top:16px;">Risk gate</h3>
+    <div id="gateRisk"></div>
+    <h3 style="font-size:1rem; margin-top:16px;">Workflow gate</h3>
+    <div id="gateWorkflow"></div>
+
+    <div class="exercise-item" style="margin-top:16px;"><label class="prompt">Notes for this cycle</label><textarea class="text-response" id="qaNotes"></textarea></div>
+
+    <div class="btn-row"><button class="btn btn-secondary" id="buildExport" type="button">Generate my QA, Security &amp; Rights Checklist</button></div>
+    <div class="export-box no-print" id="exportBox" style="display:none;"></div>
+    <div class="save-reminder no-print" id="saveReminder" style="display:none;">
+      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. This site does not store your written work; it only remembers that you've completed the lesson.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="4">Back</button>
+      <button class="btn btn-primary" id="finishLesson">Mark Lesson 13 complete</button>
+    </div>
+  </section>
+
+  <!-- STEP 6: COMPLETE -->
+  <section class="step-panel folder-tab" data-tab="Done" data-step="6" data-state="done">
+    <span class="stamp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.6L4 14.1l5 5 11-11-1.5-1.4z"/></svg>
+      Lesson 13 complete — all 13 lessons done!
+    </span>
+    <h2 style="margin-top:14px;">You've completed every lesson in this course</h2>
+    <p>You practiced final QA thinking, handled a real access-security scenario, worked through a content-rights question, and produced the SMM QA, Security &amp; Rights Checklist — a tool you can genuinely reuse.</p>
+    <p>One thing is left: the <strong>Final Project</strong> — a full simulated month as Amihan Kitchen's SMM VA, connecting everything from all 13 lessons into one engagement.</p>
+    <div class="lesson-nav-footer">
+      <a class="btn btn-secondary" href="../">← Back to course map</a>
+      <a class="btn btn-primary" href="../final-project/">Start the Final Project →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">Probinsiyanong VA Free Training — Social Media Management VA — genuinely free, no account required.</div>
+</footer>
+
+<script src="../shared/progress-smm.js"></script>
+<script>
+(function () {
+  "use strict";
+  var LESSON_ID = "lesson-13";
+  var steps = Array.prototype.slice.call(document.querySelectorAll(".step-panel"));
+  var stepNav = document.getElementById("stepNav");
+  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Apply", "Done"];
+  var reachedMax = window.PVASMM.getStepProgress(LESSON_ID) || 0;
+
+  function renderStepNav(activeIndex) {
+    stepNav.innerHTML = "";
+    stepLabels.forEach(function (label, i) {
+      var chip = document.createElement(i <= reachedMax ? "button" : "span");
+      chip.className = "step-chip" + (i === activeIndex ? " is-current" : "") + (i < activeIndex ? " is-done" : "");
+      chip.textContent = (i + 1) + ". " + label;
+      if (i <= reachedMax) { chip.type = "button"; chip.addEventListener("click", function () { goTo(i); }); }
+      stepNav.appendChild(chip);
+    });
+  }
+  function goTo(index) {
+    steps.forEach(function (s) { s.classList.remove("is-active"); });
+    steps[index].classList.add("is-active");
+    if (index > reachedMax) reachedMax = index;
+    window.PVASMM.saveStepProgress(LESSON_ID, reachedMax);
+    renderStepNav(index);
+    document.getElementById("lessonProgressBar").style.width = Math.round((index / (steps.length - 1)) * 100) + "%";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  document.querySelectorAll("[data-goto]").forEach(function (btn) {
+    btn.addEventListener("click", function () { goTo(parseInt(btn.getAttribute("data-goto"), 10)); });
+  });
+
+  // ---- Learn: gate quick check ----
+  var gates = ["Content", "Technical", "Risk", "Workflow"];
+  var gateItems = [
+    { text: "The caption doesn't quite match the brand's usual tone", answer: "Content" },
+    { text: "The wrong image file was attached to the post", answer: "Technical" },
+    { text: "A customer's private info is visible in a screenshot used for the post", answer: "Risk" },
+    { text: "The post is ready but no one recorded that the client approved it", answer: "Workflow" },
+    { text: "A claim in the caption can't be verified against the brief", answer: "Risk" }
+  ];
+  (function renderGateExercise() {
+    var wrap = document.getElementById("gateExercise");
+    gateItems.forEach(function (item) {
+      var row = document.createElement("div");
+      row.className = "exercise-item";
+      var opts = gates.map(function (g) { return '<button class="choice-btn" data-g="' + g + '">' + g + '</button>'; }).join("");
+      row.innerHTML = '<div class="prompt">' + item.text + '</div><div class="choice-row">' + opts + '</div><div class="feedback-box info" data-fb></div>';
+      var fb = row.querySelector("[data-fb]");
+      row.querySelectorAll(".choice-btn").forEach(function (b) {
+        b.addEventListener("click", function () {
+          row.querySelectorAll(".choice-btn").forEach(function (x) { x.classList.remove("selected", "correct", "incorrect"); });
+          var isCorrect = b.getAttribute("data-g") === item.answer;
+          b.classList.add(isCorrect ? "correct" : "incorrect");
+          if (!isCorrect) row.querySelector('[data-g="' + item.answer + '"]').classList.add("correct");
+          fb.classList.add("show");
+          fb.textContent = isCorrect ? "Right." : "This belongs to the " + item.answer + " gate.";
+        });
+      });
+      wrap.appendChild(row);
+    });
+  })();
+
+  // ---- Observe ----
+  document.getElementById("observeNotes").value = window.PVASMM.getDraft(LESSON_ID, "observeNotes", "");
+  document.getElementById("observeNotes").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "observeNotes", e.target.value); });
+  document.getElementById("revealObserve").addEventListener("click", function () { document.getElementById("observeReveal").style.display = "block"; });
+
+  // ---- Practice ----
+  document.getElementById("accessResponse").value = window.PVASMM.getDraft(LESSON_ID, "accessResponse", "");
+  document.getElementById("accessResponse").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "accessResponse", e.target.value); });
+  document.getElementById("revealPractice").addEventListener("click", function () { document.getElementById("practiceReveal").style.display = "block"; });
+
+  // ---- Check ----
+  document.getElementById("rightsResponse").value = window.PVASMM.getDraft(LESSON_ID, "rightsResponse", "");
+  document.getElementById("rightsResponse").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "rightsResponse", e.target.value); });
+  document.getElementById("revealCheck").addEventListener("click", function () { document.getElementById("checkReveal").style.display = "block"; });
+
+  // ---- Apply: checklist gates ----
+  var checklistData = {
+    gateContent: ["Is it accurate?", "Is it clear?", "Is it on-brand?", "Is it audience-relevant?", "Does it align with the stated objective?"],
+    gateTechnical: ["Correct platform and account?", "Correct asset and version?", "Link tested?", "Format correct?", "Schedule date/time/time zone correct?", "Required tags/mentions confirmed?"],
+    gateRisk: ["Any privacy issue?", "Any safety issue?", "Any content-rights issue?", "Any unsupported claim?", "Any sensitive topic needing review?"],
+    gateWorkflow: ["Approval recorded?", "Status updated?", "Evidence saved?", "Follow-up assigned if needed?"]
+  };
+  function renderGateChecklist(containerId, items) {
+    var wrap = document.getElementById(containerId);
+    var saved = window.PVASMM.getDraft(LESSON_ID, containerId, []);
+    items.forEach(function (item, i) {
+      var label = document.createElement("label");
+      label.style.cssText = "display:flex; align-items:flex-start; gap:8px; margin-bottom:6px; font-size:0.9rem;";
+      var cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = !!saved[i];
+      cb.addEventListener("change", function () {
+        var state = items.map(function (_, j) { return wrap.querySelectorAll('input[type="checkbox"]')[j].checked; });
+        window.PVASMM.saveDraft(LESSON_ID, containerId, state);
+      });
+      label.appendChild(cb);
+      var span = document.createElement("span");
+      span.textContent = item;
+      label.appendChild(span);
+      wrap.appendChild(label);
+    });
+  }
+  renderGateChecklist("gateContent", checklistData.gateContent);
+  renderGateChecklist("gateTechnical", checklistData.gateTechnical);
+  renderGateChecklist("gateRisk", checklistData.gateRisk);
+  renderGateChecklist("gateWorkflow", checklistData.gateWorkflow);
+
+  document.getElementById("qaNotes").value = window.PVASMM.getDraft(LESSON_ID, "qaNotes", "");
+  document.getElementById("qaNotes").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "qaNotes", e.target.value); });
+
+  document.getElementById("buildExport").addEventListener("click", function () {
+    var box = document.getElementById("exportBox");
+    var lines = ["SMM QA, SECURITY & RIGHTS CHECKLIST — Amihan Kitchen", "Probinsiyanong VA Free Training — fictional training work sample", "Reusable for every publishing cycle.", ""];
+    Object.keys(checklistData).forEach(function (key) {
+      var label = key.replace("gate", "") + " gate";
+      lines.push(label.toUpperCase() + ":");
+      var checks = Array.prototype.map.call(document.getElementById(key).querySelectorAll('input[type=checkbox]'), function (cb) { return cb.checked; });
+      checklistData[key].forEach(function (item, i) { lines.push((checks[i] ? "[x] " : "[ ] ") + item); });
+      lines.push("");
+    });
+    var notes = document.getElementById("qaNotes").value.trim();
+    window.PVASMM.saveDraft(LESSON_ID, "qaNotes", notes);
+    lines.push("NOTES: " + (notes || "—"));
+    box.textContent = lines.join("\n");
+    box.style.display = "block";
+    document.getElementById("saveReminder").style.display = "block";
+  });
+
+  document.getElementById("finishLesson").addEventListener("click", function () {
+    window.PVASMM.markLessonComplete(LESSON_ID);
+    goTo(6);
+  });
+
+  goTo(Math.min(window.PVASMM.getStepProgress(LESSON_ID) || 0, steps.length - 2));
+})();
+</script>
+
+</body>
+</html>
