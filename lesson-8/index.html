@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Scheduling, Publishing & Approval Workflow | PVA Free Training — SMM</title>
+<meta name="description" content="Lesson 8 of the Social Media Management VA Beginner Foundations training — execution accuracy and approval controls.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<div class="route-bar">
+  <div class="route-track">
+    <a class="home-btn" href="../">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/></svg>
+      PVA Free Training — SMM
+    </a>
+    <span class="sep">/</span>
+    <span class="current">Lesson 8</span>
+  </div>
+</div>
+
+<header class="page-header">
+  <div class="container">
+    <div class="eyebrow">Lesson 8 of 13</div>
+    <h1>Scheduling, Publishing &amp; Approval Workflow</h1>
+    <p class="lede">Execution accuracy and approval controls — the difference between "ready to schedule" and "ready to publish."</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <nav class="step-nav" id="stepNav" aria-label="Lesson steps"></nav>
+  <div class="progress-rail" style="margin-top:6px;"><span id="lessonProgressBar" style="width:0%;"></span></div>
+
+  <!-- STEP 0 -->
+  <section class="step-panel folder-tab" data-tab="Start here" data-step="0">
+    <h2>Before you start</h2>
+    <p>By the end of this lesson you should be able to:</p>
+    <ul>
+      <li>Explain the difference between drafting, approval, scheduling, and publishing</li>
+      <li>Identify common pre-publishing checks</li>
+      <li>Track content readiness and approval</li>
+      <li>Verify published content after posting</li>
+      <li>Handle scheduling problems without hiding errors</li>
+    </ul>
+    <div class="key-idea">A post being ready to schedule is different from a post being ready to publish. The VA should know the client's approval rule and verify the details before the content goes live.</div>
+    <p style="font-size:0.88rem; color:var(--ink-soft);">This lesson ends with your eighth work sample: the <strong>Publishing &amp; Approval Plan</strong>.</p>
+    <div class="btn-row"><button class="btn btn-primary" data-goto="1">Start the lesson</button></div>
+  </section>
+
+  <!-- STEP 1: LEARN -->
+  <section class="step-panel folder-tab" data-tab="Learn" data-step="1">
+    <div class="step-kicker">Learn — 8.1 Pre-publish checklist</div>
+    <ul>
+      <li>Correct platform and account</li>
+      <li>Correct asset and version</li>
+      <li>Caption reviewed</li>
+      <li>Links tested</li>
+      <li>CTA correct</li>
+      <li>Required tags or mentions confirmed</li>
+      <li>Approval recorded</li>
+      <li>Date/time/time zone correct</li>
+      <li>Rights/permissions checked</li>
+      <li>Sensitive claims or information reviewed</li>
+    </ul>
+
+    <div class="step-kicker" style="margin-top:20px;">8.2 After publishing</div>
+    <p>Verify that the correct post appeared, links work where relevant, formatting is acceptable, and the post is recorded as published. If something is wrong, document the issue and follow the client's correction/escalation process.</p>
+
+    <div class="step-kicker" style="margin-top:20px;">Quick check — put the stages in order</div>
+    <p>Drag these into the order content actually moves through.</p>
+    <div class="dragzone" id="orderZone" style="min-height:150px;"></div>
+    <div class="btn-row"><button class="btn btn-secondary" id="checkOrder">Check my order</button></div>
+    <div class="feedback-box" id="orderFeedback"></div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="0">Back</button>
+      <button class="btn btn-primary" data-goto="2">Continue to Observe</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: OBSERVE -->
+  <section class="step-panel folder-tab" data-tab="Observe" data-step="2">
+    <div class="step-kicker">Observe — the "schedule this" request</div>
+    <h2>A broken link, and an instruction to post anyway</h2>
+    <p>The client sends an asset with a broken link and says, "Please schedule it now." Write the safest next step.</p>
+    <textarea class="text-response" id="observeNotes" style="min-height:100px;" placeholder="What's the safest next step?"></textarea>
+    <div class="btn-row"><button class="btn btn-secondary" id="revealObserve">Show one safe approach</button></div>
+    <div class="callout" id="observeReveal" style="display:none; margin-top:16px;">
+      Don't schedule it as-is, and don't silently fix it either. Flag it back to the client first: <em>"Before I schedule this, I noticed the link in the asset isn't working — can you confirm the correct link so I don't publish something broken?"</em> Scheduling a known error just to follow an instruction quickly isn't actually helpful — a VA's job includes catching problems before they go live, not just executing requests literally.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="1">Back</button>
+      <button class="btn btn-primary" data-goto="3">Continue to Practice</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: PRACTICE -->
+  <section class="step-panel folder-tab" data-tab="Practice" data-step="3">
+    <div class="step-kicker">Practice — readiness audit</div>
+    <h2>Ready, Blocked, or Needs Clarification?</h2>
+    <p>For each fictional post below, decide its status and say why.</p>
+    <div id="readinessExercise"></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="2">Back</button>
+      <button class="btn btn-primary" data-goto="4">Continue to Check</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: CHECK -->
+  <section class="step-panel folder-tab" data-tab="Check" data-step="4">
+    <div class="step-kicker">Check — publishing error</div>
+    <h2>A post goes live with the wrong image</h2>
+    <p>Write a concise internal note using: Issue → Evidence → Impact → Action → Next Step.</p>
+    <div class="exercise-item"><label class="prompt">Issue</label><textarea class="text-response" id="errIssue"></textarea></div>
+    <div class="exercise-item"><label class="prompt">Evidence</label><textarea class="text-response" id="errEvidence"></textarea></div>
+    <div class="exercise-item"><label class="prompt">Impact</label><textarea class="text-response" id="errImpact"></textarea></div>
+    <div class="exercise-item"><label class="prompt">Action</label><textarea class="text-response" id="errAction"></textarea></div>
+    <div class="exercise-item"><label class="prompt">Next Step</label><textarea class="text-response" id="errNextStep"></textarea></div>
+    <div class="btn-row"><button class="btn btn-secondary" id="revealCheck">Show one way to write this</button></div>
+    <div class="callout" id="checkReveal" style="display:none; margin-top:16px;">
+      <strong>Issue:</strong> Wrong product image published on the [date] Instagram post.<br>
+      <strong>Evidence:</strong> Live post shows the gift-box image instead of the approved single-jar image; screenshot saved.<br>
+      <strong>Impact:</strong> Post is live with an inaccurate product image; risk of customer confusion about what's actually being promoted.<br>
+      <strong>Action:</strong> Replaced the image with the approved asset and re-published; logged the correction time.<br>
+      <strong>Next Step:</strong> Confirmed with the client that the correction is visible; double-checking asset file names before scheduling going forward to prevent a repeat.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="3">Back</button>
+      <button class="btn btn-primary" data-goto="5">Continue to Apply</button>
+    </div>
+  </section>
+
+  <!-- STEP 5: APPLY -->
+  <section class="step-panel folder-tab" data-tab="Apply" data-step="5">
+    <div class="step-kicker">Apply — work sample</div>
+    <h2>Build the Publishing &amp; Approval Plan</h2>
+    <p>A one-page plan plus a pre-publish checklist for Amihan Kitchen.</p>
+    <div id="planBuilder"></div>
+    <h3 style="font-size:1rem; margin-top:20px;">Pre-publish checklist (included automatically in your export)</h3>
+    <ul style="font-size:0.88rem; color:var(--ink-soft);">
+      <li>Correct platform and account</li><li>Correct asset and version</li><li>Caption reviewed</li>
+      <li>Links tested</li><li>CTA correct</li><li>Required tags or mentions confirmed</li>
+      <li>Approval recorded</li><li>Date/time/time zone correct</li><li>Rights/permissions checked</li>
+      <li>Sensitive claims or information reviewed</li>
+    </ul>
+    <div class="btn-row"><button class="btn btn-secondary" id="buildExport" type="button">Generate my Publishing &amp; Approval Plan</button></div>
+    <div class="export-box no-print" id="exportBox" style="display:none;"></div>
+    <div class="save-reminder no-print" id="saveReminder" style="display:none;">
+      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. This site does not store your written work; it only remembers that you've completed the lesson.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="4">Back</button>
+      <button class="btn btn-primary" id="finishLesson">Mark Lesson 8 complete</button>
+    </div>
+  </section>
+
+  <!-- STEP 6: COMPLETE -->
+  <section class="step-panel folder-tab" data-tab="Done" data-step="6" data-state="done">
+    <span class="stamp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.6L4 14.1l5 5 11-11-1.5-1.4z"/></svg>
+      Lesson 8 complete
+    </span>
+    <h2 style="margin-top:14px;">You now know how to protect a client from publishing mistakes</h2>
+    <p>You practiced sequencing the publishing stages, handled a broken-link request, audited five posts for readiness, wrote a publishing-error note, and produced the Publishing &amp; Approval Plan.</p>
+    <p>Next up: <strong>Lesson 9 — Community Management, Engagement &amp; Social Listening.</strong></p>
+    <div class="lesson-nav-footer">
+      <a class="btn btn-secondary" href="../">← Back to course map</a>
+      <a class="btn btn-primary" href="../lesson-9/">Start Lesson 9 →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">Probinsiyanong VA Free Training — Social Media Management VA — genuinely free, no account required.</div>
+</footer>
+
+<script src="../shared/progress-smm.js"></script>
+<script>
+(function () {
+  "use strict";
+  var LESSON_ID = "lesson-8";
+  var steps = Array.prototype.slice.call(document.querySelectorAll(".step-panel"));
+  var stepNav = document.getElementById("stepNav");
+  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Apply", "Done"];
+  var reachedMax = window.PVASMM.getStepProgress(LESSON_ID) || 0;
+
+  function renderStepNav(activeIndex) {
+    stepNav.innerHTML = "";
+    stepLabels.forEach(function (label, i) {
+      var chip = document.createElement(i <= reachedMax ? "button" : "span");
+      chip.className = "step-chip" + (i === activeIndex ? " is-current" : "") + (i < activeIndex ? " is-done" : "");
+      chip.textContent = (i + 1) + ". " + label;
+      if (i <= reachedMax) { chip.type = "button"; chip.addEventListener("click", function () { goTo(i); }); }
+      stepNav.appendChild(chip);
+    });
+  }
+  function goTo(index) {
+    steps.forEach(function (s) { s.classList.remove("is-active"); });
+    steps[index].classList.add("is-active");
+    if (index > reachedMax) reachedMax = index;
+    window.PVASMM.saveStepProgress(LESSON_ID, reachedMax);
+    renderStepNav(index);
+    document.getElementById("lessonProgressBar").style.width = Math.round((index / (steps.length - 1)) * 100) + "%";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  document.querySelectorAll("[data-goto]").forEach(function (btn) {
+    btn.addEventListener("click", function () { goTo(parseInt(btn.getAttribute("data-goto"), 10)); });
+  });
+
+  function escapeHtml(s) { return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+
+  // ---- Learn: order the 4 stages ----
+  var stages = ["Drafting", "Approval", "Scheduling", "Publishing"];
+  (function renderOrderExercise() {
+    var zone = document.getElementById("orderZone");
+    var shuffled = stages.slice().sort(function () { return Math.random() - 0.5; });
+    shuffled.forEach(function (s) {
+      var chip = document.createElement("div");
+      chip.className = "drag-chip";
+      chip.textContent = s;
+      chip.draggable = true;
+      chip.id = "order-" + s;
+      chip.style.display = "block";
+      chip.addEventListener("dragstart", function (e) { e.dataTransfer.setData("text/plain", chip.id); });
+      zone.appendChild(chip);
+    });
+    zone.addEventListener("dragover", function (e) { e.preventDefault(); });
+    zone.addEventListener("drop", function (e) {
+      e.preventDefault();
+      var id = e.dataTransfer.getData("text/plain");
+      var dragged = document.getElementById(id);
+      var after = getDragAfterElement(zone, e.clientY);
+      if (after == null) zone.appendChild(dragged);
+      else zone.insertBefore(dragged, after);
+    });
+    function getDragAfterElement(container, y) {
+      var els = Array.prototype.slice.call(container.querySelectorAll(".drag-chip"));
+      return els.reduce(function (closest, child) {
+        var box = child.getBoundingClientRect();
+        var offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) return { offset: offset, element: child };
+        return closest;
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+    zone.addEventListener("click", function (e) {
+      if (!e.target.classList.contains("drag-chip")) return;
+      var chip = e.target;
+      var prev = chip.previousElementSibling;
+      if (prev) zone.insertBefore(chip, prev);
+      else zone.appendChild(chip);
+    });
+  })();
+  document.getElementById("checkOrder").addEventListener("click", function () {
+    var chips = Array.prototype.slice.call(document.getElementById("orderZone").querySelectorAll(".drag-chip"));
+    var correctCount = 0;
+    chips.forEach(function (chip, i) {
+      if (stages[i] === chip.textContent) {
+        correctCount++;
+        chip.style.borderColor = "var(--ok)"; chip.style.background = "rgba(62,110,78,0.12)";
+      } else {
+        chip.style.borderColor = "var(--rust)"; chip.style.background = "rgba(162,77,61,0.1)";
+      }
+    });
+    var fb = document.getElementById("orderFeedback");
+    fb.classList.add("show", "ok");
+    fb.textContent = correctCount + " of " + stages.length + " correct. Right order: " + stages.join(" → ");
+  });
+
+  // ---- Observe ----
+  document.getElementById("observeNotes").value = window.PVASMM.getDraft(LESSON_ID, "observeNotes", "");
+  document.getElementById("observeNotes").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "observeNotes", e.target.value); });
+  document.getElementById("revealObserve").addEventListener("click", function () { document.getElementById("observeReveal").style.display = "block"; });
+
+  // ---- Practice: readiness audit ----
+  var readinessPosts = [
+    { text: "Post has an approved caption and asset, and the client said \"approved\" in writing yesterday.", suggested: "Ready" },
+    { text: "Post has an asset, but the caption is still in draft and hasn't been reviewed.", suggested: "Blocked" },
+    { text: "Post is approved, but the scheduled date/time wasn't specified anywhere.", suggested: "Needs Clarification" },
+    { text: "Post links to a product page, but nobody has actually clicked the link to confirm it works.", suggested: "Blocked" },
+    { text: "Post uses a customer's photo, and it's unclear whether permission was given to repost it.", suggested: "Needs Clarification" }
+  ];
+  (function renderReadiness() {
+    var wrap = document.getElementById("readinessExercise");
+    readinessPosts.forEach(function (post, i) {
+      var div = document.createElement("div");
+      div.className = "exercise-item";
+      div.innerHTML =
+        '<div class="prompt">' + post.text + '</div>' +
+        '<div class="choice-row"><button class="choice-btn" data-c="Ready">Ready</button><button class="choice-btn" data-c="Blocked">Blocked</button><button class="choice-btn" data-c="Needs Clarification">Needs Clarification</button></div>' +
+        '<textarea class="text-response" style="margin-top:8px;" placeholder="Why?"></textarea>';
+      wrap.appendChild(div);
+      var ta = div.querySelector("textarea");
+      ta.value = window.PVASMM.getDraft(LESSON_ID, "readiness_why_" + i, "");
+      ta.addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "readiness_why_" + i, e.target.value); });
+      var savedChoice = window.PVASMM.getDraft(LESSON_ID, "readiness_choice_" + i, "");
+      div.querySelectorAll(".choice-btn").forEach(function (b) {
+        if (b.getAttribute("data-c") === savedChoice) b.classList.add("selected");
+        b.addEventListener("click", function () {
+          div.querySelectorAll(".choice-btn").forEach(function (x) { x.classList.remove("selected"); });
+          b.classList.add("selected");
+          window.PVASMM.saveDraft(LESSON_ID, "readiness_choice_" + i, b.getAttribute("data-c"));
+        });
+      });
+    });
+  })();
+
+  // ---- Check: error note ----
+  ["errIssue", "errEvidence", "errImpact", "errAction", "errNextStep"].forEach(function (id) {
+    var el = document.getElementById(id);
+    el.value = window.PVASMM.getDraft(LESSON_ID, id, "");
+    el.addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, id, e.target.value); });
+  });
+  document.getElementById("revealCheck").addEventListener("click", function () { document.getElementById("checkReveal").style.display = "block"; });
+
+  // ---- Apply: plan builder ----
+  var planFields = [
+    { id: "planApprovalRule", label: "Client approval rule", value: "Drafts must be approved by the client before scheduling. Sensitive claims, customer stories, complaints, and rights questions require client review." },
+    { id: "planWhoApproves", label: "Who approves what", value: "" },
+    { id: "planSchedulingProcess", label: "Scheduling process / tool", value: "" },
+    { id: "planVerification", label: "Post-publish verification steps", value: "" },
+    { id: "planEscalation", label: "What to do if something goes wrong", value: "" }
+  ];
+  (function renderPlanBuilder() {
+    var wrap = document.getElementById("planBuilder");
+    planFields.forEach(function (f) {
+      var div = document.createElement("div");
+      div.className = "exercise-item";
+      div.innerHTML = '<label class="prompt" for="' + f.id + '">' + f.label + '</label><textarea class="text-response" id="' + f.id + '"></textarea>';
+      wrap.appendChild(div);
+      var ta = div.querySelector("textarea");
+      ta.value = window.PVASMM.getDraft(LESSON_ID, f.id, f.value);
+      ta.addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, f.id, e.target.value); });
+    });
+  })();
+
+  document.getElementById("buildExport").addEventListener("click", function () {
+    var box = document.getElementById("exportBox");
+    var lines = ["PUBLISHING & APPROVAL PLAN — Amihan Kitchen", "Probinsiyanong VA Free Training — fictional training work sample", ""];
+    planFields.forEach(function (f) {
+      var val = document.getElementById(f.id).value.trim();
+      window.PVASMM.saveDraft(LESSON_ID, f.id, val);
+      lines.push(f.label.toUpperCase() + ": " + (val || "—"));
+      lines.push("");
+    });
+    lines.push("PRE-PUBLISH CHECKLIST:");
+    ["Correct platform and account", "Correct asset and version", "Caption reviewed", "Links tested", "CTA correct",
+     "Required tags or mentions confirmed", "Approval recorded", "Date/time/time zone correct", "Rights/permissions checked",
+     "Sensitive claims or information reviewed"].forEach(function (item) { lines.push("[ ] " + item); });
+    box.textContent = lines.join("\n");
+    box.style.display = "block";
+    document.getElementById("saveReminder").style.display = "block";
+  });
+
+  document.getElementById("finishLesson").addEventListener("click", function () {
+    window.PVASMM.markLessonComplete(LESSON_ID);
+    goTo(6);
+  });
+
+  goTo(Math.min(window.PVASMM.getStepProgress(LESSON_ID) || 0, steps.length - 2));
+})();
+</script>
+
+</body>
+</html>
