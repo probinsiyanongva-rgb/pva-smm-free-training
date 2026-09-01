@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Build a Social Media Content Calendar | PVA Free Training — SMM</title>
+<meta name="description" content="Lesson 5 of the Social Media Management VA Beginner Foundations training — planning, sequencing, status tracking, and operational coordination.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<div class="route-bar">
+  <div class="route-track">
+    <a class="home-btn" href="../">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/></svg>
+      PVA Free Training — SMM
+    </a>
+    <span class="sep">/</span>
+    <span class="current">Lesson 5</span>
+  </div>
+</div>
+
+<header class="page-header">
+  <div class="container">
+    <div class="eyebrow">Lesson 5 of 13</div>
+    <h1>Build a Social Media Content Calendar</h1>
+    <p class="lede">Planning, sequencing, status tracking, and operational coordination — turning ideas into a real production schedule.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <nav class="step-nav" id="stepNav" aria-label="Lesson steps"></nav>
+  <div class="progress-rail" style="margin-top:6px;"><span id="lessonProgressBar" style="width:0%;"></span></div>
+
+  <!-- STEP 0 -->
+  <section class="step-panel folder-tab" data-tab="Start here" data-step="0">
+    <h2>Before you start</h2>
+    <p>By the end of this lesson you should be able to:</p>
+    <ul>
+      <li>Build a realistic four-week content calendar</li>
+      <li>Use content pillars to create variety without randomness</li>
+      <li>Include operational fields that support publishing</li>
+      <li>Track content status and approval</li>
+      <li>Balance consistency with realistic production capacity</li>
+    </ul>
+    <div class="key-idea">A content calendar is an operating document. It should help the client and VA understand what is planned, why it exists, what is needed, who must approve it, and what stage it is in.</div>
+    <p style="font-size:0.88rem; color:var(--ink-soft);">This lesson ends with your fifth work sample: the <strong>Four-Week Content Calendar</strong> for Amihan Kitchen.</p>
+    <div class="btn-row"><button class="btn btn-primary" data-goto="1">Start the lesson</button></div>
+  </section>
+
+  <!-- STEP 1: LEARN -->
+  <section class="step-panel folder-tab" data-tab="Learn" data-step="1">
+    <div class="step-kicker">Learn — 5.1 Recommended calendar fields</div>
+    <p>Date, platform, pillar, topic, format, hook, CTA, asset status, caption status, approval status, scheduled status, link, owner, notes.</p>
+
+    <div class="step-kicker" style="margin-top:20px;">5.2 Workflow states</div>
+    <p>A calendar entry moves through a sequence of stages on its way to publishing:</p>
+    <div class="card" style="background:var(--kraft); padding:14px 16px;">
+      <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;" id="workflowStatesDisplay"></div>
+    </div>
+
+    <div class="step-kicker" style="margin-top:24px;">Quick check — put the workflow in order</div>
+    <p>Drag these into the correct sequence, from first to last. (On touch devices: tap one, then tap where you want to drop it.)</p>
+    <div class="dragzone" id="orderZone" style="min-height:220px;"></div>
+    <div class="btn-row"><button class="btn btn-secondary" id="checkOrder">Check my order</button></div>
+    <div class="feedback-box" id="orderFeedback"></div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="0">Back</button>
+      <button class="btn btn-primary" data-goto="2">Continue to Observe</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: OBSERVE -->
+  <section class="step-panel folder-tab" data-tab="Observe" data-step="2">
+    <div class="step-kicker">Observe — calendar overload</div>
+    <h2>28 posts, but only 12 can realistically get approved</h2>
+    <p>A beginner plans 28 posts in one month even though the client can realistically approve 12. Explain why this is a workflow problem, not evidence of ambition.</p>
+    <textarea class="text-response" id="observeNotes" style="min-height:100px;" placeholder="Why is this a workflow problem?"></textarea>
+    <div class="btn-row"><button class="btn btn-secondary" id="revealObserve">Show one way to think about it</button></div>
+    <div class="callout" id="observeReveal" style="display:none; margin-top:16px;">
+      More posts than the client can approve doesn't mean more gets published — it means a bottleneck. Drafts pile up waiting for review, the VA spends time creating content that may never go out, and the client feels rushed or overwhelmed instead of in control. A calendar sized to real approval capacity (here, 12) is more useful than a full one that mostly sits in "Awaiting Approval." Ambition should show up in the <em>quality and variety</em> of 12 posts, not in producing volume nobody can process.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="1">Back</button>
+      <button class="btn btn-primary" data-goto="3">Continue to Practice</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: PRACTICE -->
+  <section class="step-panel folder-tab" data-tab="Practice" data-step="3">
+    <div class="step-kicker">Practice — calendar build</div>
+    <h2>Draft a four-week, 12-post calendar for Amihan Kitchen</h2>
+    <p>Include at least two short-form video concepts and a mix of educational, community, product, and story content. (Amihan Kitchen's pillars: Filipino food knowledge, product value, regional stories, behind the scenes, community/customer conversation.)</p>
+    <table class="builder-table" id="practiceCalTable">
+      <thead><tr><th>Week</th><th>Platform</th><th>Pillar</th><th>Topic</th><th>Format</th></tr></thead>
+      <tbody id="practiceCalRows"></tbody>
+    </table>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="2">Back</button>
+      <button class="btn btn-primary" data-goto="4">Continue to Check</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: CHECK -->
+  <section class="step-panel folder-tab" data-tab="Check" data-step="4">
+    <div class="step-kicker">Check — approval gate</div>
+    <h2>Which of these aren't ready to schedule?</h2>
+    <p>Here's a sample of calendar entries. Find <strong>three</strong> that should not be scheduled yet because information or approval is missing.</p>
+    <div id="approvalGateExercise"></div>
+    <div class="btn-row"><button class="btn btn-secondary" id="revealCheck">Show which three, and why</button></div>
+    <div class="callout" id="checkReveal" style="display:none; margin-top:16px;">
+      <strong>Entry B</strong> — caption status is still "Draft," not approved. <strong>Entry D</strong> — no asset attached yet, so there's nothing to schedule. <strong>Entry F</strong> — approval status is "Awaiting Approval," meaning the client hasn't signed off. Entries A, C, and E all show "Approved" status with a finished asset and caption, so they're genuinely ready.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="3">Back</button>
+      <button class="btn btn-primary" data-goto="5">Continue to Apply</button>
+    </div>
+  </section>
+
+  <!-- STEP 5: APPLY -->
+  <section class="step-panel folder-tab" data-tab="Apply" data-step="5">
+    <div class="step-kicker">Apply — work sample</div>
+    <h2>Build the Four-Week Content Calendar</h2>
+    <p>Produce the final calendar with status fields, then complete a short weekly production checklist.</p>
+    <table class="builder-table" id="calendarTable">
+      <thead>
+        <tr><th>Date / Week</th><th>Platform</th><th>Pillar</th><th>Topic &amp; Hook</th><th>Format</th><th>CTA</th><th>Status</th><th>Notes</th><th></th></tr>
+      </thead>
+      <tbody id="calendarRows"></tbody>
+    </table>
+    <p style="font-size:0.78rem; color:var(--ink-soft); margin-top:6px;">Status suggestions: Idea, Briefed, Draft, Internal Review, Client Approval, Approved, Scheduled, Published, Reviewed.</p>
+    <div class="btn-row"><button class="btn btn-ghost" id="addRow" type="button">+ Add row</button></div>
+
+    <h3 style="margin-top:24px; font-size:1rem;">Weekly production checklist</h3>
+    <div id="weeklyChecklist"></div>
+
+    <div class="btn-row"><button class="btn btn-secondary" id="buildExport" type="button">Generate my Content Calendar</button></div>
+    <div class="export-box no-print" id="exportBox" style="display:none;"></div>
+    <div class="save-reminder no-print" id="saveReminder" style="display:none;">
+      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. This site does not store your written work; it only remembers that you've completed the lesson.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" data-goto="4">Back</button>
+      <button class="btn btn-primary" id="finishLesson">Mark Lesson 5 complete</button>
+    </div>
+  </section>
+
+  <!-- STEP 6: COMPLETE -->
+  <section class="step-panel folder-tab" data-tab="Done" data-step="6" data-state="done">
+    <span class="stamp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.6L4 14.1l5 5 11-11-1.5-1.4z"/></svg>
+      Lesson 5 complete
+    </span>
+    <h2 style="margin-top:14px;">You now know how to run a real production schedule</h2>
+    <p>You practiced sequencing the approval workflow, diagnosed a capacity-vs-ambition problem, built a 12-post calendar, spotted entries that weren't ready to schedule, and produced the Four-Week Content Calendar for Amihan Kitchen.</p>
+    <p>Next up: <strong>Lesson 6 — Captions, Hooks &amp; Calls-to-Action.</strong></p>
+    <div class="lesson-nav-footer">
+      <a class="btn btn-secondary" href="../">← Back to course map</a>
+      <span class="btn btn-primary" style="opacity:0.5; cursor:default;" aria-disabled="true">Lesson 6 (coming soon)</span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">Probinsiyanong VA Free Training — Social Media Management VA — genuinely free, no account required.</div>
+</footer>
+
+<script src="../shared/progress-smm.js"></script>
+<script>
+(function () {
+  "use strict";
+  var LESSON_ID = "lesson-5";
+  var steps = Array.prototype.slice.call(document.querySelectorAll(".step-panel"));
+  var stepNav = document.getElementById("stepNav");
+  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Apply", "Done"];
+  var reachedMax = window.PVASMM.getStepProgress(LESSON_ID) || 0;
+
+  function renderStepNav(activeIndex) {
+    stepNav.innerHTML = "";
+    stepLabels.forEach(function (label, i) {
+      var chip = document.createElement(i <= reachedMax ? "button" : "span");
+      chip.className = "step-chip" + (i === activeIndex ? " is-current" : "") + (i < activeIndex ? " is-done" : "");
+      chip.textContent = (i + 1) + ". " + label;
+      if (i <= reachedMax) { chip.type = "button"; chip.addEventListener("click", function () { goTo(i); }); }
+      stepNav.appendChild(chip);
+    });
+  }
+  function goTo(index) {
+    steps.forEach(function (s) { s.classList.remove("is-active"); });
+    steps[index].classList.add("is-active");
+    if (index > reachedMax) reachedMax = index;
+    window.PVASMM.saveStepProgress(LESSON_ID, reachedMax);
+    renderStepNav(index);
+    document.getElementById("lessonProgressBar").style.width = Math.round((index / (steps.length - 1)) * 100) + "%";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  document.querySelectorAll("[data-goto]").forEach(function (btn) {
+    btn.addEventListener("click", function () { goTo(parseInt(btn.getAttribute("data-goto"), 10)); });
+  });
+
+  function escapeHtml(s) { return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+
+  // ---- Learn: workflow states display + ordering exercise ----
+  var workflowStates = ["Idea", "Briefed", "Draft", "Internal Review", "Client Approval", "Approved", "Scheduled", "Published", "Reviewed"];
+  (function renderWorkflowDisplay() {
+    var wrap = document.getElementById("workflowStatesDisplay");
+    workflowStates.forEach(function (s, i) {
+      var span = document.createElement("span");
+      span.className = "step-chip";
+      span.style.background = "var(--paper)";
+      span.textContent = s;
+      wrap.appendChild(span);
+      if (i < workflowStates.length - 1) {
+        var arrow = document.createElement("span");
+        arrow.textContent = "→";
+        arrow.style.color = "var(--sage)";
+        wrap.appendChild(arrow);
+      }
+    });
+  })();
+
+  (function renderOrderExercise() {
+    var zone = document.getElementById("orderZone");
+    var shuffled = workflowStates.slice().sort(function () { return Math.random() - 0.5; });
+    shuffled.forEach(function (s, i) {
+      var chip = document.createElement("div");
+      chip.className = "drag-chip";
+      chip.textContent = s;
+      chip.draggable = true;
+      chip.id = "order-" + s.replace(/\s+/g, "");
+      chip.style.display = "block";
+      chip.addEventListener("dragstart", function (e) { e.dataTransfer.setData("text/plain", chip.id); });
+      zone.appendChild(chip);
+    });
+    zone.addEventListener("dragover", function (e) { e.preventDefault(); });
+    zone.addEventListener("drop", function (e) {
+      e.preventDefault();
+      var id = e.dataTransfer.getData("text/plain");
+      var dragged = document.getElementById(id);
+      var after = getDragAfterElement(zone, e.clientY);
+      if (after == null) zone.appendChild(dragged);
+      else zone.insertBefore(dragged, after);
+    });
+    function getDragAfterElement(container, y) {
+      var els = Array.prototype.slice.call(container.querySelectorAll(".drag-chip:not(.dragging)"));
+      return els.reduce(function (closest, child) {
+        var box = child.getBoundingClientRect();
+        var offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) return { offset: offset, element: child };
+        return closest;
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+    // simple click-to-move-up/down fallback for touch/keyboard
+    zone.addEventListener("click", function (e) {
+      if (!e.target.classList.contains("drag-chip")) return;
+      var chip = e.target;
+      var prev = chip.previousElementSibling;
+      if (prev) zone.insertBefore(chip, prev);
+      else zone.appendChild(chip);
+    });
+    var hint = document.createElement("p");
+    hint.style.fontSize = "0.78rem";
+    hint.style.color = "var(--ink-soft)";
+    hint.textContent = "Tip: on touch devices, tap an item to move it one step earlier in the list.";
+    zone.parentNode.insertBefore(hint, zone.nextSibling);
+  })();
+
+  document.getElementById("checkOrder").addEventListener("click", function () {
+    var chips = Array.prototype.slice.call(document.getElementById("orderZone").querySelectorAll(".drag-chip"));
+    var current = chips.map(function (c) { return c.textContent; });
+    var correctCount = 0;
+    chips.forEach(function (chip, i) {
+      if (workflowStates[i] === chip.textContent) {
+        correctCount++;
+        chip.style.borderColor = "var(--ok)";
+        chip.style.background = "rgba(62,110,78,0.12)";
+      } else {
+        chip.style.borderColor = "var(--rust)";
+        chip.style.background = "rgba(162,77,61,0.1)";
+      }
+    });
+    var fb = document.getElementById("orderFeedback");
+    fb.classList.add("show", "ok");
+    fb.textContent = correctCount + " of " + workflowStates.length + " in the correct position. Correct order: " + workflowStates.join(" → ");
+  });
+
+  // ---- Observe ----
+  document.getElementById("observeNotes").value = window.PVASMM.getDraft(LESSON_ID, "observeNotes", "");
+  document.getElementById("observeNotes").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "observeNotes", e.target.value); });
+  document.getElementById("revealObserve").addEventListener("click", function () { document.getElementById("observeReveal").style.display = "block"; });
+
+  // ---- Practice: 12-row light calendar ----
+  var practiceCalRows = document.getElementById("practiceCalRows");
+  function addPracticeCalRow(values) {
+    values = values || ["", "", "", "", ""];
+    var labels = ["Week", "Platform", "Pillar", "Topic", "Format"];
+    var tr = document.createElement("tr");
+    tr.innerHTML = labels.map(function (label, i) {
+      return '<td data-label="' + label + '"><input type="text" value="' + escapeHtml(values[i] || "") + '"></td>';
+    }).join("");
+    practiceCalRows.appendChild(tr);
+  }
+  var savedPractice = window.PVASMM.getDraft(LESSON_ID, "practiceCalRows", null);
+  var starterPractice = [
+    ["Week 1", "Facebook", "Filipino food knowledge", "Regional ingredient spotlight", "Static post"],
+    ["Week 1", "Instagram", "Behind the scenes", "Packing a gift box", "Short-form video"]
+  ];
+  (savedPractice || starterPractice.concat(Array(10).fill(["", "", "", "", ""]))).slice(0, 12).forEach(function (r) { addPracticeCalRow(r); });
+
+  function savePracticeRows() {
+    var rows = Array.prototype.map.call(practiceCalRows.querySelectorAll("tr"), function (tr) {
+      return Array.prototype.map.call(tr.querySelectorAll("input"), function (inp) { return inp.value; });
+    });
+    window.PVASMM.saveDraft(LESSON_ID, "practiceCalRows", rows);
+  }
+  practiceCalRows.addEventListener("blur", savePracticeRows, true);
+
+  // ---- Check: approval gate ----
+  var gateEntries = [
+    { id: "A", text: "Product spotlight carousel — Instagram — Caption: approved — Asset: ready — Status: Approved", blocked: false },
+    { id: "B", text: "Community question post — Facebook — Caption: draft, not yet reviewed — Asset: ready — Status: Internal Review", blocked: true, reason: "Caption is still in draft, not approved." },
+    { id: "C", text: "Regional story post — Facebook — Caption: approved — Asset: ready — Status: Approved", blocked: false },
+    { id: "D", text: "Short-form video — Instagram — Caption: approved — Asset: not yet filmed — Status: Briefed", blocked: true, reason: "No finished asset to publish yet." },
+    { id: "E", text: "FAQ carousel — Instagram — Caption: approved — Asset: ready — Status: Approved", blocked: false },
+    { id: "F", text: "Product value post — Facebook — Caption: approved — Asset: ready — Status: Awaiting Approval", blocked: true, reason: "Client hasn't signed off yet." }
+  ];
+  (function renderGate() {
+    var wrap = document.getElementById("approvalGateExercise");
+    gateEntries.forEach(function (entry) {
+      var row = document.createElement("div");
+      row.className = "exercise-item";
+      row.innerHTML =
+        '<div class="prompt">Entry ' + entry.id + ': ' + entry.text + '</div>' +
+        '<div class="choice-row"><button class="choice-btn" data-choice="ready">Ready to schedule</button><button class="choice-btn" data-choice="blocked">Not ready</button></div>';
+      wrap.appendChild(row);
+      row.querySelectorAll(".choice-btn").forEach(function (b) {
+        b.addEventListener("click", function () {
+          row.querySelectorAll(".choice-btn").forEach(function (x) { x.classList.remove("selected"); });
+          b.classList.add("selected");
+        });
+      });
+    });
+  })();
+  document.getElementById("revealCheck").addEventListener("click", function () { document.getElementById("checkReveal").style.display = "block"; });
+
+  // ---- Apply: full calendar builder ----
+  var calendarRows = document.getElementById("calendarRows");
+  var calLabels = ["Date / Week", "Platform", "Pillar", "Topic & Hook", "Format", "CTA", "Status", "Notes"];
+  function addCalRow(values) {
+    values = values || Array(8).fill("");
+    var tr = document.createElement("tr");
+    tr.innerHTML = calLabels.map(function (label, i) {
+      return '<td data-label="' + label + '"><input type="text" value="' + escapeHtml(values[i] || "") + '"></td>';
+    }).join("") + '<td><button type="button" class="row-remove" aria-label="Remove row">✕</button></td>';
+    tr.querySelector(".row-remove").addEventListener("click", function () { tr.remove(); });
+    calendarRows.appendChild(tr);
+  }
+  var savedCal = window.PVASMM.getDraft(LESSON_ID, "calendarRows", null);
+  var starterCal = savedCal || Array(12).fill(0).map(function (_, i) { return ["Week " + (Math.floor(i / 3) + 1), "", "", "", "", "", "Idea", ""]; });
+  starterCal.forEach(function (r) { addCalRow(r); });
+  document.getElementById("addRow").addEventListener("click", function () { addCalRow(); });
+
+  function collectCalRows() {
+    return Array.prototype.map.call(calendarRows.querySelectorAll("tr"), function (tr) {
+      var inputs = tr.querySelectorAll("input");
+      return Array.prototype.map.call(inputs, function (inp) { return inp.value; });
+    }).filter(function (r) { return r.some(function (v) { return v.trim() !== ""; }); });
+  }
+
+  // ---- Weekly checklist ----
+  var checklistItems = [
+    "Every scheduled post has an approved caption",
+    "Every scheduled post has its asset ready",
+    "No post is scheduled without client approval where required",
+    "Posting times/dates don't clash or double up",
+    "At least one short-form video is included for the week"
+  ];
+  (function renderChecklist() {
+    var wrap = document.getElementById("weeklyChecklist");
+    var saved = window.PVASMM.getDraft(LESSON_ID, "weeklyChecklist", []);
+    checklistItems.forEach(function (item, i) {
+      var label = document.createElement("label");
+      label.style.display = "flex";
+      label.style.alignItems = "flex-start";
+      label.style.gap = "8px";
+      label.style.marginBottom = "8px";
+      label.style.fontSize = "0.9rem";
+      var cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = !!saved[i];
+      cb.addEventListener("change", function () {
+        var state = checklistItems.map(function (_, j) {
+          return wrap.querySelectorAll('input[type="checkbox"]')[j].checked;
+        });
+        window.PVASMM.saveDraft(LESSON_ID, "weeklyChecklist", state);
+      });
+      label.appendChild(cb);
+      var span = document.createElement("span");
+      span.textContent = item;
+      label.appendChild(span);
+      wrap.appendChild(label);
+    });
+  })();
+
+  document.getElementById("buildExport").addEventListener("click", function () {
+    savePracticeRows();
+    var rows = collectCalRows();
+    window.PVASMM.saveDraft(LESSON_ID, "calendarRows", rows);
+    var checks = Array.prototype.map.call(document.querySelectorAll("#weeklyChecklist input[type=checkbox]"), function (cb) { return cb.checked; });
+
+    var box = document.getElementById("exportBox");
+    var lines = ["FOUR-WEEK CONTENT CALENDAR — Amihan Kitchen", "Probinsiyanong VA Free Training — fictional training work sample", ""];
+    if (rows.length < 12) lines.push("(Note: the curriculum asks for 12 core posts — you currently have " + rows.length + ".)");
+    rows.forEach(function (r, i) {
+      lines.push((i + 1) + ". " + (r[0] || "—") + " | " + (r[1] || "—") + " | Pillar: " + (r[2] || "—"));
+      lines.push("   Topic & hook: " + (r[3] || "—"));
+      lines.push("   Format: " + (r[4] || "—") + " | CTA: " + (r[5] || "—") + " | Status: " + (r[6] || "—"));
+      if (r[7]) lines.push("   Notes: " + r[7]);
+      lines.push("");
+    });
+    lines.push("WEEKLY PRODUCTION CHECKLIST:");
+    checklistItems.forEach(function (item, i) {
+      lines.push((checks[i] ? "[x] " : "[ ] ") + item);
+    });
+    box.textContent = lines.join("\n");
+    box.style.display = "block";
+    document.getElementById("saveReminder").style.display = "block";
+  });
+
+  document.getElementById("finishLesson").addEventListener("click", function () {
+    savePracticeRows();
+    window.PVASMM.saveDraft(LESSON_ID, "calendarRows", collectCalRows());
+    window.PVASMM.markLessonComplete(LESSON_ID);
+    goTo(6);
+  });
+
+  goTo(Math.min(window.PVASMM.getStepProgress(LESSON_ID) || 0, steps.length - 2));
+})();
+</script>
+
+</body>
+</html>
