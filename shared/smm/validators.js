@@ -1,7 +1,7 @@
 /* PVA SMM validators — Phase 1 fail-safe stubs. */
 (function(root){"use strict";
 const rules=Object.freeze({
-"l01-ws":()=>({ok:false,missing:["Lesson 1 validator not implemented"]}),
+"l01-ws":(a)=>{const r=Array.isArray(a)?a:[],m=[];if(r.length<8)m.push("Add at least 8 task rows");r.forEach((x,i)=>{if(!String(x[0]||"").trim())m.push("Row "+(i+1)+": task");if(!String(x[1]||"").trim())m.push("Row "+(i+1)+": skill");if(!String(x[2]||"").trim())m.push("Row "+(i+1)+": evidence / input");if(!String(x[3]||"").trim())m.push("Row "+(i+1)+": approval point");if(!["Within SOP","Needs Approval","Escalate"].includes(String(x[4]||"").trim()))m.push("Row "+(i+1)+": classification");});return{ok:m.length===0,missing:m};},
 "l02-ws":()=>({ok:false,missing:["Lesson 2 validator not implemented"]}),
 "l03-ws":()=>({ok:false,missing:["Lesson 3 validator not implemented"]}),
 "l04-ws":()=>({ok:false,missing:["Lesson 4 validator not implemented"]}),
