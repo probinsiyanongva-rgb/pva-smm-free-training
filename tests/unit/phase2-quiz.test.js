@@ -1,0 +1,7 @@
+const test=require("node:test"),assert=require("node:assert/strict");
+const Quiz=require("../../shared/smm/quiz.js"),pool=require("../../shared/smm/quizzes/lesson-1.js");
+function fake(){const d={};let passed=false,count=0;return{getDraft:(k,f)=>d[k]===undefined?f:d[k],saveDraft:(k,v)=>d[k]=v,recordAttempt:(id,o)=>{count++;if(o.passed)passed=true;},requirementStatus:()=>({passed:passed}),get count(){return count;}};}
+test("pool contains 15 unique items and four fixed coverage items",()=>{assert.equal(pool.length,15);assert.equal(new Set(pool.map(q=>q.id)).size,15);assert.equal(pool.filter(q=>q.fixed).length,4);});
+test("draw returns ten questions and includes all fixed questions",()=>{const q=Quiz.create({pool:pool,store:fake(),requirementId:"l01-quiz"});const d=q.start();assert.equal(d.length,10);assert.equal(d.filter(x=>x.fixed).length,4);});
+test("7/10 fails, 8/10 passes, best score retained",()=>{const s=fake(),q=Quiz.create({pool:pool,store:s,requirementId:"l01-quiz"});let d=q.start(),r=q.submit(d.map((x,i)=>i<7?x.options.findIndex(o=>o.correct):x.options.findIndex(o=>!o.correct)));assert.equal(r.score,7);assert.equal(r.passed,false);d=q.start();r=q.submit(d.map((x,i)=>i<8?x.options.findIndex(o=>o.correct):x.options.findIndex(o=>!o.correct)));assert.equal(r.score,8);assert.equal(r.passed,true);assert.equal(r.best,8);assert.equal(s.count,2);});
+test("all items have tags, four options and explanations",()=>assert.ok(pool.every(q=>q.tag&&q.explanation&&q.options.length===4)));
