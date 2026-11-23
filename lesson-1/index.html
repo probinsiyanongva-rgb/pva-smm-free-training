@@ -185,7 +185,7 @@
   <!-- ================= STEP 5: APPLY ================= -->
   <section class="step-panel folder-tab" data-tab="Apply" data-step="5">
     <div class="step-kicker">Apply — work sample</div>
-    <h2>Build your SMM Task &amp; Workflow Map</h2>
+    <h2>Build your SMM Task &amp; Workflow Map</h2><section class="card"><h3>Knowledge check — 10 questions</h3><p>Answer 10 questions from the 15-question pool. You need at least 8 correct answers. You may retry; your best score is retained.</p><div id="lessonQuiz"></div><button class="btn btn-secondary" type="button" id="startQuiz">Start / retry knowledge check</button><p id="quizStatus" role="status" aria-live="polite"></p><div id="quizReview"></div></section>
     <p>Create a one-page map of at least <strong>8 recurring SMM tasks</strong>. For each one, note the skill it requires, the evidence or input you'd need before doing it well, and whether client approval is likely needed before it's finished.</p>
 
     <table class="builder-table" id="workflowTable">
@@ -194,7 +194,7 @@
           <th style="width:26%;">Task</th>
           <th style="width:22%;">Skill it requires</th>
           <th style="width:26%;">Evidence / input needed</th>
-          <th style="width:18%;">Client approval point?</th>
+          <th style="width:18%;">Approval point</th><th style="width:18%;">Classification</th>
           <th style="width:8%;"></th>
         </tr>
       </thead>
@@ -216,7 +216,7 @@
 
     <div class="btn-row">
       <button class="btn btn-secondary" data-goto="4">Back</button>
-      <button class="btn btn-primary" id="finishLesson">Mark Lesson 1 complete</button>
+      <button class="btn btn-primary" id="finishLesson">Check requirements and finish Lesson 1</button><p id="finishStatus" role="status" aria-live="polite"></p>
     </div>
   </section>
 
@@ -533,5 +533,6 @@
 })();
 </script>
 
+<script src="../shared/pva-core/progress-core.js"></script><script src="../shared/smm/manifest.js"></script><script src="../shared/smm/validators.js"></script><script src="../shared/smm/quizzes/lesson-1.js"></script><script src="../shared/smm/quiz.js"></script><script src="../shared/smm/lesson-1-pilot.js"></script>
 </body>
 </html>
