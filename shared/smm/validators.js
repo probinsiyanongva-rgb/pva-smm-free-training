@@ -15,7 +15,8 @@ const rules=Object.freeze({
 "l12-ws":()=>({ok:false,missing:["Lesson 12 validator not implemented"]}),
 "l13-ws":()=>({ok:false,missing:["Lesson 13 validator not implemented"]}),
 "quiz-pending":()=>({ok:false,missing:["Knowledge check not implemented"]}),
-...Object.fromEntries(Array.from({length:12},(_,i)=>["fp-t"+(i+1),()=>({ok:false,missing:["Final Project stage validator not implemented"]})]))
+...Object.fromEntries(Array.from({length:12},(_,i)=>["fp-t"+(i+1),()=>({ok:false,missing:["Final Project stage validator not implemented"]})])),
+...Object.fromEntries(Array.from({length:8},(_,i)=>["fp-scenario-"+(i+1),()=>({ok:false,missing:["Final Project scenario validator not implemented"]})]))
 });
 if(typeof module==="object"&&module.exports)module.exports=rules;else root.PVASMMValidators=rules;
 })(typeof globalThis!=="undefined"?globalThis:this);
