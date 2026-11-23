@@ -11,7 +11,7 @@ const titles=[
 "Quality Assurance, Security, Copyright & Client Operations"];
 const lessons=titles.map((title,i)=>{const n=i+1,nn=String(n).padStart(2,"0");return{n,title,href:"/lesson-"+n+"/",requirements:[
 {id:"l"+nn+"-ws",type:"work-sample",rule:"l"+nn+"-ws"},
-{id:"l"+nn+"-quiz",type:"quiz",questions:10,pool:"lesson-"+n,rule:"quiz-pending"}]};});
+{id:"l"+nn+"-quiz",type:"quiz",questions:10,pool:"lesson-"+n,rule:n===1?undefined:"quiz-pending"}]};});
 const finalRequirements=Array.from({length:12},(_,i)=>({id:"fp-t"+(i+1),type:"capstone-stage",rule:"fp-t"+(i+1)}));
 const scenarioRequirements=Array.from({length:8},(_,i)=>({id:"fp-scenario-"+(i+1),type:"friction-scenario",rule:"fp-scenario-"+(i+1)}));
 const manifest=Object.freeze({courseId:"smm-foundations",version:"2.0.0",passMark:0.8,lessons,
