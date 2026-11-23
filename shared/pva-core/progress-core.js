@@ -217,7 +217,7 @@
             // The General Admin Core legacy shape nests records under lessons{}.
             const legacyLessons = isPlainObject(v1.lessons) ? v1.lessons : v1;
             for (const [key, v] of Object.entries(legacyLessons)) {
-              const match = /^lesson-(\\d+)$/.exec(key);
+              const match = /^lesson-(\d+)$/.exec(key);
               const num = match ? Number(match[1]) : Number(key);
               if (Number.isInteger(num) && num >= 1 && num <= manifest.lessons.length && isPlainObject(v)) {
                 if (v.complete === true) lessons.push(num);
