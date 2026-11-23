@@ -448,6 +448,7 @@
       const info = inspectBackup(text);
       if (!info.ok) return info;
       if (!confirmed) return { ok: false, needsConfirmation: true, exportedAt: info.exportedAt, backup: info.backup, current: info.current };
+      if (mode !== "persistent") return { ok: false, error: "storage-unavailable" };
       state = info.normalized;
       const saved = persist();
       refresh();
