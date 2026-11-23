@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Progress Backup &amp; Restore | PVA SMM VA</title><link rel="stylesheet" href="/shared/styles.css"><style>
+.tools{max-width:760px;margin:2rem auto;padding:1.25rem;background:#fff;border:1px solid #ddd;border-radius:12px}
+.tools textarea{box-sizing:border-box;width:100%;min-height:180px;padding:.75rem;font:inherit}
+.tools button{padding:.7rem 1rem;margin:.35rem .35rem .35rem 0;border:0;border-radius:7px;background:#173f32;color:#fff;font:inherit;cursor:pointer}
+.tools button:disabled{opacity:.45;cursor:not-allowed}.tools .notice{padding:.8rem;background:#f4efe4;border-radius:8px}
+</style></head><body><main class="tools"><p><a href="/">← Back to the course</a></p><h1>Progress Backup &amp; Restore</h1>
+<p>Your progress and written work are stored in this browser. Browser storage can be cleared, unavailable, or different on another device. Download a backup regularly and keep a copy somewhere safe.</p>
+<p class="notice">Restoring replaces the progress currently in this browser. Inspect the backup first; the page compares the two before asking you to confirm. A rejected backup does not change current progress.</p>
+<h2>Download a backup</h2><button id="download-backup">Download my progress</button><button id="copy-backup">Copy backup as text</button>
+<h2>Restore a backup</h2><label for="backup-file">Choose a backup file (JSON)</label><br><input id="backup-file" type="file" accept=".json,application/json">
+<p>Or paste the backup text below.</p><textarea id="backup-text" spellcheck="false" aria-label="Backup JSON text"></textarea>
+<button id="inspect-backup">Inspect backup</button><div id="restore-preview" class="notice" aria-live="polite">No backup inspected yet.</div>
+<button id="confirm-restore" disabled>Replace my current progress</button><p id="status" role="status" aria-live="polite"></p>
+<p><small>These browser checks support self-paced progress management. They are not tamper-proof and do not verify identity or authorship. Previous-version completion flags are display-only and do not count toward the new course requirements.</small></p></main>
+<script src="/shared/pva-core/progress-core.js"></script><script src="/shared/smm/manifest.js"></script><script src="/shared/smm/validators.js"></script><script src="/shared/smm/backup.js"></script></body></html>
