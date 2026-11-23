@@ -212,9 +212,13 @@
       if (r.ok && r.value) {
         try {
           const v1 = JSON.parse(r.value);
-          if (isPlainObject(v1) && isPlainObject(v1.lessons)) {
-            for (const [n, v] of Object.entries(v1.lessons)) {
-              const num = Number(n);
+          if (isPlainObject(v1)) {
+            // SMM v1 stores lesson records at the top level ("lesson-1", ...).
+            // The General Admin Core legacy shape nests records under lessons{}.
+            const legacyLessons = isPlainObject(v1.lessons) ? v1.lessons : v1;
+            for (const [key, v] of Object.entries(legacyLessons)) {
+              const match = /^lesson-(\\d+)$/.exec(key);
+              const num = match ? Number(match[1]) : Number(key);
               if (Number.isInteger(num) && num >= 1 && num <= manifest.lessons.length && isPlainObject(v)) {
                 if (v.complete === true) lessons.push(num);
                 if (isPlainObject(v.drafts)) {
