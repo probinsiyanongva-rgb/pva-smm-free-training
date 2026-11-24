@@ -470,13 +470,14 @@
   ];
 
   function addRow(values) {
-    values = values || ["", "", "", ""];
+    values = values || ["", "", "", "", ""];
     var tr = document.createElement("tr");
     tr.innerHTML =
       '<td data-label="Task"><input type="text" value="' + escapeHtml(values[0]) + '"></td>' +
       '<td data-label="Skill it requires"><input type="text" value="' + escapeHtml(values[1]) + '"></td>' +
       '<td data-label="Evidence / input needed"><textarea>' + escapeHtml(values[2]) + '</textarea></td>' +
       '<td data-label="Client approval point?"><input type="text" value="' + escapeHtml(values[3]) + '"></td>' +
+      '<td data-label="Classification"><select data-authority aria-label="Authority classification"><option value="">Choose classification</option><option' + (values[4] === "Within SOP" ? " selected" : "") + '>Within SOP</option><option' + (values[4] === "Needs Approval" ? " selected" : "") + '>Needs Approval</option><option' + (values[4] === "Escalate" ? " selected" : "") + '>Escalate</option></select></td>' +
       '<td><button type="button" class="row-remove" aria-label="Remove row">✕</button></td>';
     tr.querySelector(".row-remove").addEventListener("click", function () {
       tr.remove();
@@ -496,7 +497,8 @@
   function collectRows() {
     return Array.prototype.map.call(workflowRows.querySelectorAll("tr"), function (tr) {
       var inputs = tr.querySelectorAll("input, textarea");
-      return [inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value];
+      var authority = tr.querySelector("select[data-authority]");
+      return [inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value, authority ? authority.value : ""];
     }).filter(function (r) { return r.some(function (v) { return v.trim() !== ""; }); });
   }
 
@@ -514,6 +516,7 @@
       lines.push("   Skill required: " + (r[1] || "—"));
       lines.push("   Evidence / input needed: " + (r[2] || "—"));
       lines.push("   Client approval point: " + (r[3] || "—"));
+      lines.push("   Classification: " + (r[4] || "—"));
       lines.push("");
     });
     box.textContent = lines.join("\n");
