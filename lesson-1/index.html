@@ -34,6 +34,13 @@
 <main class="container">
 
   <!-- Step navigation -->
+  <div class="callout" id="storageNotice" role="alert" hidden style="margin-bottom:16px; border-left:4px solid var(--rust);">
+    <strong>This browser is not saving your progress right now.</strong>
+    <p style="margin:8px 0;">This can happen in private browsing or when site storage is blocked or full. You can keep working, but your answers, quiz results and lesson completion are kept only until you close or reload this page.</p>
+    <p style="margin:8px 0;">To keep your work: download a backup now, then open the course in a normal browser window and restore it on the <a href="../progress/">Back up / restore progress</a> page.</p>
+    <button class="btn btn-secondary" type="button" id="storageBackup">Download a backup of this page's progress</button>
+    <p id="storageBackupStatus" role="status" aria-live="polite" style="margin:8px 0 0;"></p>
+  </div>
   <nav class="step-nav" id="stepNav" aria-label="Lesson steps"></nav>
   <div class="progress-rail" style="margin-top:6px;"><span id="lessonProgressBar" style="width:0%;"></span></div>
 
@@ -569,6 +576,26 @@
     document.getElementById("saveReminder").style.display = "block";
   });
 
+  // ---- Storage status ----
+  // The v2 store falls back to memory when browser storage is unavailable or a write
+  // fails. Learners must see that, and must never be told something was saved when it wasn't.
+  var storageNotice = document.getElementById("storageNotice");
+  function showStorageNotice() { storageNotice.hidden = false; }
+  function persistent() { return !!(L.store && L.store.isPersistent()); }
+  if (L.store) {
+    L.store.on("storage-unavailable", showStorageNotice); // also fires at once if already in memory mode
+    document.getElementById("storageBackup").addEventListener("click", function () {
+      var st = document.getElementById("storageBackupStatus");
+      try {
+        var blob = new Blob([L.store.exportBackup()], { type: "application/json" });
+        var url = URL.createObjectURL(blob), a = document.createElement("a");
+        a.href = url; a.download = "smm-va-progress-backup-" + new Date().toISOString().slice(0, 10) + ".json";
+        document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        st.textContent = "Backup downloaded. Keep the file until you have restored it in a browser that saves progress.";
+      } catch (e) { st.textContent = "The backup could not be downloaded here. Copy your written answers into a document before leaving."; }
+    });
+  }
+
   // ---- Knowledge Check (shared quiz engine) ----
   var quizHost = document.getElementById("lessonQuiz"), quizStatus = document.getElementById("quizStatus"),
       quizReview = document.getElementById("quizReview"), quiz = null;
@@ -599,7 +626,9 @@
       submit.disabled = true;
       quizHost.querySelectorAll("input").forEach(function (x) { x.disabled = true; });
       quizStatus.textContent = "Score: " + r.score + "/10. Best: " + r.best + "/10. " +
-        (r.passed ? "Knowledge check passed." : "You need at least 8/10. Review the explanations, then start a new attempt.");
+        (r.passed ? "Knowledge check passed." : "You need at least 8/10. Review the explanations, then start a new attempt.") +
+        (r.saved ? "" : " This result is NOT saved in this browser and will be lost when you close or reload the page. See the notice at the top of the page.");
+      if (!r.saved) showStorageNotice();
       r.review.forEach(function (x, i) {
         var p = document.createElement("p");
         p.textContent = (i + 1) + ". " + (x.correct ? "Correct. " : "Not quite. Correct answer: " + x.correctAnswer + ". ") + x.explanation;
@@ -635,8 +664,14 @@
     }
     var done = L.store.markLessonComplete(1);
     if (!done.ok) { finishStatus.textContent = "Completion was not recorded. Review the requirements and try again."; return; }
-    finishStatus.textContent = done.saved ? "Lesson 1 requirements passed and progress saved." :
-      "Lesson 1 requirements passed, but this browser could not save progress. Download a backup before leaving.";
+    if (!done.saved || !persistent()) {
+      // Requirements are met, but completion is only in memory: do not show the Done step.
+      showStorageNotice();
+      finishStatus.textContent = "All Lesson 1 requirements are met, but this browser could not save your completion, so Lesson 1 is NOT recorded as complete yet. Download a backup using the button at the top of the page, then restore it in a browser that saves progress and finish the lesson there.";
+      storageNotice.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    finishStatus.textContent = "Lesson 1 requirements passed and progress saved.";
     goTo(7);
   });
 

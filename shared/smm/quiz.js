@@ -53,9 +53,12 @@
       const passed = score / n >= pass;
       const old = history();
       const next = { best: Math.max(Number(old.best) || 0, score), last: score, attempts: (Number(old.attempts) || 0) + 1 };
-      cfg.store.saveDraft(historyKey, next);
-      cfg.store.recordAttempt(cfg.requirementId, { passed: passed, answer: { score: score, attempts: next.attempts } });
-      return { score, percent: Math.round((score / n) * 100), passed, best: next.best, attempts: next.attempts, review };
+      // saved is true only if both the history and the requirement record reached
+      // persistent storage; pages must not say a result was saved when it was not.
+      const historySaved = cfg.store.saveDraft(historyKey, next) === true;
+      const rec = cfg.store.recordAttempt(cfg.requirementId, { passed: passed, answer: { score: score, attempts: next.attempts } });
+      const saved = historySaved && !!(rec && rec.saved === true);
+      return { score, percent: Math.round((score / n) * 100), passed, best: next.best, attempts: next.attempts, review, saved };
     }
     return { start, current, submit, isSubmitted, history };
   }
