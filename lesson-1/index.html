@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 1: What Does an SMM VA Actually Do? | PVA Free Training — SMM</title>
+<title>Lesson 1: SMM VA Role, Responsibilities &amp; Boundaries | PVA Free Training — SMM</title>
 <meta name="description" content="Lesson 1 of the Social Media Management VA Beginner Foundations training — role understanding, workflow, and boundaries.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
 <header class="page-header">
   <div class="container">
     <div class="eyebrow">Lesson 1 of 13</div>
-    <h1>What Does an SMM VA Actually Do?</h1>
+    <h1>SMM VA Role, Responsibilities &amp; Boundaries</h1>
     <p class="lede">Role understanding, workflow, and boundaries — and the first piece of your portfolio, the SMM Task &amp; Workflow Map.</p>
   </div>
 </header>
@@ -183,9 +183,9 @@
   </section>
 
   <!-- ================= STEP 5: APPLY ================= -->
-  <section class="step-panel folder-tab" data-tab="Apply" data-step="5">
+  <section class="step-panel folder-tab" data-tab="Knowledge Check" data-step="5"><div class="step-kicker">Check — knowledge check</div><h2>Test your understanding</h2><p>Answer 10 questions from the 15-question pool. You need at least 8 correct answers. You may retry; your best score is retained.</p><div id="lessonQuiz"></div><button class="btn btn-secondary" type="button" id="startQuiz">Start / retry knowledge check</button><p id="quizStatus" role="status" aria-live="polite"></p><div id="quizReview"></div><div class="btn-row"><button class="btn btn-secondary" data-goto="4">Back</button><button class="btn btn-primary" data-goto="6">Continue to Apply</button></div></section>\n\n  <section class="step-panel folder-tab" data-tab="Apply" data-step="6">
     <div class="step-kicker">Apply — work sample</div>
-    <h2>Build your SMM Task &amp; Workflow Map</h2><section class="card"><h3>Knowledge check — 10 questions</h3><p>Answer 10 questions from the 15-question pool. You need at least 8 correct answers. You may retry; your best score is retained.</p><div id="lessonQuiz"></div><button class="btn btn-secondary" type="button" id="startQuiz">Start / retry knowledge check</button><p id="quizStatus" role="status" aria-live="polite"></p><div id="quizReview"></div></section>
+    <h2>Build your SMM Task &amp; Workflow Map</h2>
     <p>Create a one-page map of at least <strong>8 recurring SMM tasks</strong>. For each one, note the skill it requires, the evidence or input you'd need before doing it well, and whether client approval is likely needed before it's finished.</p>
 
     <table class="builder-table" id="workflowTable">
@@ -221,7 +221,7 @@
   </section>
 
   <!-- ================= STEP 6: COMPLETE ================= -->
-  <section class="step-panel folder-tab" data-tab="Done" data-step="6" data-state="done">
+  <section class="step-panel folder-tab" data-tab="Done" data-step="7" data-state="done">
     <span class="stamp">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.6L4 14.1l5 5 11-11-1.5-1.4z"/></svg>
       Lesson 1 complete
@@ -251,7 +251,7 @@
   var LESSON_ID = "lesson-1";
   var steps = Array.prototype.slice.call(document.querySelectorAll(".step-panel"));
   var stepNav = document.getElementById("stepNav");
-  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Apply", "Done"];
+  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Knowledge Check", "Apply", "Done"];
 
   // ---- Step navigation ----
   function renderStepNav(activeIndex) {
@@ -525,7 +525,7 @@
   document.getElementById("finishLesson").addEventListener("click", function () {
     window.PVASMM.saveDraft(LESSON_ID, "workflowRows", collectRows());
     window.PVASMM.markLessonComplete(LESSON_ID);
-    goTo(6);
+    goTo(7);
   });
 
   // ---- Init ----
