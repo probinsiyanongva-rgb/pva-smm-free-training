@@ -191,7 +191,10 @@
   </section>
 
   <!-- ================= STEP 5: KNOWLEDGE CHECK ================= -->
-  <section class="step-panel folder-tab" data-tab="Knowledge Check" data-step="5"><div class="step-kicker">Check — knowledge check</div><h2>Test your understanding</h2><p>Answer 10 questions from the 15-question pool. You need at least 8 correct answers. You may retry; your best score is retained.</p><div id="lessonQuiz"></div><button class="btn btn-secondary" type="button" id="startQuiz">Start / retry knowledge check</button><p id="quizStatus" role="status" aria-live="polite"></p><div id="quizReview"></div><div class="btn-row"><button class="btn btn-secondary" data-goto="4">Back</button><button class="btn btn-primary" data-goto="6">Continue to Apply</button></div></section>\n\n  <section class="step-panel folder-tab" data-tab="Apply" data-step="6">
+  <section class="step-panel folder-tab" data-tab="Knowledge Check" data-step="5"><div class="step-kicker">Check — knowledge check</div><h2>Test your understanding</h2><p>Answer 10 questions from the 15-question pool. You need at least 8 correct answers. You may retry; your best score is retained.</p><div id="lessonQuiz"></div><button class="btn btn-secondary" type="button" id="startQuiz">Start / retry knowledge check</button><p id="quizStatus" role="status" aria-live="polite"></p><div id="quizReview"></div><div class="btn-row"><button class="btn btn-secondary" data-goto="4">Back</button><button class="btn btn-primary" data-goto="6">Continue to Apply</button></div></section>
+
+  <!-- ================= STEP 6: APPLY ================= -->
+  <section class="step-panel folder-tab" data-tab="Apply" data-step="6">
     <div class="step-kicker">Apply — work sample</div>
     <h2>Build your SMM Task &amp; Workflow Map</h2>
     <p>Create a one-page map of at least <strong>8 recurring SMM tasks</strong>. For each one, note the skill it requires, the evidence or input you'd need before doing it well, and whether client approval is likely needed before it's finished.</p>
@@ -219,16 +222,17 @@
 
     <div class="export-box no-print" id="exportBox" style="display:none;"></div>
     <div class="save-reminder no-print" id="saveReminder" style="display:none;">
-      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. This site does not store your written work; it only remembers that you've completed the lesson.
+      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. Your answers are saved in this browser only, so keep your own copy and use <a href="../progress/">Back up / restore progress</a> if you change browsers or devices.
     </div>
 
     <div class="btn-row">
       <button class="btn btn-secondary" data-goto="5">Back</button>
-      <button class="btn btn-primary" id="finishLesson">Check requirements and finish Lesson 1</button><p id="finishStatus" role="status" aria-live="polite"></p>
+      <button class="btn btn-primary" id="finishLesson">Check requirements and finish Lesson 1</button>
     </div>
+    <p id="finishStatus" role="status" aria-live="polite"></p>
   </section>
 
-  <!-- ================= STEP 6: COMPLETE ================= -->
+  <!-- ================= STEP 7: COMPLETE ================= -->
   <section class="step-panel folder-tab" data-tab="Done" data-step="7" data-state="done">
     <span class="stamp">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.6L4 14.1l5 5 11-11-1.5-1.4z"/></svg>
@@ -251,12 +255,45 @@
   </div>
 </footer>
 
-<script src="../shared/progress-smm.js"></script>
+<script src="../shared/pva-core/progress-core.js"></script>
+<script src="../shared/smm/manifest.js"></script>
+<script src="../shared/smm/validators.js"></script>
+<script src="../shared/smm/quizzes/lesson-1.js"></script>
+<script src="../shared/smm/quiz.js"></script>
 <script>
 (function () {
   "use strict";
 
   var LESSON_ID = "lesson-1";
+
+  // ---- Progress (SMM 2.0) ----
+  // All progress goes to the v2 store (pva-smm-ft-v2). Drafts keep their v1 field ids,
+  // namespaced as "lesson-1:<fieldId>", which is exactly where the one-time v1 migration
+  // puts them. The v1 key (pva-smm-ft-progress) is only read, never written.
+  var L = (function () {
+    var ok = window.PVACore && window.PVASMMManifest && window.PVASMMValidators;
+    var store = null;
+    if (ok) {
+      store = PVACore.create({ storageKey: "pva-smm-ft-v2", courseId: PVASMMManifest.courseId, manifest: PVASMMManifest,
+        rules: PVASMMValidators, legacy: { key: "pva-smm-ft-progress" } });
+    }
+    function legacyStep(lessonId) {
+      try {
+        var v1 = JSON.parse(window.localStorage.getItem("pva-smm-ft-progress") || "null");
+        return v1 && v1[lessonId] && typeof v1[lessonId].lastStep === "number" ? v1[lessonId].lastStep : 0;
+      } catch (e) { return 0; }
+    }
+    return {
+      store: store,
+      getDraft: function (lessonId, key, fallback) { return store ? store.getDraft(lessonId + ":" + key, fallback) : fallback; },
+      saveDraft: function (lessonId, key, value) { return store ? store.saveDraft(lessonId + ":" + key, value) : false; },
+      getStepProgress: function (lessonId) {
+        var v = store ? store.getDraft(lessonId + ":lastStep", null) : null;
+        return typeof v === "number" ? v : legacyStep(lessonId);
+      },
+      saveStepProgress: function (lessonId, step) { if (store) store.saveDraft(lessonId + ":lastStep", step); }
+    };
+  })();
   var steps = Array.prototype.slice.call(document.querySelectorAll(".step-panel"));
   var stepNav = document.getElementById("stepNav");
   var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Knowledge Check", "Apply", "Done"];
@@ -276,13 +313,13 @@
     });
   }
 
-  var reachedMax = window.PVASMM.getStepProgress(LESSON_ID) || 0;
+  var reachedMax = L.getStepProgress(LESSON_ID) || 0;
 
   function goTo(index) {
     steps.forEach(function (s) { s.classList.remove("is-active"); });
     steps[index].classList.add("is-active");
     if (index > reachedMax) reachedMax = index;
-    window.PVASMM.saveStepProgress(LESSON_ID, reachedMax);
+    L.saveStepProgress(LESSON_ID, reachedMax);
     renderStepNav(index);
     document.getElementById("lessonProgressBar").style.width =
       Math.round((index / (steps.length - 1)) * 100) + "%";
@@ -340,11 +377,11 @@
   // ---- Observe reveal ----
   document.getElementById("revealObserve").addEventListener("click", function () {
     document.getElementById("observeReveal").style.display = "block";
-    window.PVASMM.saveDraft(LESSON_ID, "observeNotes", document.getElementById("observeNotes").value);
+    L.saveDraft(LESSON_ID, "observeNotes", document.getElementById("observeNotes").value);
   });
-  document.getElementById("observeNotes").value = window.PVASMM.getDraft(LESSON_ID, "observeNotes", "");
+  document.getElementById("observeNotes").value = L.getDraft(LESSON_ID, "observeNotes", "");
   document.getElementById("observeNotes").addEventListener("blur", function (e) {
-    window.PVASMM.saveDraft(LESSON_ID, "observeNotes", e.target.value);
+    L.saveDraft(LESSON_ID, "observeNotes", e.target.value);
   });
 
   // ---- Practice: drag-and-drop classification ----
@@ -450,15 +487,15 @@
       "Tasks outlined in red have a suggested category shown if you hover — but for one of them (the DM task), more than one placement is defensible. That's expected, not a mistake.";
   });
 
-  document.getElementById("policyNotes").value = window.PVASMM.getDraft(LESSON_ID, "policyNotes", "");
+  document.getElementById("policyNotes").value = L.getDraft(LESSON_ID, "policyNotes", "");
   document.getElementById("policyNotes").addEventListener("blur", function (e) {
-    window.PVASMM.saveDraft(LESSON_ID, "policyNotes", e.target.value);
+    L.saveDraft(LESSON_ID, "policyNotes", e.target.value);
   });
 
   // ---- Check step ----
-  document.getElementById("boundaryResponse").value = window.PVASMM.getDraft(LESSON_ID, "boundaryResponse", "");
+  document.getElementById("boundaryResponse").value = L.getDraft(LESSON_ID, "boundaryResponse", "");
   document.getElementById("boundaryResponse").addEventListener("blur", function (e) {
-    window.PVASMM.saveDraft(LESSON_ID, "boundaryResponse", e.target.value);
+    L.saveDraft(LESSON_ID, "boundaryResponse", e.target.value);
   });
   document.getElementById("revealCheck").addEventListener("click", function () {
     document.getElementById("checkReveal").style.display = "block";
@@ -497,7 +534,7 @@
     return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
 
-  var savedRows = window.PVASMM.getDraft(LESSON_ID, "workflowRows", null);
+  var savedRows = L.getDraft(LESSON_ID, "workflowRows", null);
   (savedRows || starterRows).forEach(function (r) { addRow(r); });
 
   document.getElementById("addRow").addEventListener("click", function () { addRow(); });
@@ -512,7 +549,7 @@
 
   document.getElementById("buildExport").addEventListener("click", function () {
     var rows = collectRows();
-    window.PVASMM.saveDraft(LESSON_ID, "workflowRows", rows);
+    L.saveDraft(LESSON_ID, "workflowRows", rows);
     var box = document.getElementById("exportBox");
     var lines = ["SMM TASK & WORKFLOW MAP", "Probinsiyanong VA Free Training — fictional training work sample", ""];
     if (rows.length < 8) {
@@ -532,18 +569,81 @@
     document.getElementById("saveReminder").style.display = "block";
   });
 
-  // ---- Finish lesson ----
+  // ---- Knowledge Check (shared quiz engine) ----
+  var quizHost = document.getElementById("lessonQuiz"), quizStatus = document.getElementById("quizStatus"),
+      quizReview = document.getElementById("quizReview"), quiz = null;
+  if (L.store && window.PVASMMQuiz && window.PVASMMQuizLesson1) {
+    quiz = PVASMMQuiz.create({ pool: PVASMMQuizLesson1, store: L.store, requirementId: "l01-quiz",
+      historyKey: "lesson-1:quiz-history", questionsPerAttempt: 10, passMark: PVASMMManifest.passMark });
+  }
+  function renderQuiz() {
+    quizHost.innerHTML = ""; quizReview.innerHTML = "";
+    quiz.current().forEach(function (q, i) {
+      var f = document.createElement("fieldset"); f.className = "exercise-item";
+      var legend = document.createElement("legend"); legend.textContent = (i + 1) + ". " + q.prompt; f.appendChild(legend);
+      q.options.forEach(function (o, j) {
+        var label = document.createElement("label"); label.style.display = "block"; label.style.margin = ".45rem 0";
+        var input = document.createElement("input"); input.type = "radio"; input.name = "pva-l1-q" + i; input.value = String(j);
+        label.appendChild(input); label.appendChild(document.createTextNode(" " + o.text)); f.appendChild(label);
+      });
+      quizHost.appendChild(f);
+    });
+    var submit = document.createElement("button"); submit.type = "button"; submit.className = "btn btn-primary"; submit.textContent = "Submit answers";
+    submit.addEventListener("click", function () {
+      if (quiz.isSubmitted()) return;
+      var answers = Array.prototype.map.call(quizHost.querySelectorAll("fieldset"), function (f) {
+        var x = f.querySelector("input:checked"); return x ? Number(x.value) : -1;
+      });
+      if (answers.some(function (x) { return x < 0; })) { quizStatus.textContent = "Please answer all 10 questions."; return; }
+      var r = quiz.submit(answers);
+      submit.disabled = true;
+      quizHost.querySelectorAll("input").forEach(function (x) { x.disabled = true; });
+      quizStatus.textContent = "Score: " + r.score + "/10. Best: " + r.best + "/10. " +
+        (r.passed ? "Knowledge check passed." : "You need at least 8/10. Review the explanations, then start a new attempt.");
+      r.review.forEach(function (x, i) {
+        var p = document.createElement("p");
+        p.textContent = (i + 1) + ". " + (x.correct ? "Correct. " : "Not quite. Correct answer: " + x.correctAnswer + ". ") + x.explanation;
+        quizReview.appendChild(p);
+      });
+    });
+    quizHost.appendChild(submit);
+  }
+  document.getElementById("startQuiz").addEventListener("click", function () {
+    if (!quiz) { quizStatus.textContent = "The knowledge check could not load. Reload the page to try again."; return; }
+    quiz.start(); renderQuiz(); quizStatus.textContent = "Choose one answer for each question.";
+  });
+  if (quiz) {
+    var hist = quiz.history();
+    if (hist.attempts) quizStatus.textContent = "Previous attempts: " + hist.attempts + ". Best score: " + hist.best + "/10." +
+      (L.store.requirementStatus("l01-quiz").passed ? " Knowledge check passed." : "");
+  }
+
+  // ---- Finish lesson (both requirements must pass) ----
+  var finishStatus = document.getElementById("finishStatus");
   document.getElementById("finishLesson").addEventListener("click", function () {
-    window.PVASMM.saveDraft(LESSON_ID, "workflowRows", collectRows());
-    window.PVASMM.markLessonComplete(LESSON_ID);
+    var rows = collectRows();
+    L.saveDraft(LESSON_ID, "workflowRows", rows);
+    if (!L.store) { finishStatus.textContent = "Progress tools could not load, so completion cannot be recorded. Reload the page to try again."; return; }
+    L.store.recordAttempt("l01-ws", { answer: rows });
+    var ws = PVASMMValidators["l01-ws"](rows), qz = L.store.requirementStatus("l01-quiz");
+    if (!ws.ok || !qz.passed) {
+      var parts = [];
+      if (!ws.ok) parts.push("Work sample: " + ws.missing.join("; ") + ".");
+      if (!qz.passed) parts.push("Knowledge check: pass with at least 8/10.");
+      finishStatus.textContent = "Not complete yet. " + parts.join(" ");
+      return;
+    }
+    var done = L.store.markLessonComplete(1);
+    if (!done.ok) { finishStatus.textContent = "Completion was not recorded. Review the requirements and try again."; return; }
+    finishStatus.textContent = done.saved ? "Lesson 1 requirements passed and progress saved." :
+      "Lesson 1 requirements passed, but this browser could not save progress. Download a backup before leaving.";
     goTo(7);
   });
 
   // ---- Init ----
-  goTo(Math.min(window.PVASMM.getStepProgress(LESSON_ID) || 0, steps.length - 2));
+  goTo(Math.min(L.getStepProgress(LESSON_ID) || 0, steps.length - 2));
 })();
 </script>
 
-<script src="../shared/pva-core/progress-core.js"></script><script src="../shared/smm/manifest.js"></script><script src="../shared/smm/validators.js"></script><script src="../shared/smm/quizzes/lesson-1.js"></script><script src="../shared/smm/quiz.js"></script><script src="../shared/smm/lesson-1-pilot.js"></script>
 </body>
 </html>
