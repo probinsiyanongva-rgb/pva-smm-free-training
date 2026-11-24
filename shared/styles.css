@@ -627,3 +627,10 @@ textarea.text-response:focus { border-color: var(--sage); }
     margin-bottom: 2px;
   }
 }
+
+/* Development preview banner (preview deployments only; see data-dev-preview-banner script) */
+.dev-preview-banner {
+  background: #7a2e1f; color: #fff; text-align: center;
+  padding: 8px 16px; font-size: 0.88rem; line-height: 1.4;
+}
+.dev-preview-banner a { color: #fff; text-decoration: underline; }

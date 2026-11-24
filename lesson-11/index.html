@@ -337,5 +337,18 @@
 })();
 </script>
 
+<script data-dev-preview-banner>
+/* Development preview banner: shown only on Cloudflare preview addresses
+   (<id>.pva-smm-free-training.pages.dev, dev-v2-0.pva-smm-free-training.pages.dev),
+   never on the official course at pva-smm-free-training.pages.dev. */
+(function () {
+  if (!/\.pva-smm-free-training\.pages\.dev$/i.test(location.hostname)) return;
+  var b = document.createElement("div");
+  b.className = "dev-preview-banner"; b.setAttribute("role", "note");
+  b.innerHTML = "<strong>Development preview</strong> \u2014 not the official course. Content may be unfinished or change. " +
+    "The official course is at <a href=\"https://pva-smm-free-training.pages.dev/\">pva-smm-free-training.pages.dev</a>.";
+  document.body.insertBefore(b, document.body.firstChild);
+})();
+</script>
 </body>
 </html>

@@ -12,4 +12,17 @@
 <button id="inspect-backup">Inspect backup</button><div id="restore-preview" class="notice" aria-live="polite">No backup inspected yet.</div>
 <button id="confirm-restore" disabled>Replace my current progress</button><p id="status" role="status" aria-live="polite"></p>
 <p><small>These browser checks support self-paced progress management. They are not tamper-proof and do not verify identity or authorship. Previous-version completion flags are display-only and do not count toward the new course requirements.</small></p></main>
-<script src="/shared/pva-core/progress-core.js"></script><script src="/shared/smm/manifest.js"></script><script src="/shared/smm/validators.js"></script><script src="/shared/smm/backup.js"></script></body></html>
+<script src="/shared/pva-core/progress-core.js"></script><script src="/shared/smm/manifest.js"></script><script src="/shared/smm/validators.js"></script><script src="/shared/smm/backup.js"></script><script data-dev-preview-banner>
+/* Development preview banner: shown only on Cloudflare preview addresses
+   (<id>.pva-smm-free-training.pages.dev, dev-v2-0.pva-smm-free-training.pages.dev),
+   never on the official course at pva-smm-free-training.pages.dev. */
+(function () {
+  if (!/\.pva-smm-free-training\.pages\.dev$/i.test(location.hostname)) return;
+  var b = document.createElement("div");
+  b.className = "dev-preview-banner"; b.setAttribute("role", "note");
+  b.innerHTML = "<strong>Development preview</strong> \u2014 not the official course. Content may be unfinished or change. " +
+    "The official course is at <a href=\"https://pva-smm-free-training.pages.dev/\">pva-smm-free-training.pages.dev</a>.";
+  document.body.insertBefore(b, document.body.firstChild);
+})();
+</script>
+</body></html>
