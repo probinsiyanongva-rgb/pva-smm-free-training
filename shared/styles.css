@@ -480,7 +480,7 @@ textarea.text-response:focus { border-color: var(--sage); }
   border-bottom: 2px solid var(--line);
 }
 .builder-table td { padding: 6px 8px; vertical-align: top; }
-.builder-table input, .builder-table textarea {
+.builder-table input, .builder-table textarea, .builder-table select {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -490,6 +490,7 @@ textarea.text-response:focus { border-color: var(--sage); }
   background: var(--paper);
 }
 .builder-table textarea { min-height: 40px; resize: vertical; }
+.builder-table select { min-height: 40px; color: var(--ink); }
 .row-remove {
   background: none;
   border: none;
