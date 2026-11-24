@@ -1,7 +1,24 @@
-/* PVA SMM validators — Phase 1 fail-safe stubs. */
+/* PVA SMM validators — completion-only rules; unimplemented lessons fail safe. */
 (function(root){"use strict";
+// Known placeholders, rejected only when they are the entire (trimmed, case-insensitive) value.
+const PLACEHOLDERS=["n/a","na","-",".","x","?","test","asdf","tbd","todo","lorem ipsum","..."];
+const NONE_ANSWERS=["n/a","na","none"];
+function filled(v,opt){const t=String(v==null?"":v).trim().toLowerCase();if(!t)return false;
+  if(opt&&opt.allowNone&&NONE_ANSWERS.includes(t))return true;return!PLACEHOLDERS.includes(t);}
 const rules=Object.freeze({
-"l01-ws":(a)=>{const r=Array.isArray(a)?a:[],m=[];if(r.length<8)m.push("Add at least 8 task rows");r.forEach((x,i)=>{if(!String(x[0]||"").trim())m.push("Row "+(i+1)+": task");if(!String(x[1]||"").trim())m.push("Row "+(i+1)+": skill");if(!String(x[2]||"").trim())m.push("Row "+(i+1)+": evidence / input");if(!String(x[3]||"").trim())m.push("Row "+(i+1)+": approval point");if(!["Within SOP","Needs Approval","Escalate"].includes(String(x[4]||"").trim()))m.push("Row "+(i+1)+": classification");});return{ok:m.length===0,missing:m};},
+"l01-ws":(a)=>{
+  // Completion-only checks (approved validator specification): required fields present,
+  // not blank, not a known placeholder; a classification chosen; at least 8 rows.
+  // Approval point allows "None"/"N/A" as a real answer. Never compares to model answers.
+  const r=Array.isArray(a)?a:[],m=[];
+  if(r.length<8)m.push("Add at least 8 task rows");
+  r.forEach((x,i)=>{x=Array.isArray(x)?x:[];const row="Row "+(i+1)+": ";
+    if(!filled(x[0]))m.push(row+"task");
+    if(!filled(x[1]))m.push(row+"skill");
+    if(!filled(x[2]))m.push(row+"evidence / input");
+    if(!filled(x[3],{allowNone:true}))m.push(row+"approval point");
+    if(!["Within SOP","Needs Approval","Escalate"].includes(String(x[4]||"").trim()))m.push(row+"classification");});
+  return{ok:m.length===0,missing:m};},
 "l02-ws":()=>({ok:false,missing:["Lesson 2 validator not implemented"]}),
 "l03-ws":()=>({ok:false,missing:["Lesson 3 validator not implemented"]}),
 "l04-ws":()=>({ok:false,missing:["Lesson 4 validator not implemented"]}),
