@@ -1,5 +1,6 @@
-/* PVA SMM Course 2.0 — fail-safe manifest skeleton.
-   Phase 1 structure only. Completion rules remain unavailable until implemented and tested. */
+/* PVA SMM Course 2.0 — manifest.
+   Quiz requirements stay fail-safe ("quiz-pending") until a lesson's pool is approved and added
+   (Lessons 1-4 approved). Unimplemented rules fail safe. */
 (function(root){"use strict";
 const titles=[
 "SMM VA Role, Responsibilities & Boundaries","Client Discovery, Brand, Audience & Research",
@@ -11,7 +12,7 @@ const titles=[
 "Quality Assurance, Security, Copyright & Client Operations"];
 const lessons=titles.map((title,i)=>{const n=i+1,nn=String(n).padStart(2,"0");return{n,title,href:"/lesson-"+n+"/",requirements:[
 {id:"l"+nn+"-ws",type:"work-sample",rule:"l"+nn+"-ws"},
-{id:"l"+nn+"-quiz",type:"quiz",questions:10,pool:"lesson-"+n,rule:n===1?undefined:"quiz-pending"}]};});
+{id:"l"+nn+"-quiz",type:"quiz",questions:10,pool:"lesson-"+n,rule:n<=4?undefined:"quiz-pending"}]};});
 const finalRequirements=Array.from({length:12},(_,i)=>({id:"fp-t"+(i+1),type:"capstone-stage",rule:"fp-t"+(i+1)}));
 const scenarioRequirements=Array.from({length:8},(_,i)=>({id:"fp-scenario-"+(i+1),type:"friction-scenario",rule:"fp-scenario-"+(i+1)}));
 const manifest=Object.freeze({courseId:"smm-foundations",version:"2.0.0",passMark:0.8,lessons,
