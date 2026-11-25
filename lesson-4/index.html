@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 4: Content Pillars, Formats & Platform Fit | PVA Free Training — SMM</title>
+<title>Lesson 4: Content Strategy, Pillars &amp; Platform Fit | PVA Free Training — SMM</title>
 <meta name="description" content="Lesson 4 of the Social Media Management VA Beginner Foundations training — content architecture and platform-native thinking.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,12 +26,19 @@
 <header class="page-header">
   <div class="container">
     <div class="eyebrow">Lesson 4 of 13</div>
-    <h1>Content Pillars, Formats &amp; Platform Fit</h1>
+    <h1>Content Strategy, Pillars &amp; Platform Fit</h1>
     <p class="lede">Content architecture and platform-native thinking — turning a strategy into a real content system.</p>
   </div>
 </header>
 
 <main class="container">
+  <div class="callout" id="storageNotice" role="alert" hidden style="margin-bottom:16px; border-left:4px solid var(--rust);">
+    <strong>This browser is not saving your progress right now.</strong>
+    <p style="margin:8px 0;">This can happen in private browsing or when site storage is blocked or full. You can keep working, but your answers, quiz results and lesson completion are kept only until you close or reload this page.</p>
+    <p style="margin:8px 0;">To keep your work: download a backup now, then open the course in a normal browser window and restore it on the <a href="../progress/">Back up / restore progress</a> page.</p>
+    <button class="btn btn-secondary" type="button" id="storageBackup">Download a backup of this page's progress</button>
+    <p id="storageBackupStatus" role="status" aria-live="polite" style="margin:8px 0 0;"></p>
+  </div>
 
   <nav class="step-nav" id="stepNav" aria-label="Lesson steps"></nav>
   <div class="progress-rail" style="margin-top:6px;"><span id="lessonProgressBar" style="width:0%;"></span></div>
@@ -61,7 +68,10 @@
     <p>Examples include static posts, carousels, short-form video, stories, polls, text-led posts, photo posts, and other formats supported by the chosen platform.</p>
 
     <div class="step-kicker" style="margin-top:20px;">4.3 Platform fit</div>
-    <p>One idea can travel across platforms, but the treatment may change. Current platform guidance continues to emphasize original, relevant content, active community participation, discovery, and platform-specific experiences — for example, short-form video platforms have leaned toward curiosity, community, and search/discovery behavior, while other platforms have emphasized original content and creation/performance tools. These are useful current signals, not permanent rules — platform guidance shifts, and a client's actual platform behavior always matters more than a general trend.</p>
+    <p>One idea can travel across platforms, but the treatment usually changes — the length, the layout, the opening, and what you ask people to do. Platforms change their features and recommendations often, so this course doesn't list "what each platform wants right now." Before you plan for a platform, check that platform's own current help pages or creator resources, and note the date you checked. The client's own results on that platform matter more than general trend talk.</p>
+
+    <div class="step-kicker" style="margin-top:20px;">4.4 Production capacity</div>
+    <p>A plan only works if the client can produce it week after week. Before choosing formats, check what the team can actually make: who takes photos, films, or designs; how long each format takes; which products and images are available; and how long approval takes. Two good carousels a week that the client can keep up beat daily videos nobody has time to film. Write down the reason for each format and platform choice — that's the "Why" column in this lesson's work sample.</p>
 
     <div class="step-kicker" style="margin-top:20px;">Quick check — pillar or format?</div>
     <div id="pillarFormatExercise"></div>
@@ -132,18 +142,21 @@
     </div>
     <div class="btn-row">
       <button class="btn btn-secondary" data-goto="3">Back</button>
-      <button class="btn btn-primary" data-goto="5">Continue to Apply</button>
+      <button class="btn btn-primary" data-goto="5">Continue to Knowledge Check</button>
     </div>
   </section>
 
-  <!-- STEP 5: APPLY -->
-  <section class="step-panel folder-tab" data-tab="Apply" data-step="5">
+  <!-- STEP 5: KNOWLEDGE CHECK -->
+  <section class="step-panel folder-tab" data-tab="Knowledge Check" data-step="5"><div class="step-kicker">Check — knowledge check</div><h2>Test your understanding</h2><p>Answer 10 questions from the 15-question pool. You need at least 8 correct answers. You may retry; your best score is retained.</p><div id="lessonQuiz"></div><button class="btn btn-secondary" type="button" id="startQuiz">Start / retry knowledge check</button><p id="quizStatus" role="status" aria-live="polite"></p><div id="quizReview"></div><div class="btn-row"><button class="btn btn-secondary" data-goto="4">Back</button><button class="btn btn-primary" data-goto="6">Continue to Apply</button></div></section>
+
+  <!-- STEP 6: APPLY -->
+  <section class="step-panel folder-tab" data-tab="Apply" data-step="6">
     <div class="step-kicker">Apply — work sample</div>
     <h2>Build the Content Pillar &amp; Format Matrix</h2>
-    <p>Include at least five pillars, four formats, two platforms, and 12 example ideas. Mark which ideas should be adapted (not copied exactly) across platforms.</p>
+    <p>Include at least five pillars, four formats, two platforms, and 12 example ideas. For each idea, choose whether to <strong>adapt</strong> it or <strong>copy it exactly</strong> across platforms, and give a short reason for the format and platform — for example, what the client can produce, or how people use that platform.</p>
     <table class="builder-table" id="matrixTable">
       <thead>
-        <tr><th>Example idea</th><th>Pillar</th><th>Format</th><th>Platform</th><th>Adapt or copy exact?</th><th></th></tr>
+        <tr><th>Example idea</th><th>Pillar</th><th>Format</th><th>Platform</th><th>Adapt or copy exact?</th><th>Why this format and platform?</th><th></th></tr>
       </thead>
       <tbody id="matrixRows"></tbody>
     </table>
@@ -151,23 +164,24 @@
     <div class="btn-row"><button class="btn btn-secondary" id="buildExport" type="button">Generate my Content Pillar &amp; Format Matrix</button></div>
     <div class="export-box no-print" id="exportBox" style="display:none;"></div>
     <div class="save-reminder no-print" id="saveReminder" style="display:none;">
-      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. This site does not store your written work; it only remembers that you've completed the lesson.
+      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. Your answers are saved in this browser only, so keep your own copy and use <a href="../progress/">Back up / restore progress</a> if you change browsers or devices.
     </div>
     <div class="btn-row">
-      <button class="btn btn-secondary" data-goto="4">Back</button>
-      <button class="btn btn-primary" id="finishLesson">Mark Lesson 4 complete</button>
+      <button class="btn btn-secondary" data-goto="5">Back</button>
+      <button class="btn btn-primary" id="finishLesson">Check requirements and finish Lesson 4</button>
     </div>
+    <p id="finishStatus" role="status" aria-live="polite"></p>
   </section>
 
-  <!-- STEP 6: COMPLETE -->
-  <section class="step-panel folder-tab" data-tab="Done" data-step="6" data-state="done">
+  <!-- STEP 7: COMPLETE -->
+  <section class="step-panel folder-tab" data-tab="Done" data-step="7" data-state="done">
     <span class="stamp">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.6L4 14.1l5 5 11-11-1.5-1.4z"/></svg>
       Lesson 4 complete
     </span>
     <h2 style="margin-top:14px;">You now know how to build a content system, not just ideas</h2>
     <p>You practiced telling pillars from formats, adapted one idea across three platforms, built a pillar matrix, filtered a trend against brand fit, and produced the Content Pillar &amp; Format Matrix for Amihan Kitchen.</p>
-    <p>Next up: <strong>Lesson 5 — Build a Social Media Content Calendar.</strong></p>
+    <p>Next up: <strong>Lesson 5 — Content Calendars &amp; Production Planning.</strong></p>
     <div class="lesson-nav-footer">
       <a class="btn btn-secondary" href="../">← Back to course map</a>
       <a class="btn btn-primary" href="../lesson-5/">Start Lesson 5 →</a>
@@ -180,15 +194,52 @@
   <div class="container">Probinsiyanong VA Free Training — Social Media Management VA — genuinely free, no account required.</div>
 </footer>
 
-<script src="../shared/progress-smm.js"></script>
+<script src="../shared/pva-core/progress-core.js"></script>
+<script src="../shared/smm/manifest.js"></script>
+<script src="../shared/smm/validators.js"></script>
+<script src="../shared/smm/quiz.js"></script>
+<!-- The Lesson 4 quiz pool (../shared/smm/quizzes/lesson-4.js) is added here only after content review. -->
 <script>
 (function () {
   "use strict";
-  var LESSON_ID = "lesson-4";
+
+  var LESSON_N = 4;
+
+  // ==== PVA lesson runtime (shared pattern, locked in Phase 2) — part A: begin ====
+  // All progress goes to the v2 store (pva-smm-ft-v2). Drafts keep their v1 field ids,
+  // namespaced as "lesson-N:<fieldId>", which is exactly where the one-time v1 migration
+  // puts them. The v1 key (pva-smm-ft-progress) is only read, never written.
+  var LESSON_ID = "lesson-" + LESSON_N, NN = (LESSON_N < 10 ? "0" : "") + LESSON_N;
+  var L = (function () {
+    var ok = window.PVACore && window.PVASMMManifest && window.PVASMMValidators;
+    var store = null;
+    if (ok) {
+      store = PVACore.create({ storageKey: "pva-smm-ft-v2", courseId: PVASMMManifest.courseId, manifest: PVASMMManifest,
+        rules: PVASMMValidators, legacy: { key: "pva-smm-ft-progress" } });
+    }
+    function legacyStep(lessonId) {
+      try {
+        var v1 = JSON.parse(window.localStorage.getItem("pva-smm-ft-progress") || "null");
+        return v1 && v1[lessonId] && typeof v1[lessonId].lastStep === "number" ? v1[lessonId].lastStep : 0;
+      } catch (e) { return 0; }
+    }
+    return {
+      store: store,
+      getDraft: function (lessonId, key, fallback) { return store ? store.getDraft(lessonId + ":" + key, fallback) : fallback; },
+      saveDraft: function (lessonId, key, value) { return store ? store.saveDraft(lessonId + ":" + key, value) : false; },
+      getStepProgress: function (lessonId) {
+        var v = store ? store.getDraft(lessonId + ":lastStep", null) : null;
+        return typeof v === "number" ? v : legacyStep(lessonId);
+      },
+      saveStepProgress: function (lessonId, step) { if (store) store.saveDraft(lessonId + ":lastStep", step); }
+    };
+  })();
   var steps = Array.prototype.slice.call(document.querySelectorAll(".step-panel"));
   var stepNav = document.getElementById("stepNav");
-  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Apply", "Done"];
-  var reachedMax = window.PVASMM.getStepProgress(LESSON_ID) || 0;
+  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Knowledge Check", "Apply", "Done"];
+  var DONE_STEP = 7;
+  var reachedMax = L.getStepProgress(LESSON_ID) || 0;
+  var onStep = function () {};
 
   function renderStepNav(activeIndex) {
     stepNav.innerHTML = "";
@@ -196,24 +247,31 @@
       var chip = document.createElement(i <= reachedMax ? "button" : "span");
       chip.className = "step-chip" + (i === activeIndex ? " is-current" : "") + (i < activeIndex ? " is-done" : "");
       chip.textContent = (i + 1) + ". " + label;
-      if (i <= reachedMax) { chip.type = "button"; chip.addEventListener("click", function () { goTo(i); }); }
+      if (i <= reachedMax) {
+        chip.type = "button";
+        chip.addEventListener("click", function () { goTo(i); });
+      }
       stepNav.appendChild(chip);
     });
   }
+
   function goTo(index) {
     steps.forEach(function (s) { s.classList.remove("is-active"); });
     steps[index].classList.add("is-active");
     if (index > reachedMax) reachedMax = index;
-    window.PVASMM.saveStepProgress(LESSON_ID, reachedMax);
+    L.saveStepProgress(LESSON_ID, reachedMax);
     renderStepNav(index);
     document.getElementById("lessonProgressBar").style.width = Math.round((index / (steps.length - 1)) * 100) + "%";
+    onStep(index);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+
   document.querySelectorAll("[data-goto]").forEach(function (btn) {
     btn.addEventListener("click", function () { goTo(parseInt(btn.getAttribute("data-goto"), 10)); });
   });
 
   function escapeHtml(s) { return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  // ==== PVA lesson runtime — part A: end ====
 
   // ---- Learn: pillar or format quick check ----
   var pfItems = [
@@ -231,7 +289,7 @@
       row.className = "exercise-item";
       row.innerHTML =
         '<div class="prompt">' + item.text + '</div>' +
-        '<div class="choice-row"><button class="choice-btn" data-c="Pillar">Pillar</button><button class="choice-btn" data-c="Format">Format</button></div>' +
+        '<div class="choice-row"><button type="button" class="choice-btn" data-c="Pillar">Pillar</button><button type="button" class="choice-btn" data-c="Format">Format</button></div>' +
         '<div class="feedback-box info" data-fb></div>';
       var buttons = row.querySelectorAll(".choice-btn");
       var fb = row.querySelector("[data-fb]");
@@ -252,86 +310,97 @@
   // ---- Observe ----
   ["obsFb", "obsCarousel", "obsVideo"].forEach(function (id) {
     var el = document.getElementById(id);
-    el.value = window.PVASMM.getDraft(LESSON_ID, id, "");
-    el.addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, id, e.target.value); });
+    el.value = L.getDraft(LESSON_ID, id, "");
+    el.addEventListener("blur", function (e) { L.saveDraft(LESSON_ID, id, e.target.value); });
   });
   document.getElementById("revealObserve").addEventListener("click", function () { document.getElementById("observeReveal").style.display = "block"; });
 
   // ---- Practice: pillar matrix (5 fixed rows) ----
   var pillarPracticeRows = document.getElementById("pillarPracticeRows");
+  var pillarLabels = ["Pillar", "Audience value", "Business value", "Format 1", "Format 2", "Example topic"];
   function addPillarRow(values) {
-    values = values || ["", "", "", "", "", ""];
+    values = values || [];
     var tr = document.createElement("tr");
-    tr.innerHTML = values.map(function (v, i) {
-      var labels = ["Pillar", "Audience value", "Business value", "Format 1", "Format 2", "Example topic"];
-      return '<td data-label="' + labels[i] + '"><input type="text" value="' + escapeHtml(v) + '"></td>';
+    tr.innerHTML = pillarLabels.map(function (label, i) {
+      return '<td data-label="' + label + '"><input type="text" aria-label="' + label + '" value="' + escapeHtml(values[i] || "") + '"></td>';
     }).join("");
     pillarPracticeRows.appendChild(tr);
   }
-  var savedPillarRows = window.PVASMM.getDraft(LESSON_ID, "pillarPracticeRows", null);
-  (savedPillarRows || [[],[],[],[],[]]).forEach(function () { addPillarRow(); });
-  // restore values if present
-  if (savedPillarRows) {
-    Array.prototype.forEach.call(pillarPracticeRows.querySelectorAll("tr"), function (tr, i) {
-      Array.prototype.forEach.call(tr.querySelectorAll("input"), function (inp, j) {
-        inp.value = savedPillarRows[i][j] || "";
-      });
-    });
-  }
+  var savedPillarRows = L.getDraft(LESSON_ID, "pillarPracticeRows", null);
+  (savedPillarRows && savedPillarRows.length ? savedPillarRows : [[], [], [], [], []]).forEach(function (r) { addPillarRow(r); });
   function savePillarRows() {
     var rows = Array.prototype.map.call(pillarPracticeRows.querySelectorAll("tr"), function (tr) {
       return Array.prototype.map.call(tr.querySelectorAll("input"), function (inp) { return inp.value; });
     });
-    window.PVASMM.saveDraft(LESSON_ID, "pillarPracticeRows", rows);
+    L.saveDraft(LESSON_ID, "pillarPracticeRows", rows);
+    return rows;
   }
   pillarPracticeRows.addEventListener("blur", savePillarRows, true);
 
   // ---- Check ----
-  document.getElementById("trendResponse").value = window.PVASMM.getDraft(LESSON_ID, "trendResponse", "");
-  document.getElementById("trendResponse").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "trendResponse", e.target.value); });
+  document.getElementById("trendResponse").value = L.getDraft(LESSON_ID, "trendResponse", "");
+  document.getElementById("trendResponse").addEventListener("blur", function (e) { L.saveDraft(LESSON_ID, "trendResponse", e.target.value); });
   document.getElementById("revealCheck").addEventListener("click", function () { document.getElementById("checkReveal").style.display = "block"; });
 
   // ---- Apply: matrix builder (12 rows) ----
+  // Row layout: [idea, pillar, format, platform, adapt, rationale]. Columns 0-4 are the v1 layout;
+  // the rationale (index 5) is new in 2.0, so existing drafts keep their values.
   var matrixRows = document.getElementById("matrixRows");
+  var ADAPT_CHOICES = ["Adapt", "Copy exact"];
   var starterMatrix = [
-    ["\"How to store it after opening\" tip", "Product value", "Static post", "Facebook", "Adapt"],
-    ["Same tip as a step-by-step carousel", "Product value", "Carousel", "Instagram", "Adapt"]
+    ["\"How to store it after opening\" tip", "Product value", "Static post", "Facebook", "Adapt", ""],
+    ["Same tip as a step-by-step carousel", "Product value", "Carousel", "Instagram", "Adapt", ""]
   ];
+  function adaptSelect(value) {
+    var v = String(value || "").trim(), known = ADAPT_CHOICES.filter(function (c) { return c.toLowerCase() === v.toLowerCase(); })[0];
+    var html = '<select data-adapt aria-label="Adapt or copy exact?"><option value="">Choose</option>';
+    ADAPT_CHOICES.forEach(function (c) { html += '<option' + (c === known ? " selected" : "") + '>' + c + '</option>'; });
+    // Keep an earlier free-text answer visible (not lost) until the learner picks one of the two choices.
+    if (v && !known) html += '<option value="' + escapeHtml(v) + '" selected>Earlier answer: ' + escapeHtml(v) + ' — choose Adapt or Copy exact</option>';
+    return html + '</select>';
+  }
   function addMatrixRow(values) {
-    values = values || ["", "", "", "", ""];
+    values = values || ["", "", "", "", "", ""];
     var tr = document.createElement("tr");
-    var labels = ["Example idea", "Pillar", "Format", "Platform", "Adapt or copy exact?"];
+    var labels = ["Example idea", "Pillar", "Format", "Platform"];
     tr.innerHTML = labels.map(function (label, i) {
-      return '<td data-label="' + label + '"><input type="text" value="' + escapeHtml(values[i] || "") + '"></td>';
-    }).join("") + '<td><button type="button" class="row-remove" aria-label="Remove row">✕</button></td>';
+      return '<td data-label="' + label + '"><input type="text" aria-label="' + label + '" value="' + escapeHtml(values[i] || "") + '"></td>';
+    }).join("") +
+      '<td data-label="Adapt or copy exact?">' + adaptSelect(values[4]) + '</td>' +
+      '<td data-label="Why this format and platform?"><textarea aria-label="Why this format and platform?">' + escapeHtml(values[5] || "") + '</textarea></td>' +
+      '<td><button type="button" class="row-remove" aria-label="Remove row">✕</button></td>';
     tr.querySelector(".row-remove").addEventListener("click", function () { tr.remove(); });
     matrixRows.appendChild(tr);
   }
-  var savedMatrix = window.PVASMM.getDraft(LESSON_ID, "matrixRows", null);
-  var initialMatrix = savedMatrix || starterMatrix.concat(Array(10).fill(["", "", "", "", ""]));
+  var savedMatrix = L.getDraft(LESSON_ID, "matrixRows", null);
+  var initialMatrix = savedMatrix && savedMatrix.length ? savedMatrix : starterMatrix.concat(Array(10).fill(null));
   initialMatrix.forEach(function (r) { addMatrixRow(r); });
 
   document.getElementById("addRow").addEventListener("click", function () { addMatrixRow(); });
 
   function collectMatrixRows() {
     return Array.prototype.map.call(matrixRows.querySelectorAll("tr"), function (tr) {
-      var inputs = tr.querySelectorAll("input");
-      return [inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value, inputs[4].value];
+      var inputs = tr.querySelectorAll("input"), sel = tr.querySelector("select[data-adapt]"), why = tr.querySelector("textarea");
+      return [inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value, sel ? sel.value : "", why ? why.value : ""];
     }).filter(function (r) { return r.some(function (v) { return v.trim() !== ""; }); });
+  }
+  matrixRows.addEventListener("blur", function () { L.saveDraft(LESSON_ID, "matrixRows", collectMatrixRows()); }, true);
+  matrixRows.addEventListener("change", function () { L.saveDraft(LESSON_ID, "matrixRows", collectMatrixRows()); });
+
+  // Collects the work sample (the matrix) and saves its drafts.
+  function workSample() {
+    savePillarRows();
+    var rows = collectMatrixRows();
+    L.saveDraft(LESSON_ID, "matrixRows", rows);
+    return rows;
   }
 
   document.getElementById("buildExport").addEventListener("click", function () {
-    savePillarRows();
-    var pillarRows = Array.prototype.map.call(pillarPracticeRows.querySelectorAll("tr"), function (tr) {
-      return Array.prototype.map.call(tr.querySelectorAll("input"), function (inp) { return inp.value; });
-    }).filter(function (r) { return r.some(function (v) { return v.trim() !== ""; }); });
-
-    var matrix = collectMatrixRows();
-    window.PVASMM.saveDraft(LESSON_ID, "matrixRows", matrix);
-
+    var pillarRows = savePillarRows().filter(function (r) { return r.some(function (v) { return v.trim() !== ""; }); });
+    var matrix = workSample();
     var box = document.getElementById("exportBox");
     var lines = ["CONTENT PILLAR & FORMAT MATRIX — Amihan Kitchen", "Probinsiyanong VA Free Training — fictional training work sample", ""];
-    lines.push("PILLARS:");
+    lines.push("PILLARS (practice):");
     if (pillarRows.length === 0) lines.push("(none entered yet)");
     pillarRows.forEach(function (r) {
       lines.push("- " + (r[0] || "Untitled pillar") + " | Audience value: " + (r[1] || "—") + " | Business value: " + (r[2] || "—") + " | Formats: " + (r[3] || "—") + ", " + (r[4] || "—") + " | Example topic: " + (r[5] || "—"));
@@ -341,20 +410,124 @@
     if (matrix.length < 12) lines.push("(Note: the curriculum asks for at least 12 — you currently have " + matrix.length + ".)");
     matrix.forEach(function (r, i) {
       lines.push((i + 1) + ". " + (r[0] || "—") + " — Pillar: " + (r[1] || "—") + " | Format: " + (r[2] || "—") + " | Platform: " + (r[3] || "—") + " | " + (r[4] || "—"));
+      lines.push("   Why: " + (r[5] || "—"));
     });
     box.textContent = lines.join("\n");
     box.style.display = "block";
     document.getElementById("saveReminder").style.display = "block";
   });
 
+  // ==== PVA lesson runtime (shared pattern, locked in Phase 2) — part B: begin ====
+  // ---- Storage status ----
+  // The v2 store falls back to memory when browser storage is unavailable or a write
+  // fails. Learners must see that, and must never be told something was saved when it wasn't.
+  var storageNotice = document.getElementById("storageNotice");
+  function showStorageNotice() { storageNotice.hidden = false; }
+  function persistent() { return !!(L.store && L.store.isPersistent()); }
+  if (L.store) {
+    L.store.on("storage-unavailable", showStorageNotice); // also fires at once if already in memory mode
+    document.getElementById("storageBackup").addEventListener("click", function () {
+      var st = document.getElementById("storageBackupStatus");
+      try {
+        var blob = new Blob([L.store.exportBackup()], { type: "application/json" });
+        var url = URL.createObjectURL(blob), a = document.createElement("a");
+        a.href = url; a.download = "smm-va-progress-backup-" + new Date().toISOString().slice(0, 10) + ".json";
+        document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        st.textContent = "Backup downloaded. Keep the file until you have restored it in a browser that saves progress.";
+      } catch (e) { st.textContent = "The backup could not be downloaded here. Copy your written answers into a document before leaving."; }
+    });
+  }
+
+  // ---- Knowledge Check (shared quiz engine) ----
+  // The pool loads from ../shared/smm/quizzes/lesson-N.js only after it has passed content review.
+  // Until then the requirement stays fail-safe ("quiz-pending") and the lesson cannot be finished.
+  var quizHost = document.getElementById("lessonQuiz"), quizStatus = document.getElementById("quizStatus"),
+      quizReview = document.getElementById("quizReview"), quiz = null, pool = window["PVASMMQuizLesson" + LESSON_N];
+  var quizPending = !pool;
+  if (L.store && window.PVASMMQuiz && pool) {
+    quiz = PVASMMQuiz.create({ pool: pool, store: L.store, requirementId: "l" + NN + "-quiz",
+      historyKey: LESSON_ID + ":quiz-history", questionsPerAttempt: 10, passMark: PVASMMManifest.passMark });
+  }
+  function renderQuiz() {
+    quizHost.innerHTML = ""; quizReview.innerHTML = "";
+    quiz.current().forEach(function (q, i) {
+      var f = document.createElement("fieldset"); f.className = "exercise-item";
+      var legend = document.createElement("legend"); legend.textContent = (i + 1) + ". " + q.prompt; f.appendChild(legend);
+      q.options.forEach(function (o, j) {
+        var label = document.createElement("label"); label.style.display = "block"; label.style.margin = ".45rem 0";
+        var input = document.createElement("input"); input.type = "radio"; input.name = "pva-l" + LESSON_N + "-q" + i; input.value = String(j);
+        label.appendChild(input); label.appendChild(document.createTextNode(" " + o.text)); f.appendChild(label);
+      });
+      quizHost.appendChild(f);
+    });
+    var submit = document.createElement("button"); submit.type = "button"; submit.className = "btn btn-primary"; submit.textContent = "Submit answers";
+    submit.addEventListener("click", function () {
+      if (quiz.isSubmitted()) return;
+      var answers = Array.prototype.map.call(quizHost.querySelectorAll("fieldset"), function (f) {
+        var x = f.querySelector("input:checked"); return x ? Number(x.value) : -1;
+      });
+      if (answers.some(function (x) { return x < 0; })) { quizStatus.textContent = "Please answer all 10 questions."; return; }
+      var r = quiz.submit(answers);
+      submit.disabled = true;
+      quizHost.querySelectorAll("input").forEach(function (x) { x.disabled = true; });
+      quizStatus.textContent = "Score: " + r.score + "/10. Best: " + r.best + "/10. " +
+        (r.passed ? "Knowledge check passed." : "You need at least 8/10. Review the explanations, then start a new attempt.") +
+        (r.saved ? "" : " This result is NOT saved in this browser and will be lost when you close or reload the page. See the notice at the top of the page.");
+      if (!r.saved) showStorageNotice();
+      r.review.forEach(function (x, i) {
+        var p = document.createElement("p");
+        p.textContent = (i + 1) + ". " + (x.correct ? "Correct. " : "Not quite. Correct answer: " + x.correctAnswer + ". ") + x.explanation;
+        quizReview.appendChild(p);
+      });
+    });
+    quizHost.appendChild(submit);
+  }
+  var startQuiz = document.getElementById("startQuiz");
+  if (quizPending) {
+    startQuiz.hidden = true;
+    quizStatus.textContent = "This lesson's knowledge check is still in content review and is not available yet. " +
+      "You can continue to Apply and save your work sample now; you will be able to finish the lesson once the knowledge check is released.";
+  }
+  startQuiz.addEventListener("click", function () {
+    if (!quiz) { quizStatus.textContent = "The knowledge check could not load. Reload the page to try again."; return; }
+    quiz.start(); renderQuiz(); quizStatus.textContent = "Choose one answer for each question.";
+  });
+  if (quiz) {
+    var hist = quiz.history();
+    if (hist.attempts) quizStatus.textContent = "Previous attempts: " + hist.attempts + ". Best score: " + hist.best + "/10." +
+      (L.store.requirementStatus("l" + NN + "-quiz").passed ? " Knowledge check passed." : "");
+  }
+
+  // ---- Finish lesson (both requirements must pass) ----
+  var finishStatus = document.getElementById("finishStatus");
   document.getElementById("finishLesson").addEventListener("click", function () {
-    savePillarRows();
-    window.PVASMM.saveDraft(LESSON_ID, "matrixRows", collectMatrixRows());
-    window.PVASMM.markLessonComplete(LESSON_ID);
-    goTo(6);
+    var sample = workSample(); // also saves the work-sample drafts
+    if (!L.store) { finishStatus.textContent = "Progress tools could not load, so completion cannot be recorded. Reload the page to try again."; return; }
+    L.store.recordAttempt("l" + NN + "-ws", { answer: sample });
+    var ws = PVASMMValidators["l" + NN + "-ws"](sample), qz = L.store.requirementStatus("l" + NN + "-quiz");
+    if (!ws.ok || !qz.passed) {
+      var parts = [];
+      if (!ws.ok) parts.push("Work sample: " + ws.missing.join("; ") + ".");
+      if (!qz.passed) parts.push(quizPending ? "Knowledge check: not available yet (still in content review)." : "Knowledge check: pass with at least 8/10.");
+      finishStatus.textContent = "Not complete yet. " + parts.join(" ");
+      return;
+    }
+    var done = L.store.markLessonComplete(LESSON_N);
+    if (!done.ok) { finishStatus.textContent = "Completion was not recorded. Review the requirements and try again."; return; }
+    if (!done.saved || !persistent()) {
+      // Requirements are met, but completion is only in memory: do not show the Done step.
+      showStorageNotice();
+      finishStatus.textContent = "All Lesson " + LESSON_N + " requirements are met, but this browser could not save your completion, so Lesson " + LESSON_N + " is NOT recorded as complete yet. Download a backup using the button at the top of the page, then restore it in a browser that saves progress and finish the lesson there.";
+      storageNotice.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    finishStatus.textContent = "Lesson " + LESSON_N + " requirements passed and progress saved.";
+    goTo(DONE_STEP);
   });
 
-  goTo(Math.min(window.PVASMM.getStepProgress(LESSON_ID) || 0, steps.length - 2));
+  // ---- Init ----
+  goTo(Math.min(L.getStepProgress(LESSON_ID) || 0, steps.length - 2));
+  // ==== PVA lesson runtime — part B: end ====
 })();
 </script>
 

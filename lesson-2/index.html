@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 2: Understand the Client, Brand & Audience | PVA Free Training — SMM</title>
+<title>Lesson 2: Client Discovery, Brand, Audience &amp; Research | PVA Free Training — SMM</title>
 <meta name="description" content="Lesson 2 of the Social Media Management VA Beginner Foundations training — client research, brand context, audience, and goals.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,12 +26,19 @@
 <header class="page-header">
   <div class="container">
     <div class="eyebrow">Lesson 2 of 13</div>
-    <h1>Understand the Client, Brand &amp; Audience</h1>
+    <h1>Client Discovery, Brand, Audience &amp; Research</h1>
     <p class="lede">Client research, brand context, audience, and goals — the foundation everything else in this course builds on.</p>
   </div>
 </header>
 
 <main class="container">
+  <div class="callout" id="storageNotice" role="alert" hidden style="margin-bottom:16px; border-left:4px solid var(--rust);">
+    <strong>This browser is not saving your progress right now.</strong>
+    <p style="margin:8px 0;">This can happen in private browsing or when site storage is blocked or full. You can keep working, but your answers, quiz results and lesson completion are kept only until you close or reload this page.</p>
+    <p style="margin:8px 0;">To keep your work: download a backup now, then open the course in a normal browser window and restore it on the <a href="../progress/">Back up / restore progress</a> page.</p>
+    <button class="btn btn-secondary" type="button" id="storageBackup">Download a backup of this page's progress</button>
+    <p id="storageBackupStatus" role="status" aria-live="polite" style="margin:8px 0 0;"></p>
+  </div>
 
   <nav class="step-nav" id="stepNav" aria-label="Lesson steps"></nav>
   <div class="progress-rail" style="margin-top:6px;"><span id="lessonProgressBar" style="width:0%;"></span></div>
@@ -75,6 +82,15 @@
 
     <div class="step-kicker" style="margin-top:24px;">2.2 Facts, assumptions, questions</div>
     <p>A beginner should be comfortable writing: <em>"The brief confirms X. I can reasonably infer Y, but I need the client to confirm it before publishing."</em></p>
+
+    <div class="step-kicker" style="margin-top:24px;">2.3 Clarifying questions</div>
+    <p>Before you plan any content, turn the most important unknowns into <strong>3–5 clarifying questions</strong> for the client. Good clarifying questions are specific, easy to answer, and tied to a decision you need to make — for example, <em>"Which platform matters most right now — Facebook, Instagram, or both equally?"</em> Ask the questions that would change what you create; leave the rest for later.</p>
+
+    <div class="step-kicker" style="margin-top:24px;">2.4 When brief details conflict</div>
+    <p>Briefs are written quickly, and details sometimes disagree. If the brief lists Facebook and Instagram as platforms but a note from the owner says "we mostly care about Instagram for now," don't quietly pick one. Write down both details and ask which one takes priority. Choosing for the client turns your guess into their strategy.</p>
+
+    <div class="step-kicker" style="margin-top:24px;">2.5 Keep client information confidential</div>
+    <p>A real brief often includes information the public shouldn't see: upcoming products, pricing plans, supplier names, sales figures, or customer details. Share it only with people the client has approved, keep it in the client's approved tools and folders, and don't post or talk about it publicly. Don't copy it into personal accounts or tools the client hasn't approved. When you build a portfolio, use fictional or client-approved examples. Amihan Kitchen is fictional, so your work samples from this course are safe to show.</p>
 
     <div class="step-kicker" style="margin-top:20px;">Quick check</div>
     <p>Amihan Kitchen's brief says: <em>"We sell Filipino pantry products to busy adults and want more engagement."</em> Sort each statement below.</p>
@@ -163,15 +179,18 @@
 
     <div class="btn-row">
       <button class="btn btn-secondary" data-goto="3">Back</button>
-      <button class="btn btn-primary" data-goto="5">Continue to Apply</button>
+      <button class="btn btn-primary" data-goto="5">Continue to Knowledge Check</button>
     </div>
   </section>
 
-  <!-- STEP 5: APPLY -->
-  <section class="step-panel folder-tab" data-tab="Apply" data-step="5">
+  <!-- STEP 5: KNOWLEDGE CHECK -->
+  <section class="step-panel folder-tab" data-tab="Knowledge Check" data-step="5"><div class="step-kicker">Check — knowledge check</div><h2>Test your understanding</h2><p>Answer 10 questions from the 15-question pool. You need at least 8 correct answers. You may retry; your best score is retained.</p><div id="lessonQuiz"></div><button class="btn btn-secondary" type="button" id="startQuiz">Start / retry knowledge check</button><p id="quizStatus" role="status" aria-live="polite"></p><div id="quizReview"></div><div class="btn-row"><button class="btn btn-secondary" data-goto="4">Back</button><button class="btn btn-primary" data-goto="6">Continue to Apply</button></div></section>
+
+  <!-- STEP 6: APPLY -->
+  <section class="step-panel folder-tab" data-tab="Apply" data-step="6">
     <div class="step-kicker">Apply — work sample</div>
     <h2>Build the Brand &amp; Audience Brief for Amihan Kitchen</h2>
-    <p>Pull together everything you've worked through in this lesson into one brief. Include business, offer, audience, goals, voice, platforms, content constraints, questions, and evidence notes.</p>
+    <p>Pull together everything you've worked through in this lesson into one brief. Include business, offer, audience, goals, voice, platforms, content constraints, questions, and evidence notes. Every field needs an answer, and the <strong>Open questions</strong> field needs 3–5 clarifying questions, one per line.</p>
 
     <div id="briefBuilder"></div>
 
@@ -180,24 +199,25 @@
     </div>
     <div class="export-box no-print" id="exportBox" style="display:none;"></div>
     <div class="save-reminder no-print" id="saveReminder" style="display:none;">
-      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. This site does not store your written work; it only remembers that you've completed the lesson.
+      Save this before you leave the page — copy the text above into a document, or use your browser's Print → Save as PDF. Your answers are saved in this browser only, so keep your own copy and use <a href="../progress/">Back up / restore progress</a> if you change browsers or devices.
     </div>
 
     <div class="btn-row">
-      <button class="btn btn-secondary" data-goto="4">Back</button>
-      <button class="btn btn-primary" id="finishLesson">Mark Lesson 2 complete</button>
+      <button class="btn btn-secondary" data-goto="5">Back</button>
+      <button class="btn btn-primary" id="finishLesson">Check requirements and finish Lesson 2</button>
     </div>
+    <p id="finishStatus" role="status" aria-live="polite"></p>
   </section>
 
-  <!-- STEP 6: COMPLETE -->
-  <section class="step-panel folder-tab" data-tab="Done" data-step="6" data-state="done">
+  <!-- STEP 7: COMPLETE -->
+  <section class="step-panel folder-tab" data-tab="Done" data-step="7" data-state="done">
     <span class="stamp">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.6L4 14.1l5 5 11-11-1.5-1.4z"/></svg>
       Lesson 2 complete
     </span>
     <h2 style="margin-top:14px;">You now know how to read a client brief properly</h2>
     <p>You practiced separating facts from assumptions, wrote a practical audience profile, and produced the Brand &amp; Audience Brief for Amihan Kitchen — the client you'll keep working with through the rest of this course.</p>
-    <p>Next up: <strong>Lesson 3 — Social Media Strategy Fundamentals.</strong></p>
+    <p>Next up: <strong>Lesson 3 — Social Media Strategy &amp; Performance Objectives.</strong></p>
     <div class="lesson-nav-footer">
       <a class="btn btn-secondary" href="../">← Back to course map</a>
       <a class="btn btn-primary" href="../lesson-3/">Start Lesson 3 →</a>
@@ -210,15 +230,52 @@
   <div class="container">Probinsiyanong VA Free Training — Social Media Management VA — genuinely free, no account required.</div>
 </footer>
 
-<script src="../shared/progress-smm.js"></script>
+<script src="../shared/pva-core/progress-core.js"></script>
+<script src="../shared/smm/manifest.js"></script>
+<script src="../shared/smm/validators.js"></script>
+<script src="../shared/smm/quiz.js"></script>
+<!-- The Lesson 2 quiz pool (../shared/smm/quizzes/lesson-2.js) is added here only after content review. -->
 <script>
 (function () {
   "use strict";
-  var LESSON_ID = "lesson-2";
+
+  var LESSON_N = 2;
+
+  // ==== PVA lesson runtime (shared pattern, locked in Phase 2) — part A: begin ====
+  // All progress goes to the v2 store (pva-smm-ft-v2). Drafts keep their v1 field ids,
+  // namespaced as "lesson-N:<fieldId>", which is exactly where the one-time v1 migration
+  // puts them. The v1 key (pva-smm-ft-progress) is only read, never written.
+  var LESSON_ID = "lesson-" + LESSON_N, NN = (LESSON_N < 10 ? "0" : "") + LESSON_N;
+  var L = (function () {
+    var ok = window.PVACore && window.PVASMMManifest && window.PVASMMValidators;
+    var store = null;
+    if (ok) {
+      store = PVACore.create({ storageKey: "pva-smm-ft-v2", courseId: PVASMMManifest.courseId, manifest: PVASMMManifest,
+        rules: PVASMMValidators, legacy: { key: "pva-smm-ft-progress" } });
+    }
+    function legacyStep(lessonId) {
+      try {
+        var v1 = JSON.parse(window.localStorage.getItem("pva-smm-ft-progress") || "null");
+        return v1 && v1[lessonId] && typeof v1[lessonId].lastStep === "number" ? v1[lessonId].lastStep : 0;
+      } catch (e) { return 0; }
+    }
+    return {
+      store: store,
+      getDraft: function (lessonId, key, fallback) { return store ? store.getDraft(lessonId + ":" + key, fallback) : fallback; },
+      saveDraft: function (lessonId, key, value) { return store ? store.saveDraft(lessonId + ":" + key, value) : false; },
+      getStepProgress: function (lessonId) {
+        var v = store ? store.getDraft(lessonId + ":lastStep", null) : null;
+        return typeof v === "number" ? v : legacyStep(lessonId);
+      },
+      saveStepProgress: function (lessonId, step) { if (store) store.saveDraft(lessonId + ":lastStep", step); }
+    };
+  })();
   var steps = Array.prototype.slice.call(document.querySelectorAll(".step-panel"));
   var stepNav = document.getElementById("stepNav");
-  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Apply", "Done"];
-  var reachedMax = window.PVASMM.getStepProgress(LESSON_ID) || 0;
+  var stepLabels = ["Start", "Learn", "Observe", "Practice", "Check", "Knowledge Check", "Apply", "Done"];
+  var DONE_STEP = 7;
+  var reachedMax = L.getStepProgress(LESSON_ID) || 0;
+  var onStep = function () {};
 
   function renderStepNav(activeIndex) {
     stepNav.innerHTML = "";
@@ -238,16 +295,19 @@
     steps.forEach(function (s) { s.classList.remove("is-active"); });
     steps[index].classList.add("is-active");
     if (index > reachedMax) reachedMax = index;
-    window.PVASMM.saveStepProgress(LESSON_ID, reachedMax);
+    L.saveStepProgress(LESSON_ID, reachedMax);
     renderStepNav(index);
     document.getElementById("lessonProgressBar").style.width = Math.round((index / (steps.length - 1)) * 100) + "%";
-    if (index === 4) renderProfileRecap();
+    onStep(index);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   document.querySelectorAll("[data-goto]").forEach(function (btn) {
     btn.addEventListener("click", function () { goTo(parseInt(btn.getAttribute("data-goto"), 10)); });
   });
+
+  function escapeHtml(s) { return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  // ==== PVA lesson runtime — part A: end ====
 
   // ---- Learn quick check: fact / assumption / needs confirmation ----
   var factItems = [
@@ -270,6 +330,7 @@
       factCats.forEach(function (cat) {
         var b = document.createElement("button");
         b.className = "choice-btn";
+        b.type = "button";
         b.textContent = cat;
         b.setAttribute("data-choice", cat);
         b.addEventListener("click", function () {
@@ -287,16 +348,16 @@
   })();
 
   // ---- Observe ----
-  document.getElementById("observeNotes").value = window.PVASMM.getDraft(LESSON_ID, "observeNotes", "");
-  document.getElementById("observeNotes").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "observeNotes", e.target.value); });
+  document.getElementById("observeNotes").value = L.getDraft(LESSON_ID, "observeNotes", "");
+  document.getElementById("observeNotes").addEventListener("blur", function (e) { L.saveDraft(LESSON_ID, "observeNotes", e.target.value); });
   document.getElementById("revealObserve").addEventListener("click", function () { document.getElementById("observeReveal").style.display = "block"; });
 
   // ---- Practice: audience profile fields ----
   var profileFields = ["apSituation", "apProblem", "apMotivation", "apQuestions", "apValue", "apAction"];
   profileFields.forEach(function (id) {
     var el = document.getElementById(id);
-    el.value = window.PVASMM.getDraft(LESSON_ID, id, "");
-    el.addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, id, e.target.value); });
+    el.value = L.getDraft(LESSON_ID, id, "");
+    el.addEventListener("blur", function (e) { L.saveDraft(LESSON_ID, id, e.target.value); });
   });
 
   // ---- Check: recap + audit ----
@@ -308,19 +369,19 @@
     var box = document.getElementById("myProfileRecap");
     var html = "<strong>Your audience profile so far:</strong><ul style='margin-top:8px; margin-bottom:0;'>";
     profileFields.forEach(function (id) {
-      var val = window.PVASMM.getDraft(LESSON_ID, id, "").trim();
+      var val = String(L.getDraft(LESSON_ID, id, "") || "").trim();
       html += "<li><strong>" + fieldLabels[id] + ":</strong> " + (val ? escapeHtml(val) : "<em>(not yet filled in)</em>") + "</li>";
     });
     html += "</ul>";
     box.innerHTML = html;
   }
-  function escapeHtml(s) { return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  onStep = function (index) { if (index === 4) renderProfileRecap(); };
 
-  document.getElementById("assumptionAudit").value = window.PVASMM.getDraft(LESSON_ID, "assumptionAudit", "");
-  document.getElementById("assumptionAudit").addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, "assumptionAudit", e.target.value); });
+  document.getElementById("assumptionAudit").value = L.getDraft(LESSON_ID, "assumptionAudit", "");
+  document.getElementById("assumptionAudit").addEventListener("blur", function (e) { L.saveDraft(LESSON_ID, "assumptionAudit", e.target.value); });
   document.getElementById("revealCheck").addEventListener("click", function () { document.getElementById("checkReveal").style.display = "block"; });
 
-  // ---- Apply: brief builder ----
+  // ---- Apply: brief builder (field ids are read by the Final Project — do not rename) ----
   var briefFields = [
     { id: "brBusiness", label: "Business", hint: "What does Amihan Kitchen sell, and how?", value: "Amihan Kitchen — a small-batch Filipino pantry and gift-box business selling curated, shelf-stable food products online, inspired by different regions and stories of Filipino food culture." },
     { id: "brOffer", label: "Offer", hint: "What's the core product/gift-box offer?", value: "" },
@@ -328,15 +389,15 @@
     { id: "brGoals", label: "Goals", hint: "What is the business trying to accomplish on social?", value: "Increase relevant awareness, drive qualified product-page traffic, and strengthen community interaction." },
     { id: "brVoice", label: "Brand voice", hint: "What should the brand sound like?", value: "Warm, grounded, curious, welcoming, informative — avoid exaggerated hype." },
     { id: "brPlatforms", label: "Platforms", hint: "Which platforms matter?", value: "Facebook and Instagram." },
-    { id: "brConstraints", label: "Content constraints", hint: "What must NOT appear in content?", value: "No invented health claims, testimonials, awards, or statistics. No customer images without permission." },
-    { id: "brQuestions", label: "Open questions for the client", hint: "What still needs confirming?", value: "" },
+    { id: "brConstraints", label: "Content constraints", hint: "What must NOT appear in content? Include what must stay confidential.", value: "No invented health claims, testimonials, awards, or statistics. No customer images without permission." },
+    { id: "brQuestions", label: "Open questions for the client", hint: "Write 3–5 clarifying questions, one per line. Include any detail in the brief that conflicts or is unclear.", value: "" },
     { id: "brEvidence", label: "Evidence notes", hint: "What's confirmed by the brief vs. your own working assumption?", value: "" }
   ];
 
   (function renderBriefBuilder() {
     var wrap = document.getElementById("briefBuilder");
     briefFields.forEach(function (f) {
-      var saved = window.PVASMM.getDraft(LESSON_ID, f.id, f.value);
+      var saved = L.getDraft(LESSON_ID, f.id, f.value);
       var div = document.createElement("div");
       div.className = "exercise-item";
       div.innerHTML =
@@ -346,17 +407,27 @@
       wrap.appendChild(div);
       var ta = div.querySelector("textarea");
       ta.value = saved;
-      ta.addEventListener("blur", function (e) { window.PVASMM.saveDraft(LESSON_ID, f.id, e.target.value); });
+      ta.addEventListener("blur", function (e) { L.saveDraft(LESSON_ID, f.id, e.target.value); });
     });
   })();
 
+  // Collects the work sample and saves each field as a draft.
+  function workSample() {
+    var out = {};
+    briefFields.forEach(function (f) {
+      var val = document.getElementById(f.id).value.trim();
+      L.saveDraft(LESSON_ID, f.id, val);
+      out[f.id] = val;
+    });
+    return out;
+  }
+
   document.getElementById("buildExport").addEventListener("click", function () {
+    var sample = workSample();
     var box = document.getElementById("exportBox");
     var lines = ["BRAND & AUDIENCE BRIEF — Amihan Kitchen", "Probinsiyanong VA Free Training — fictional training work sample", ""];
     briefFields.forEach(function (f) {
-      var val = document.getElementById(f.id).value.trim();
-      window.PVASMM.saveDraft(LESSON_ID, f.id, val);
-      lines.push(f.label.toUpperCase() + ": " + (val || "—"));
+      lines.push(f.label.toUpperCase() + ": " + (sample[f.id] || "—"));
       lines.push("");
     });
     box.textContent = lines.join("\n");
@@ -364,12 +435,117 @@
     document.getElementById("saveReminder").style.display = "block";
   });
 
+  // ==== PVA lesson runtime (shared pattern, locked in Phase 2) — part B: begin ====
+  // ---- Storage status ----
+  // The v2 store falls back to memory when browser storage is unavailable or a write
+  // fails. Learners must see that, and must never be told something was saved when it wasn't.
+  var storageNotice = document.getElementById("storageNotice");
+  function showStorageNotice() { storageNotice.hidden = false; }
+  function persistent() { return !!(L.store && L.store.isPersistent()); }
+  if (L.store) {
+    L.store.on("storage-unavailable", showStorageNotice); // also fires at once if already in memory mode
+    document.getElementById("storageBackup").addEventListener("click", function () {
+      var st = document.getElementById("storageBackupStatus");
+      try {
+        var blob = new Blob([L.store.exportBackup()], { type: "application/json" });
+        var url = URL.createObjectURL(blob), a = document.createElement("a");
+        a.href = url; a.download = "smm-va-progress-backup-" + new Date().toISOString().slice(0, 10) + ".json";
+        document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        st.textContent = "Backup downloaded. Keep the file until you have restored it in a browser that saves progress.";
+      } catch (e) { st.textContent = "The backup could not be downloaded here. Copy your written answers into a document before leaving."; }
+    });
+  }
+
+  // ---- Knowledge Check (shared quiz engine) ----
+  // The pool loads from ../shared/smm/quizzes/lesson-N.js only after it has passed content review.
+  // Until then the requirement stays fail-safe ("quiz-pending") and the lesson cannot be finished.
+  var quizHost = document.getElementById("lessonQuiz"), quizStatus = document.getElementById("quizStatus"),
+      quizReview = document.getElementById("quizReview"), quiz = null, pool = window["PVASMMQuizLesson" + LESSON_N];
+  var quizPending = !pool;
+  if (L.store && window.PVASMMQuiz && pool) {
+    quiz = PVASMMQuiz.create({ pool: pool, store: L.store, requirementId: "l" + NN + "-quiz",
+      historyKey: LESSON_ID + ":quiz-history", questionsPerAttempt: 10, passMark: PVASMMManifest.passMark });
+  }
+  function renderQuiz() {
+    quizHost.innerHTML = ""; quizReview.innerHTML = "";
+    quiz.current().forEach(function (q, i) {
+      var f = document.createElement("fieldset"); f.className = "exercise-item";
+      var legend = document.createElement("legend"); legend.textContent = (i + 1) + ". " + q.prompt; f.appendChild(legend);
+      q.options.forEach(function (o, j) {
+        var label = document.createElement("label"); label.style.display = "block"; label.style.margin = ".45rem 0";
+        var input = document.createElement("input"); input.type = "radio"; input.name = "pva-l" + LESSON_N + "-q" + i; input.value = String(j);
+        label.appendChild(input); label.appendChild(document.createTextNode(" " + o.text)); f.appendChild(label);
+      });
+      quizHost.appendChild(f);
+    });
+    var submit = document.createElement("button"); submit.type = "button"; submit.className = "btn btn-primary"; submit.textContent = "Submit answers";
+    submit.addEventListener("click", function () {
+      if (quiz.isSubmitted()) return;
+      var answers = Array.prototype.map.call(quizHost.querySelectorAll("fieldset"), function (f) {
+        var x = f.querySelector("input:checked"); return x ? Number(x.value) : -1;
+      });
+      if (answers.some(function (x) { return x < 0; })) { quizStatus.textContent = "Please answer all 10 questions."; return; }
+      var r = quiz.submit(answers);
+      submit.disabled = true;
+      quizHost.querySelectorAll("input").forEach(function (x) { x.disabled = true; });
+      quizStatus.textContent = "Score: " + r.score + "/10. Best: " + r.best + "/10. " +
+        (r.passed ? "Knowledge check passed." : "You need at least 8/10. Review the explanations, then start a new attempt.") +
+        (r.saved ? "" : " This result is NOT saved in this browser and will be lost when you close or reload the page. See the notice at the top of the page.");
+      if (!r.saved) showStorageNotice();
+      r.review.forEach(function (x, i) {
+        var p = document.createElement("p");
+        p.textContent = (i + 1) + ". " + (x.correct ? "Correct. " : "Not quite. Correct answer: " + x.correctAnswer + ". ") + x.explanation;
+        quizReview.appendChild(p);
+      });
+    });
+    quizHost.appendChild(submit);
+  }
+  var startQuiz = document.getElementById("startQuiz");
+  if (quizPending) {
+    startQuiz.hidden = true;
+    quizStatus.textContent = "This lesson's knowledge check is still in content review and is not available yet. " +
+      "You can continue to Apply and save your work sample now; you will be able to finish the lesson once the knowledge check is released.";
+  }
+  startQuiz.addEventListener("click", function () {
+    if (!quiz) { quizStatus.textContent = "The knowledge check could not load. Reload the page to try again."; return; }
+    quiz.start(); renderQuiz(); quizStatus.textContent = "Choose one answer for each question.";
+  });
+  if (quiz) {
+    var hist = quiz.history();
+    if (hist.attempts) quizStatus.textContent = "Previous attempts: " + hist.attempts + ". Best score: " + hist.best + "/10." +
+      (L.store.requirementStatus("l" + NN + "-quiz").passed ? " Knowledge check passed." : "");
+  }
+
+  // ---- Finish lesson (both requirements must pass) ----
+  var finishStatus = document.getElementById("finishStatus");
   document.getElementById("finishLesson").addEventListener("click", function () {
-    window.PVASMM.markLessonComplete(LESSON_ID);
-    goTo(6);
+    var sample = workSample(); // also saves the work-sample drafts
+    if (!L.store) { finishStatus.textContent = "Progress tools could not load, so completion cannot be recorded. Reload the page to try again."; return; }
+    L.store.recordAttempt("l" + NN + "-ws", { answer: sample });
+    var ws = PVASMMValidators["l" + NN + "-ws"](sample), qz = L.store.requirementStatus("l" + NN + "-quiz");
+    if (!ws.ok || !qz.passed) {
+      var parts = [];
+      if (!ws.ok) parts.push("Work sample: " + ws.missing.join("; ") + ".");
+      if (!qz.passed) parts.push(quizPending ? "Knowledge check: not available yet (still in content review)." : "Knowledge check: pass with at least 8/10.");
+      finishStatus.textContent = "Not complete yet. " + parts.join(" ");
+      return;
+    }
+    var done = L.store.markLessonComplete(LESSON_N);
+    if (!done.ok) { finishStatus.textContent = "Completion was not recorded. Review the requirements and try again."; return; }
+    if (!done.saved || !persistent()) {
+      // Requirements are met, but completion is only in memory: do not show the Done step.
+      showStorageNotice();
+      finishStatus.textContent = "All Lesson " + LESSON_N + " requirements are met, but this browser could not save your completion, so Lesson " + LESSON_N + " is NOT recorded as complete yet. Download a backup using the button at the top of the page, then restore it in a browser that saves progress and finish the lesson there.";
+      storageNotice.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    finishStatus.textContent = "Lesson " + LESSON_N + " requirements passed and progress saved.";
+    goTo(DONE_STEP);
   });
 
-  goTo(Math.min(window.PVASMM.getStepProgress(LESSON_ID) || 0, steps.length - 2));
+  // ---- Init ----
+  goTo(Math.min(L.getStepProgress(LESSON_ID) || 0, steps.length - 2));
+  // ==== PVA lesson runtime — part B: end ====
 })();
 </script>
 
