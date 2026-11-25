@@ -7,6 +7,9 @@ function filled(v,opt){const t=String(v==null?"":v).trim().toLowerCase();if(!t)r
   if(opt&&opt.allowNone&&NONE_ANSWERS.includes(t))return true;return!PLACEHOLDERS.includes(t);}
 // One entry per non-blank line, with leading bullets/numbering removed; placeholder lines are not counted.
 function lines(v){return String(v==null?"":v).split(/\r?\n/).map(s=>s.replace(/^\s*(?:[-*\u2022]|\d+[.)])\s*/,"").trim()).filter(s=>filled(s));}
+const WORKFLOW=["Idea","Briefed","Draft","Internal Review","Client Approval","Approved","Scheduled","Published","Reviewed"];
+const HOOK_TYPES=["Problem","Question","Benefit","Observation","Story","Curiosity"];
+const OBJECTIVES=["Awareness","Engagement","Traffic","Leads","Conversion","Retention"];
 const rules=Object.freeze({
 "l01-ws":(a)=>{
   // Completion-only checks (approved validator specification): required fields present,
@@ -58,9 +61,42 @@ const rules=Object.freeze({
   if(n(2)<4)m.push("Use at least 4 different formats");
   if(n(3)<2)m.push("Use at least 2 different platforms");
   return{ok:m.length===0,missing:m};},
-"l05-ws":()=>({ok:false,missing:["Lesson 5 validator not implemented"]}),
-"l06-ws":()=>({ok:false,missing:["Lesson 6 validator not implemented"]}),
-"l07-ws":()=>({ok:false,missing:["Lesson 7 validator not implemented"]}),
+"l05-ws":(a)=>{
+  // Four-Week Calendar + production tracker: at least 12 rows; each has week/date, platform, pillar,
+  // topic & hook, format, a workflow status, an owner and a due date. CTA and notes are optional.
+  // Row layout: [date, platform, pillar, topic, format, cta, status, notes, owner, due].
+  const r=Array.isArray(a)?a.map(x=>Array.isArray(x)?x:[]):[],m=[];
+  if(r.length<12)m.push("Add at least 12 calendar rows");
+  r.forEach((x,i)=>{const row="Row "+(i+1)+": ";
+    [[0,"date / week"],[1,"platform"],[2,"pillar"],[3,"topic & hook"],[4,"format"]].forEach(([j,l])=>{if(!filled(x[j]))m.push(row+l);});
+    if(!WORKFLOW.includes(String(x[6]||"").trim()))m.push(row+"choose a status");
+    if(!filled(x[8]))m.push(row+"owner");
+    if(!filled(x[9]))m.push(row+"due date");});
+  return{ok:m.length===0,missing:m};},
+"l06-ws":(a)=>{
+  // Copywriting Pack: 10+ hooks with a hook type, 5 polished captions, 8+ CTAs with an objective,
+  // and at least 3 search keywords or phrases (one per line).
+  const o=a&&typeof a==="object"?a:{},m=[];
+  const hooks=(Array.isArray(o.hooksRows)?o.hooksRows:[]).map(x=>Array.isArray(x)?x:[]);
+  const ctas=(Array.isArray(o.ctaRows)?o.ctaRows:[]).map(x=>Array.isArray(x)?x:[]);
+  if(hooks.length<10)m.push("Add at least 10 hooks");
+  hooks.forEach((x,i)=>{if(!filled(x[0]))m.push("Hook "+(i+1)+": hook");
+    if(!HOOK_TYPES.includes(String(x[1]||"").trim()))m.push("Hook "+(i+1)+": choose a hook type");});
+  const c=o.captions&&typeof o.captions==="object"?o.captions:{};
+  [["capEdu","Educational"],["capProduct","Product-value"],["capCommunity","Community question"],["capBTS","Behind-the-scenes story"],["capVideo","Short-form video caption"]]
+    .forEach(([k,l])=>{if(!filled(c[k]))m.push("Caption: "+l);});
+  if(ctas.length<8)m.push("Add at least 8 CTA options");
+  ctas.forEach((x,i)=>{if(!filled(x[0]))m.push("CTA "+(i+1)+": CTA");
+    if(!OBJECTIVES.includes(String(x[1]||"").trim()))m.push("CTA "+(i+1)+": choose an objective");});
+  if(lines(o.seoKeywords).length<3)m.push("Search keywords: add at least 3, one per line");
+  return{ok:m.length===0,missing:m};},
+"l07-ws":(a)=>{
+  // Basic Content Set: 5 pieces, each with its concept, an accessibility note and an asset-source note.
+  const o=a&&typeof a==="object"?a:{},m=[];
+  [["csVisual1","Visual post 1"],["csVisual2","Visual post 2"],["csCarousel","Carousel concept"],["csVideo1","Video storyboard 1"],["csVideo2","Video storyboard 2"]]
+    .forEach(([k,l])=>{if(!filled(o[k]))m.push(l+": concept");if(!filled(o[k+"Access"]))m.push(l+": accessibility check");
+      if(!filled(o[k+"Source"]))m.push(l+": asset source");});
+  return{ok:m.length===0,missing:m};},
 "l08-ws":()=>({ok:false,missing:["Lesson 8 validator not implemented"]}),
 "l09-ws":()=>({ok:false,missing:["Lesson 9 validator not implemented"]}),
 "l10-ws":()=>({ok:false,missing:["Lesson 10 validator not implemented"]}),
