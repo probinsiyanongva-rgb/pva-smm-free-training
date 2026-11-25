@@ -5,6 +5,8 @@ const PLACEHOLDERS=["n/a","na","-",".","x","?","test","asdf","tbd","todo","lorem
 const NONE_ANSWERS=["n/a","na","none"];
 function filled(v,opt){const t=String(v==null?"":v).trim().toLowerCase();if(!t)return false;
   if(opt&&opt.allowNone&&NONE_ANSWERS.includes(t))return true;return!PLACEHOLDERS.includes(t);}
+// One entry per non-blank line, with leading bullets/numbering removed; placeholder lines are not counted.
+function lines(v){return String(v==null?"":v).split(/\r?\n/).map(s=>s.replace(/^\s*(?:[-*\u2022]|\d+[.)])\s*/,"").trim()).filter(s=>filled(s));}
 const rules=Object.freeze({
 "l01-ws":(a)=>{
   // Completion-only checks (approved validator specification): required fields present,
@@ -19,9 +21,43 @@ const rules=Object.freeze({
     if(!filled(x[3],{allowNone:true}))m.push(row+"approval point");
     if(!["Within SOP","Needs Approval","Escalate"].includes(String(x[4]||"").trim()))m.push(row+"classification");});
   return{ok:m.length===0,missing:m};},
-"l02-ws":()=>({ok:false,missing:["Lesson 2 validator not implemented"]}),
-"l03-ws":()=>({ok:false,missing:["Lesson 3 validator not implemented"]}),
-"l04-ws":()=>({ok:false,missing:["Lesson 4 validator not implemented"]}),
+"l02-ws":(a)=>{
+  // Brand & Audience Brief: all 9 fields filled; Open questions holds 3-5 questions (one per line).
+  const o=a&&typeof a==="object"?a:{},m=[];
+  [["brBusiness","Business"],["brOffer","Offer"],["brAudience","Audience"],["brGoals","Goals"],["brVoice","Brand voice"],
+   ["brPlatforms","Platforms"],["brConstraints","Content constraints"],["brQuestions","Open questions for the client"],
+   ["brEvidence","Evidence notes"]].forEach(([k,l])=>{if(!filled(o[k]))m.push(l);});
+  if(filled(o.brQuestions)){const q=lines(o.brQuestions);
+    if(q.length<3)m.push("Open questions: write at least 3 clarifying questions, one per line");
+    else if(q.length>5)m.push("Open questions: keep it to the 3-5 most important questions");}
+  return{ok:m.length===0,missing:m};},
+"l03-ws":(a)=>{
+  // Strategy Snapshot: all 9 fields filled, plus 2-3 complete goal -> indicator -> limitation rows.
+  const o=a&&typeof a==="object"?a:{},m=[];
+  [["ssGoal","Business goal"],["ssObjective","Social objective"],["ssAudience","Audience"],["ssPlatforms","Priority platforms"],
+   ["ssPriorities","Content priorities"],["ssCTA","CTA direction"],["ssPrimaryMetric","Primary metric"],
+   ["ssSecondaryMetrics","Secondary metrics"],["ssAssumption","One assumption requiring confirmation"]].forEach(([k,l])=>{if(!filled(o[k]))m.push(l);});
+  const r=(Array.isArray(o.indicatorRows)?o.indicatorRows:[]).map(x=>Array.isArray(x)?x:[]).filter(x=>x.some(v=>String(v==null?"":v).trim()));
+  if(r.length<2)m.push("Add at least 2 goal \u2192 indicator rows");
+  if(r.length>3)m.push("Keep to 2-3 goal \u2192 indicator rows");
+  r.forEach((x,i)=>{const row="Indicator row "+(i+1)+": ";
+    if(!filled(x[0]))m.push(row+"goal");if(!filled(x[1]))m.push(row+"indicator");if(!filled(x[2]))m.push(row+"limitation");});
+  return{ok:m.length===0,missing:m};},
+"l04-ws":(a)=>{
+  // Pillar & Platform Matrix: at least 12 complete idea rows covering 5 pillars, 4 formats, 2 platforms;
+  // each row says Adapt or Copy exact and gives a brief rationale.
+  const r=Array.isArray(a)?a.map(x=>Array.isArray(x)?x:[]):[],m=[];
+  if(r.length<12)m.push("Add at least 12 example ideas");
+  r.forEach((x,i)=>{const row="Row "+(i+1)+": ";
+    if(!filled(x[0]))m.push(row+"example idea");if(!filled(x[1]))m.push(row+"pillar");
+    if(!filled(x[2]))m.push(row+"format");if(!filled(x[3]))m.push(row+"platform");
+    if(!["Adapt","Copy exact"].includes(String(x[4]||"").trim()))m.push(row+"choose Adapt or Copy exact");
+    if(!filled(x[5]))m.push(row+"rationale");});
+  const n=(j)=>new Set(r.map(x=>String(x[j]==null?"":x[j]).trim().toLowerCase()).filter(v=>v&&!PLACEHOLDERS.includes(v))).size;
+  if(n(1)<5)m.push("Use at least 5 different pillars");
+  if(n(2)<4)m.push("Use at least 4 different formats");
+  if(n(3)<2)m.push("Use at least 2 different platforms");
+  return{ok:m.length===0,missing:m};},
 "l05-ws":()=>({ok:false,missing:["Lesson 5 validator not implemented"]}),
 "l06-ws":()=>({ok:false,missing:["Lesson 6 validator not implemented"]}),
 "l07-ws":()=>({ok:false,missing:["Lesson 7 validator not implemented"]}),
