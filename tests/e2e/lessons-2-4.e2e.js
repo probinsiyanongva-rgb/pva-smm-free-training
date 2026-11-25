@@ -1,11 +1,10 @@
-// Browser test, Phase 3 Batch A (Lessons 2-4): pending-quiz state, completion guards, v1 import,
-// v2-only writes, reload restore, a simulated quiz release (stand-in pool, test-only), and blocked storage.
+// Browser test, Phase 3 Batch A (Lessons 2-4): quiz available, completion guards, v1 import,
+// v2-only writes, reload restore, the real approved pools (7/10 refused, 8/10 + work sample -> Done), blocked storage.
 // Usage: node tests/e2e/lessons-2-4.e2e.js <baseUrl serving dist/> <path-to-dist>
 let pw; try { pw = require('playwright'); } catch (e) { pw = require(process.env.PLAYWRIGHT_PATH || 'playwright'); }
 const { chromium } = pw;
 const fs = require('fs');
 const base = process.argv[2], site = process.argv[3];
-const pool1 = require(site + '/shared/smm/quizzes/lesson-1.js');
 let pass = 0, fail = 0;
 function check(name, ok, extra) { if (ok) pass++; else fail++; console.log((ok ? 'PASS ' : 'FAIL ') + name + (ok || !extra ? '' : ' :: ' + extra)); }
 
@@ -44,7 +43,7 @@ async function goStep(p, k) {
   const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome' });
   for (const n of [2, 3, 4]) {
     const url = base + '/lesson-' + n + '/';
-    // ---------- A: pending quiz (as shipped) ----------
+    // ---------- A: work sample guards (quiz not yet passed) ----------
     let ctx = await browser.newContext(), p = await ctx.newPage(), errors = [];
     p.on('pageerror', (e) => errors.push(e.message)); p.on('console', (m) => { if (m.type() === 'error' && !m.text().includes('ERR_TUNNEL_CONNECTION_FAILED')) errors.push(m.text()); });
     await p.goto(url);
@@ -52,7 +51,7 @@ async function goStep(p, k) {
     check(`L${n} has 8 step chips incl. Knowledge Check`, (await p.$$eval('#stepNav .step-chip', (x) => x.map((c) => c.textContent))).join('|') === '1. Start|2. Learn|3. Observe|4. Practice|5. Check|6. Knowledge Check|7. Apply|8. Done');
     check(`L${n} storage notice hidden in normal browser`, await p.$eval('#storageNotice', (e) => e.hidden));
     await goStep(p, 5);
-    check(`L${n} quiz shows pending message, start hidden`, (await p.textContent('#quizStatus')).includes('still in content review') && await p.$eval('#startQuiz', (e) => e.hidden));
+    check(`L${n} quiz available (start button shown, no pending message)`, !(await p.textContent('#quizStatus')).includes('content review') && !(await p.$eval('#startQuiz', (e) => e.hidden)));
     // go to Apply
     await goStep(p, 6);
     if (n === 2) await p.fill('#brOffer', '');
@@ -63,7 +62,7 @@ async function goStep(p, k) {
     await fills[n](p);
     await p.click('#finishLesson');
     st = await p.textContent('#finishStatus');
-    check(`L${n} complete sample + pending quiz -> only quiz blocks`, st === 'Not complete yet. Knowledge check: not available yet (still in content review).', st);
+    check(`L${n} complete sample + no quiz pass -> only quiz blocks`, st === 'Not complete yet. Knowledge check: pass with at least 8/10.', st);
     await p.click('#buildExport');
     const exp = await p.textContent('#exportBox');
     check(`L${n} export generated`, exp.length > 100 && exp.includes('Amihan Kitchen'));
@@ -105,15 +104,12 @@ async function goStep(p, k) {
     check(`L${n} legacy page no errors`, errors.length === 0, errors.join(' | '));
     await ctx.close();
 
-    // ---------- C: simulated release (pool + manifest rule enabled) ----------
+    // ---------- C: the real approved pool ----------
     ctx = await browser.newContext(); p = await ctx.newPage(); errors = [];
     p.on('pageerror', (e) => errors.push(e.message));
-    const manifestSrc = fs.readFileSync(site + '/shared/smm/manifest.js', 'utf8').replace('rule:n===1?undefined:"quiz-pending"', 'rule:n<=4?undefined:"quiz-pending"');
-    await p.route('**/shared/smm/manifest.js', (r) => r.fulfill({ contentType: 'application/javascript', body: manifestSrc }));
-    const poolSrc = fs.readFileSync(site + '/shared/smm/quizzes/lesson-1.js', 'utf8').replace(/PVASMMQuizLesson1/g, 'PVASMMQuizLesson' + n);
-    await p.route('**/shared/smm/quiz.js', async (r) => { const body = fs.readFileSync(site + '/shared/smm/quiz.js', 'utf8') + '\n' + poolSrc; r.fulfill({ contentType: 'application/javascript', body }); });
     await p.goto(url);
-    const correct = new Map(pool1.map((q) => [q.prompt, q.options.find((o) => o.correct).text]));
+    const pool = require(site + '/shared/smm/quizzes/lesson-' + n + '.js');
+    const correct = new Map(pool.map((q) => [q.prompt, q.options.find((o) => o.correct).text]));
     async function attempt(k) {
       await goStep(p, 5);
       await p.click('#startQuiz');
@@ -127,18 +123,18 @@ async function goStep(p, k) {
       return p.textContent('#quizStatus');
     }
     let s7 = await attempt(7);
-    check(`L${n} [release sim] 7/10 does not pass`, s7.startsWith('Score: 7/10') && s7.includes('need at least 8/10'), s7);
+    check(`L${n} [real pool] 7/10 does not pass`, s7.startsWith('Score: 7/10') && s7.includes('need at least 8/10'), s7);
     await goStep(p, 6);
     await fills[n](p);
     await p.click('#finishLesson');
     st = await p.textContent('#finishStatus');
-    check(`L${n} [release sim] complete sample + 7/10 -> refused`, st === 'Not complete yet. Knowledge check: pass with at least 8/10.', st);
+    check(`L${n} [real pool] complete sample + 7/10 -> refused`, st === 'Not complete yet. Knowledge check: pass with at least 8/10.', st);
     let s8 = await attempt(8);
-    check(`L${n} [release sim] 8/10 passes`, s8.includes('Knowledge check passed.'), s8);
+    check(`L${n} [real pool] 8/10 passes`, s8.includes('Knowledge check passed.'), s8);
     await goStep(p, 6);
     await p.click('#finishLesson');
-    check(`L${n} [release sim] both pass -> Done`, await p.$eval('[data-step="7"]', (e) => e.classList.contains('is-active')), await p.textContent('#finishStatus'));
-    check(`L${n} [release sim] no page errors`, errors.length === 0, errors.join(' | '));
+    check(`L${n} [real pool] both pass -> Done`, await p.$eval('[data-step="7"]', (e) => e.classList.contains('is-active')), await p.textContent('#finishStatus'));
+    check(`L${n} [real pool] no page errors`, errors.length === 0, errors.join(' | '));
     await ctx.close();
 
     // ---------- D: storage blocked ----------

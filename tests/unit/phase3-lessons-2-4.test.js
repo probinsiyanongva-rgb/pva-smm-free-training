@@ -53,28 +53,39 @@ test("rules never compare to model answers: unusual but complete answers pass", 
 });
 
 // ---------- Completion against the real store ----------
-test("Lessons 2-4 cannot be completed while their quiz requirement is still pending review", () => {
-  const s = storage(), store = open(s);
+test("Lessons 2-4 need BOTH the work sample and a passed (8/10) quiz", () => {
+  const store = open(storage());
   [["l02-ws", brief, 2], ["l03-ws", snapshot, 3], ["l04-ws", matrix, 4]].forEach(([id, ans, n]) => {
+    const quizId = "l0" + n + "-quiz";
+    assert.equal(store.markLessonComplete(n).ok, false, "nothing done");
     store.recordAttempt(id, { answer: ans });
     assert.equal(store.requirementStatus(id).passed, true);
-    assert.equal(store.requirementStatus("l0" + n + "-quiz").passed, false);
-    assert.equal(store.markLessonComplete(n).ok, false);
+    assert.equal(store.markLessonComplete(n).ok, false, "work sample only");
+    // The quiz engine records { passed } using the 80% pass mark (engine thresholds are tested below and in Phase 2).
+    store.recordAttempt(quizId, { passed: false, answer: { score: 7 } });
+    assert.equal(store.markLessonComplete(n).ok, false, "7/10");
+    store.recordAttempt(quizId, { passed: true, answer: { score: 8 } });
+    assert.equal(store.markLessonComplete(n).ok, true, "both");
   });
+  const s2 = open(storage());
+  s2.recordAttempt("l03-quiz", { passed: true, answer: { score: 10 } });
+  s2.recordAttempt("l03-ws", { answer: { ...snapshot, indicatorRows: [snapshot.indicatorRows[0]] } });
+  assert.equal(s2.markLessonComplete(3).ok, false, "quiz only, incomplete work sample");
 });
 
-test("after release (pending rule removed), completion still needs BOTH the work sample and an 8/10 quiz", () => {
-  const released = { ...manifest, lessons: manifest.lessons.map((l) => (l.n <= 4 ? { ...l, requirements: l.requirements.map((r) => (r.type === "quiz" ? { ...r, rule: undefined } : r)) } : l)) };
-  const store = open(storage(), released);
-  // The quiz engine records { passed } using the 80% pass mark (covered by the Lesson 1 engine tests).
-  store.recordAttempt("l02-quiz", { passed: false, answer: { score: 7 } });
-  store.recordAttempt("l02-ws", { answer: brief });
-  assert.equal(store.markLessonComplete(2).ok, false);
-  store.recordAttempt("l02-quiz", { passed: true, answer: { score: 8 } });
-  assert.equal(store.markLessonComplete(2).ok, true);
-  store.recordAttempt("l03-quiz", { passed: true, answer: { score: 10 } });
-  store.recordAttempt("l03-ws", { answer: { ...snapshot, indicatorRows: [snapshot.indicatorRows[0]] } });
-  assert.equal(store.markLessonComplete(3).ok, false);
+test("the real Lesson 2-4 pools: 7/10 fails, 8/10 passes, best score kept, through the quiz engine", () => {
+  const Quiz = require("../../shared/smm/quiz.js");
+  for (const n of [2, 3, 4]) {
+    const pool = require("../../shared/smm/quizzes/lesson-" + n + ".js"), s = storage(), store = open(s);
+    const q = Quiz.create({ pool, store, requirementId: "l0" + n + "-quiz", historyKey: "lesson-" + n + ":quiz-history", questionsPerAttempt: 10, passMark: manifest.passMark });
+    const ans = (set, k) => set.map((x, i) => (i < k ? x.options.findIndex((o) => o.correct) : x.options.findIndex((o) => !o.correct)));
+    assert.equal(q.submit(ans(q.start(), 7)).passed, false);
+    assert.equal(store.requirementStatus("l0" + n + "-quiz").passed, false);
+    assert.equal(q.submit(ans(q.start(), 8)).passed, true);
+    q.submit(ans(q.start(), 2));
+    assert.equal(open(s).requirementStatus("l0" + n + "-quiz").passed, true);
+    assert.equal(open(s).getDraft("lesson-" + n + ":quiz-history", null).best, 8);
+  }
 });
 
 test("v1 drafts for Lessons 2-4 are imported under lesson-N:<fieldId> and the v1 key is not rewritten", () => {
@@ -106,7 +117,7 @@ for (const n of [2, 3, 4]) {
     assert.ok(t.includes('id="storageNotice"') && t.includes('id="storageBackup"') && t.includes('id="finishStatus"'));
     assert.ok(t.includes("Check requirements and finish Lesson " + n));
     assert.ok(!t.includes("This site does not store your written work"), "stale save message");
-    assert.ok(!t.includes("quizzes/lesson-" + n + ".js\"></script>"), "quiz pool must not load before content approval");
+    assert.ok(t.includes('<script src="../shared/smm/quizzes/lesson-' + n + '.js"></script>'), "approved quiz pool must load");
     assert.ok(t.includes("<title>Lesson " + n + ": " + manifest.lessons[n - 1].title.replace(/&/g, "&amp;") + " |"));
   });
 }
@@ -117,9 +128,16 @@ test("the shared lesson runtime is identical in Lessons 2-4 (no drift)", () => {
   for (const name of ["A", "B"]) { const ref = part(page(2), name); [3, 4].forEach((n) => assert.equal(part(page(n), name), ref, `Lesson ${n} runtime part ${name} drifted`)); }
 });
 
-test("quiz requirements for Lessons 2-13 stay fail-safe until their pools are approved", () => {
-  manifest.lessons.slice(1).forEach((l) => assert.equal(l.requirements.find((r) => r.type === "quiz").rule, "quiz-pending"));
-  [2, 3, 4].forEach((n) => assert.ok(!fs.existsSync(path.join(root, "shared/smm/quizzes/lesson-" + n + ".js"))));
+test("quiz requirements: Lessons 1-4 active (approved pools present); Lessons 5-13 stay fail-safe", () => {
+  manifest.lessons.forEach((l) => {
+    const rule = l.requirements.find((r) => r.type === "quiz").rule;
+    assert.equal(rule, l.n <= 4 ? undefined : "quiz-pending", "lesson " + l.n);
+    assert.equal(fs.existsSync(path.join(root, "shared/smm/quizzes/lesson-" + l.n + ".js")), l.n <= 4, "pool file for lesson " + l.n);
+  });
+});
+
+test("Lesson 2 teaches caption language as a preference to confirm (assessed by L2-Q10)", () => {
+  assert.ok(page(2).includes("Language is a common example. Amihan's brief doesn't say whether captions should be in English, Tagalog, or a mix, so treat it as a preference to confirm with the client, not something to decide yourself."));
 });
 
 test("Lesson 4 no longer carries the undated, unattributed platform-trend claim", () => {
