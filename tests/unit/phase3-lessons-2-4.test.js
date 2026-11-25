@@ -122,10 +122,10 @@ for (const n of [2, 3, 4]) {
   });
 }
 
-test("the shared lesson runtime is identical in Lessons 2-4 (no drift)", () => {
+test("the shared lesson runtime is identical in Lessons 2-7 (no drift)", () => {
   const part = (t, name) => { const a = t.indexOf("// ==== PVA lesson runtime (shared pattern, locked in Phase 2) — part " + name + ": begin"), b = t.indexOf("// ==== PVA lesson runtime — part " + name + ": end");
     assert.ok(a > 0 && b > a, "runtime part " + name + " markers"); return t.slice(a, b); };
-  for (const name of ["A", "B"]) { const ref = part(page(2), name); [3, 4].forEach((n) => assert.equal(part(page(n), name), ref, `Lesson ${n} runtime part ${name} drifted`)); }
+  for (const name of ["A", "B"]) { const ref = part(page(2), name); [3, 4, 5, 6, 7].forEach((n) => assert.equal(part(page(n), name), ref, `Lesson ${n} runtime part ${name} drifted`)); }
 });
 
 test("quiz requirements: Lessons 1-4 active (approved pools present); Lessons 5-13 stay fail-safe", () => {
